@@ -22,3 +22,7 @@ a {
   max-height: 600px;
   overflow-y: scroll;
 }
+
+.photo {
+  border-radius: 50%;
+}

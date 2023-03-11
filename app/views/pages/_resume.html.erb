@@ -1,14 +1,18 @@
 <%= turbo_frame_tag "toggler" do %>
-
-  <p class="text-muted">
-    Мужчина, 35 лет
-  </p>
-  <small>+7 (916) 0832993</small><br>
-  <small>g9160832993@yandex.ru</small><br>
-  <small>Москва, м. Калужская</small>
+  <div class="row">
+    <div class="col-6">
+      <p class="text-muted">
+        Мужчина, 35 лет
+      </p>
+      <small>+7 (916) 0832993</small><br>
+      <small>g9160832993@yandex.ru</small><br>
+      <small>Москва, м. Калужская</small>
+    </div>
+    <div class="col-6">
+      <%= image_tag(image_url("gor.png"), height: 100, class: "photo float-start") %>
+    </div>
+  </div>
   <hr><br>
-
-
 
   <h3 class="text-muted">Junior Ruby-разработчик</h3>
   <p>
