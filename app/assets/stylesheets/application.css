@@ -17,3 +17,8 @@
 a {
   text-decoration: none !important;
 }
+
+.lay {
+  max-height: 600px;
+  overflow-y: scroll;
+}

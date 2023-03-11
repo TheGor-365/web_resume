@@ -1,2 +1,8 @@
 <h1>Гор Хачатрян</h1>
 <p class="text-muted">Ruby on Rails разработчик</p>
+
+<div class="col-6 card shadow rounded p-5 my-5 lay">
+  <%= turbo_frame_tag "toggler" do %>
+    <%= render "pages/resume" %>
+  <% end %>
+</div>
