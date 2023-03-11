@@ -1,5 +1,55 @@
 <%= turbo_frame_tag "toggler" do %>
-	<h1>Projects</h1>
-  <p>Project 1</p>
-  <p>Project 2</p>
+	<h1 class="text-muted">Мои пэт-проекты</h1><br>
+
+	<div class="border rounded p-3 my-5 border border-success">
+		<h1 class="display-1">
+			<%= link_to 'guider', 'https://guider.onrender.com', target: :_blank, class: 'text-success' %>
+		</h1><br><br>
+
+		<p>
+			<span class="text-muted">Идея:</span><br>
+			<small>Быстро создать гайд, туториал, тех. документацмю, how to шаблон и другие виды инструкций для технологии или продукта.</small><br><br>
+			<span class="text-muted">Для кого:</span><br>
+			<small>Приложение для разработчиков и др. специалистов</small>
+		</p>
+	</div><br>
+
+	<div class="border rounded p-3 my-5 border border-success">
+		<h1 class="display-1">
+			<%= link_to 'easy-todo', 'https://todo-c03d.onrender.com', target: :_blank, class: 'text-success' %>
+		</h1><br><br>
+
+		<p>
+			<span class="text-muted">Идея:</span><br>
+			<small>Создавать. модифицировать и удалять поставленные задачи.</small><br><br>
+			<span class="text-muted">Для кого:</span><br>
+			<small>Приложение для всех</small>
+		</p>
+	</div><br>
+
+	<div class="border rounded p-3 my-5 border border-success">
+		<h1 class="display-1">
+			<%= link_to 'craiglist-clone', 'https://craiglist.onrender.com', target: :_blank, class: 'text-success' %>
+		</h1><br><br>
+
+		<p>
+			<span class="text-muted">Идея:</span><br>
+			<small>Универсальная платформа для общения, заключения сделок, публикации объявлений.</small><br><br>
+			<span class="text-muted">Для кого:</span><br>
+			<small>Приложение для всех</small>
+		</p>
+	</div><br>
+
+	<div class="border rounded p-3 my-5 border border-success">
+		<h1 class="display-1">
+			<%= link_to 'delper', 'https://delper.onrender.com', target: :_blank, class: 'text-success' %>
+		</h1><br><br>
+
+		<p>
+			<span class="text-muted">Идея:</span><br>
+			<small>Платформа для онлайн образования, менторства, репетиторства</small><br><br>
+			<span class="text-muted">Для кого:</span><br>
+			<small>Приложение для студентов и педагогов</small>
+		</p>
+	</div><br>
 <% end %>
