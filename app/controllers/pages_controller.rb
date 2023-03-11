@@ -13,4 +13,8 @@ class PagesController < ApplicationController
   def resume
     render turbo_stream: turbo_stream.replace("toggler", partial: "pages/resume")
   end
+
+  def exercises
+    render turbo_stream: turbo_stream.replace("toggler", partial: "pages/exercises")
+  end
 end
