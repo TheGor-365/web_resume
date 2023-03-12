@@ -3,8 +3,16 @@
   Ruby on Rails разработчик
 </p>
 
-<div class="col-6 card shadow rounded p-5 my-5 lay">
-  <%= turbo_frame_tag "toggler" do %>
-    <%= render "pages/resume" %>
-  <% end %>
+<div class="row">
+  <div class="col-6 card shadow rounded p-5 my-5 lay">
+    <%= turbo_frame_tag "toggler" do %>
+      <%= render "pages/resume" %>
+    <% end %>
+  </div>
+
+  <div class="col-6 p-5 my-5 lay">
+    <%= turbo_frame_tag "toggler" do %>
+
+    <% end %>
+  </div>
 </div>

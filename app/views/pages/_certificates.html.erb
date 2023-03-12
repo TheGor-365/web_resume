@@ -1,0 +1,9 @@
+<% @certificates.each do |certificate| %>
+  <small>
+    <%= certificate.title %>
+  </small>
+  <small class="text-muted">
+    <%= certificate.school %>
+  </small><br>
+  <%= image_tag(image_url(certificate.image), height: 700) %><br>
+<% end %>
