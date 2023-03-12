@@ -1,9 +1,15 @@
-<% @certificates.each do |certificate| %>
-  <small>
-    <%= certificate.title %>
-  </small>
-  <small class="text-muted">
-    <%= certificate.school %>
-  </small><br>
-  <%= image_tag(image_url(certificate.image), height: 700) %><br>
+<%= turbo_frame_tag "toggler" do %>
+  <h3 class="text-muted">Мои сертификаты</h3><br>
+
+  <% @certificates.each do |certificate| %>
+    <div class="border rounded p-3 my-5 border border-success">
+      <small>
+        <%= certificate.title %>
+      </small>
+      <small class="text-success">
+        <%= certificate.school %>
+      </small><br>
+      <%= image_tag(image_url(certificate.image), height: 700) %><br>
+    </div><br>
+  <% end %>
 <% end %>
