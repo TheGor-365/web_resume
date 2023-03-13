@@ -1,16 +1,16 @@
 class ExperiencesController < ApplicationController
   before_action :set_experience, only: %i[ show edit update destroy ]
+  before_action :set_experiences, only: %i[ index experience_data timeline ]
 
-  def index
-    @experiences = Experience.all
-    render turbo_stream: turbo_stream.replace("experience", partial: "experiences/graph")
+  def experience_data
+    render turbo_stream: turbo_stream.replace("experience", partial: "experiences/experience_data")
   end
 
   def timeline
-    @experiences = Experience.all
     render turbo_stream: turbo_stream.replace("experience", partial: "experiences/timeline")
   end
 
+  def index; end
   def show; end
   def edit; end
 
@@ -22,7 +22,7 @@ class ExperiencesController < ApplicationController
     @experience = Experience.new(experience_params)
     respond_to do |format|
       if @experience.save
-        format.html { redirect_to experience_url(@experience), notice: "Experience was successfully created." }
+        format.html { redirect_to experience_url(@experience) }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -32,7 +32,7 @@ class ExperiencesController < ApplicationController
   def update
     respond_to do |format|
       if @experience.update(experience_params)
-        format.html { redirect_to experience_url(@experience), notice: "Experience was successfully updated." }
+        format.html { redirect_to experience_url(@experience) }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -42,16 +42,30 @@ class ExperiencesController < ApplicationController
   def destroy
     @experience.destroy
     respond_to do |format|
-      format.html { redirect_to experiences_url, notice: "Experience was successfully destroyed." }
+      format.html { redirect_to experiences_url }
     end
   end
 
   private
+
   def set_experience
     @experience = Experience.find(params[:id])
   end
 
+  def set_experiences
+    @experiences = Experience.all
+  end
+
   def experience_params
-    params.require(:experience).permit(:title, :overview, :cpa, :image)
+    params.require(:experience).permit(
+      :title,
+      :company,
+      :overview,
+      :note,
+      :cpe, 
+      :start_at,
+      :end_at,
+      :image
+    )
   end
 end

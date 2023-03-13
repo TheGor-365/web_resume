@@ -1,6 +1,5 @@
-
 <div class="row">
-  <div class="col-6 card shadow rounded p-5 my-5 lay">
+  <div class="col-5 card shadow rounded p-5 my-5 lay me-5">
     <div class="row">
       <div class="col-6">
         <h1>Гор Хачатрян</h1>
@@ -8,7 +7,7 @@
           Ruby on Rails разработчик
         </p>
       </div>
-      
+
       <div class="col-6">
         <%= image_tag(image_url("gor.png"), height: 100, class: "photo float-start") %>
       </div>
@@ -19,9 +18,9 @@
     <% end %>
   </div>
 
-  <div class="col-6 card shadow rounded p-5 my-5 lay">
+  <div class="col-6 card shadow rounded p-5 my-5 lay ms-5">
     <%= turbo_frame_tag "experience" do %>
-      <%= render "experiences/graph" %>
+      <%= render "experiences/experience_data" %>
     <% end %>
   </div>
 </div>

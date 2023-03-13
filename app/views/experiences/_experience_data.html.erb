@@ -1,0 +1,15 @@
+<%= turbo_frame_tag "experience" do %>
+  <h1>Опыт</h1>
+  <p class="text-muted">
+    экономист
+  </p>
+
+  <% @experiences.each do |experience| %>
+    <%= render experience %>
+    <hr><br>
+  <% end %>
+  
+  <div class="shadow rounded p-3 border border-danger">
+    <small class="text-muted"><span class="text-dark">CPE (Cost Per Experience)</span> - коэфициент ценности опыта по моей собственной оценке</small>
+  </div>
+<% end %>

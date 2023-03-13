@@ -26,6 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_081307) do
     t.string "title"
     t.string "company"
     t.text "overview"
+    t.string "note"
     t.integer "cpe"
     t.datetime "start_at"
     t.datetime "end_at"
