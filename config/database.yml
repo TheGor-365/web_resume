@@ -16,4 +16,4 @@ test:
 
 production:
   <<: *default
-  database: web_resume_pro
+  url: <%= ENV['DATABASE_URL'] %>
