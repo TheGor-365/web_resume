@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Messages</h1>
+
+<%= area_chart Message.group_by_day(:created_at, range: 1.month.ago.midnight..Time.now).sum(:views) %>
+
+<div id="messages">
+  <% @messages.each do |message| %>
+    <%= render message %>
+    <p>
+      <%= link_to "Show this message", message %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New message", new_message_path %>

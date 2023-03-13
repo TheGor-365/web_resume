@@ -1,0 +1,11 @@
+<%= turbo_frame_tag "experience" do %>
+  <h1>Опыт</h1>
+  <p class="text-muted">
+    экономист
+  </p>
+
+  <% @experiences.each do |experience| %>
+    <%= render experience %>
+    <hr><br>
+  <% end %>
+<% end %>

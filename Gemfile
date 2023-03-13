@@ -15,6 +15,8 @@ gem "redis", "~> 4.0"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem "image_processing", "~> 1.2"
+gem "chartkick"
+gem "groupdate"
 
 # gem "kredis"
 # gem "bcrypt", "~> 3.1.7"

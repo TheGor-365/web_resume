@@ -1,0 +1,21 @@
+<%= turbo_frame_tag "experience" do %>
+  <h3 class="text-muted mb-3">Карьерный трек</h3>
+  <div class="shadow rounded">
+    <%= line_chart Experience.group(:start_at).sum(:cpe) %>
+  </div>
+
+  <h3 class="text-muted mb-3 mt-5">Карьерный пирог</h3>
+  <div class="shadow rounded">
+    <%= pie_chart @experiences.group(:title).count %>
+  </div>
+
+  <h3 class="text-muted my-5">Данные</h3>
+  <% @experiences.each do |experience| %>
+    <div class="border rounded p-5 my-5 border border-success bg-white">
+      <%= render experience %>
+    </div>
+  <% end %>
+  <div class="shadow rounded p-3 border border-danger">
+    <small class="text-muted"><span class="text-dark">CPE (Cost Per Experience)</span> - коэфициент ценности опыта по моей собственной оценке</small>
+  </div>
+<% end %>

@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_action :set_sertificates
+  before_action :set_experiences
 
   def home; end
 
@@ -21,12 +22,15 @@ class PagesController < ApplicationController
 
   def certificates
     render turbo_stream: turbo_stream.replace("toggler", partial: "pages/certificates")
-    # render turbo_stream: turbo_stream.replace("cert", partial: "pages/certificates")
   end
 
   private
 
   def set_sertificates
     @certificates = Certificate.all
+  end
+
+  def set_experiences
+    @experiences = Experience.all
   end
 end
