@@ -1,7 +1,6 @@
 <%= turbo_frame_tag "experience" do %>
   <h3 class="text-muted mb-3">Карьерный трек</h3>
   <div class="shadow rounded">
-    <%#= area_chart Experience.group(:start_at).sum(:cpe) %>
     <%= area_chart Experience.group_by_year(:start_at).maximum(:cpe) %>
   </div>
 
