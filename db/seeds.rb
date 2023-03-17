@@ -66,7 +66,7 @@ Experience.create([
     overview: "подработки с частичной занятостью, для того чтобы максимально уделять время учебе",
     note:     "Проекты можно посмотреть в разделе 'Пэт проекты'",
     cpe:      74,
-    start_at: DateTime.new(2021,5,1,19),
+    start_at: DateTime.new(2020,5,1,19),
     end_at:   DateTime.new(2023,4,1,19),
     image:    ""
   }
