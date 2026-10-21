@@ -1,18 +1,21 @@
 require "test_helper"
 
 class PortfolioPagesTest < ActionDispatch::IntegrationTest
-  test "Russian homepage renders developer portfolio" do
+  test "Russian homepage restores original two-column cards" do
     get root_url(locale: "ru")
     assert_response :success
     assert_select "html[lang=ru]"
-    assert_select "h1", /Ruby on Rails/
+    assert_select "h1", /Хачатрян/
+    assert_select ".card.lay", 2
+    assert_select "img.photo[height=100]"
   end
 
-  test "English homepage uses English labels" do
+  test "English homepage uses English profile content" do
     get root_url(locale: "en")
     assert_response :success
     assert_select "html[lang=en]"
-    assert_select "h1", /Ruby on Rails/
+    assert_select "h1", /Gor Khachatryan/
+    assert_select ".card.lay", 2
   end
 
   test "English projects respond to Turbo Stream navigation" do
