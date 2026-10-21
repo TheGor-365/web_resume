@@ -26,16 +26,12 @@
         </div>
         <%= image_tag "gor.png", alt: t("hero.photo_alt"), class: "profile-photo" %>
       </div>
-      <%= turbo_frame_tag "toggler" do %>
-        <%= render "pages/resume" %>
-      <% end %>
+      <%= render "pages/resume" %>
     </div>
   </section>
   <section class="col-12 col-lg-5">
     <div class="panel-card">
-      <%= turbo_frame_tag "experience" do %>
-        <%= render "experiences/experience_data" %>
-      <% end %>
+      <%= render "experiences/experience_data" %>
     </div>
   </section>
 </div>
