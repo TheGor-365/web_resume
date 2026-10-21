@@ -53,7 +53,7 @@ class ExperiencesController < ApplicationController
   end
 
   def set_experiences
-    @experiences = Experience.all
+    @experiences = Experience.public_technical
   end
 
   def experience_params
