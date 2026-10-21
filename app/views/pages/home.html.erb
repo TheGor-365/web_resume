@@ -1,45 +1,18 @@
-<section class="site-intro">
-  <div class="intro-copy">
-    <span class="eyebrow">RUBY ON RAILS · WEB DEVELOPMENT</span>
-    <h1><%= t("hero.heading") %></h1>
-    <p><%= t("hero.lead") %></p>
-    <div class="hero-actions">
-      <%= link_to t("hero.projects_cta"), projects_path, class: "btn btn-accent", data: { turbo_stream: true } %>
-      <%= link_to "GitHub ↗", "https://github.com/TheGor-365", class: "btn btn-outline-light", target: "_blank", rel: "noopener noreferrer" %>
-    </div>
-  </div>
-  <div class="intro-signal" aria-hidden="true">
-    <span class="signal-label">PORTFOLIO / 2026</span>
-    <% if Rails.root.join("app/assets/videos/gor_logo_intro_reel.mp4").file? %>
-      <%= video_tag "gor_logo_intro_reel.mp4", class: "intro-video", autoplay: true, muted: true, loop: true, playsinline: true, controls: false, preload: "metadata", "aria-label": "Gor Web Development logo animation" %>
-    <% else %>
-      <span class="signal-code">&lt;/&gt;</span>
-    <% end %>
-    <span class="signal-label">RAILS · POSTGRESQL · TESTING</span>
-  </div>
-</section>
-
-<div class="row g-4 portfolio-panels">
-  <section class="col-12 col-lg-7">
-    <div class="panel-card">
-      <div class="profile-top">
-        <div>
-          <p class="section-kicker"><%= t("hero.profile_label") %></p>
-          <h2><%= t("hero.name") %></h2>
-          <p class="text-secondary"><%= t("hero.role") %></p>
-        </div>
-        <%= image_tag "gor.png", alt: t("hero.photo_alt"), class: "profile-photo" %>
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-10 card shadow rounded p-lg-5 p-md-5 py-5 my-lg-5 my-md-5 my-sm-3 lay me-lg-5 me-md-5" style="max-height:600px; overflow-y:auto;">
+    <div class="row align-items-center">
+      <div class="col-8">
+        <h1><%= t("hero.name") %></h1>
+        <p class="text-muted"><%= t("hero.role") %></p>
       </div>
-      <%= render "pages/resume" %>
+      <div class="col-4">
+        <%= image_tag "gor.png", height: 100, width: 100, alt: t("hero.photo_alt"), class: "photo img-fluid float-start", style: "width:100px;height:100px;object-fit:cover;border-radius:50%;" %>
+      </div>
     </div>
-  </section>
-  <section class="col-12 col-lg-5">
-    <div class="panel-card">
-      <%= render "experiences/experience_data" %>
-    </div>
-  </section>
+    <%= render "pages/resume" %>
+  </div>
+
+  <div class="col-lg-5 col-md-5 col-sm-10 card shadow rounded p-lg-5 p-md-5 py-5 my-5 lay ms-lg-5 ms-md-5" style="max-height:600px; overflow-y:auto;">
+    <%= render "experiences/experience_data" %>
+  </div>
 </div>
-<footer class="site-footer">
-  <span>© <%= Time.current.year %> Gor Rails · <%= t("footer.disclaimer") %></span>
-  <%= link_to "GitHub", "https://github.com/TheGor-365", target: "_blank", rel: "noopener noreferrer" %>
-</footer>
