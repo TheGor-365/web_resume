@@ -1,21 +1,16 @@
 <%= turbo_frame_tag "experience" do %>
-  <h3 class="text-muted mb-3">Карьерный трек</h3>
-  <div class="shadow rounded">
-    <%= area_chart Experience.group_by_year(:start_at).maximum(:cpe) %>
-  </div>
-
-  <h3 class="text-muted mb-3 mt-5">Карьерный пирог</h3>
-  <div class="shadow rounded">
-    <%= pie_chart @experiences.group(:title).count %>
-  </div>
-
-  <h3 class="text-muted my-5">Данные</h3>
-  <% @experiences.each do |experience| %>
-    <div class="border rounded p-5 my-5 border border-success bg-white">
-      <%= render experience %>
+  <h3 class="text-muted mb-3"><%= params[:lang] == "en" ? "Career timeline" : "Карьерный трек" %></h3>
+  <% if @experiences.any? %>
+    <div class="shadow rounded">
+      <%= area_chart Experience.group_by_year(:start_at).maximum(:cpe) %>
     </div>
+    <h3 class="text-muted mb-3 mt-5"><%= params[:lang] == "en" ? "Experience by role" : "Карьерный пирог" %></h3>
+    <div class="shadow rounded"><%= pie_chart @experiences.group(:title).count %></div>
+    <h3 class="text-muted my-5"><%= params[:lang] == "en" ? "Details" : "Данные" %></h3>
+    <% @experiences.each do |experience| %>
+      <div class="border rounded p-4 my-4 border-success bg-white"><%= render experience %></div>
+    <% end %>
+  <% else %>
+    <p class="text-muted"><%= params[:lang] == "en" ? "No experience records in the current database. Restore reviewed entries before generating charts." : "В текущей базе нет записей об опыте. Проверьте и восстановите историю, чтобы появились графики." %></p>
   <% end %>
-  <div class="shadow rounded p-3 border border-danger">
-    <small class="text-muted"><span class="text-dark">CPE (Cost Per Experience)</span> - коэфициент ценности опыта по моей собственной оценке</small>
-  </div>
 <% end %>
