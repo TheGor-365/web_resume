@@ -1,17 +1,17 @@
 <div id="<%= dom_id experience %>">
   <h3 class="text-muted"><%= experience.title %></h3>
-  <small class="text-muted">Компания:</small> <small><%= experience.company %></small><br>
-  <small class="text-muted">Период:</small>
+  <small class="text-muted">Категория:</small> <small><%= experience.company %></small><br>
+  <small class="text-muted">Дата:</small>
   <small><%= experience.start_at.to_date %></small> - <small><%= experience.end_at.to_date %></small><br><br>
 
   <p>
-    <span class="text-muted">Что делал:</span><br>
+    <span class="text-muted">Функционал:</span><br>
     <small><%= experience.overview %></small><br><br>
 
-    <span class="text-muted">Почему ушел:</span><br>
+    <span class="text-muted">Подтверждение:</span><br>
     <small class="text-success"><%= experience.note %></small><br><br>
 
-    <span class="text-muted">CPE:</span>
-    <small><%= experience.cpe %></small><br><br>
+    <span class="text-muted">Год:</span>
+    <small><%= experience.start_at.year %></small><br><br>
   </p>
 </div>
