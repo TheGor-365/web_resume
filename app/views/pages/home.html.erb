@@ -4,7 +4,7 @@
     <h1><%= t("hero.heading") %></h1>
     <p><%= t("hero.lead") %></p>
     <div class="hero-actions">
-      <%= link_to t("hero.projects_cta"), projects_path, class: "btn btn-accent" %>
+      <%= link_to t("hero.projects_cta"), projects_path, class: "btn btn-accent", data: { turbo_stream: true } %>
       <%= link_to "GitHub ↗", "https://github.com/TheGor-365", class: "btn btn-outline-light", target: "_blank", rel: "noopener noreferrer" %>
     </div>
   </div>
