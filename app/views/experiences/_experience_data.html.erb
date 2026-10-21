@@ -1,12 +1,19 @@
 <%= turbo_frame_tag "experience" do %>
-  <h1 class="mb-5">Опыт</h1>
-
-  <% @experiences.each do |experience| %>
-    <%= render experience %>
-    <hr><br>
-  <% end %>
-
-  <div class="shadow rounded p-3 border border-danger">
-    <small class="text-muted"><span class="text-dark">CPE (Cost Per Experience)</span> - коэфициент ценности опыта по моей собственной оценке</small>
+  <div class="panel-content">
+    <p class="section-kicker"><%= t("timeline.kicker") %></p>
+    <h3><%= t("timeline.title") %></h3>
+    <p class="muted"><%= t("timeline.intro") %></p>
+    <ol class="milestone-list">
+      <% developer_milestones.reverse_each do |milestone| %>
+        <li class="milestone">
+          <span class="milestone-year"><%= milestone.fetch(:year) %></span>
+          <div>
+            <strong><%= milestone.fetch(:name) %></strong>
+            <p><%= milestone_description(milestone) %></p>
+          </div>
+        </li>
+      <% end %>
+    </ol>
+    <%= link_to t("timeline.chart_cta"), timeline_path, class: "project-link" %>
   </div>
 <% end %>
