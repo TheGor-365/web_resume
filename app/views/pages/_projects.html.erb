@@ -1,17 +1,17 @@
 <%= turbo_frame_tag "toggler" do %>
-  <div class="panel-content">
-    <h3><%= t("projects.title") %></h3>
-    <p class="muted"><%= t("projects.intro") %></p>
+  <div class="py-sm-5">
+    <h3 class="text-muted"><%= t("projects.title") %></h3>
+    <p class="text-muted"><%= t("projects.intro") %></p>
     <% public_portfolio_projects.each do |project| %>
-      <article class="project-card">
-        <div class="project-heading">
-          <span class="project-year"><%= project.fetch(:year) %></span>
-          <span class="status-label"><%= t("projects.stages.#{project.fetch(:stage)}") %></span>
+      <article class="border rounded p-3 my-4 border-success">
+        <div class="d-flex justify-content-between align-items-center gap-2 flex-wrap mb-2">
+          <small class="text-muted"><%= project.fetch(:year) %></small>
+          <span class="badge bg-secondary"><%= t("projects.stages.#{project.fetch(:stage)}") %></span>
         </div>
-        <h4><%= project.fetch(:name) %></h4>
+        <h4 class="h3 text-success"><%= project.fetch(:name) %></h4>
         <p><%= portfolio_copy(project) %></p>
-        <p class="stack-line"><%= project.fetch(:stack) %></p>
-        <%= link_to t("projects.view_code"), project.fetch(:url), target: "_blank", rel: "noopener noreferrer", class: "project-link" %>
+        <p class="small text-muted"><%= project.fetch(:stack) %></p>
+        <%= link_to t("projects.view_code"), project.fetch(:url), target: "_blank", rel: "noopener noreferrer", class: "link-success" %>
       </article>
     <% end %>
   </div>
