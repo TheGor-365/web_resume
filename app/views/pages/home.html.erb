@@ -1,28 +1,45 @@
-<div class="row">
-  <div class="col-lg-6 col-md-6 col-sm-10 card shadow rounded p-lg-5 p-md-5 py-5 my-lg-5 my-md-5 my-sm-3 lay me-lg-5 me-md-5">
-    <div class="row">
-      <div class="col-6">
-        <h1>Гор Хачатрян</h1>
-        <p class="text-muted">
-          Ruby on Rails разработчик
-        </p>
-      </div>
-
-      <div class="col-6">
-        <%= image_tag(image_url("gor.png"), height: 100, class: "photo float-start") %>
-      </div>
+<section class="site-intro">
+  <div class="intro-copy">
+    <span class="eyebrow">RUBY ON RAILS · WEB DEVELOPMENT</span>
+    <h1><%= t("hero.heading") %></h1>
+    <p><%= t("hero.lead") %></p>
+    <div class="hero-actions">
+      <%= link_to t("hero.projects_cta"), projects_path, class: "btn btn-accent" %>
+      <%= link_to "GitHub ↗", "https://github.com/TheGor-365", class: "btn btn-outline-light", target: "_blank", rel: "noopener noreferrer" %>
     </div>
+  </div>
+  <div class="intro-signal" aria-hidden="true">
+    <span class="signal-label">PORTFOLIO / 2026</span>
+    <span class="signal-code">&lt;/&gt;</span>
+    <span class="signal-label">RAILS · POSTGRESQL · TESTING</span>
+  </div>
+</section>
 
-    <%= turbo_frame_tag "toggler" do %>
-      <div class="py-sm-5">
-        <%= render "pages/resume" %>
+<div class="row g-4 portfolio-panels">
+  <section class="col-12 col-lg-7">
+    <div class="panel-card">
+      <div class="profile-top">
+        <div>
+          <p class="section-kicker"><%= t("hero.profile_label") %></p>
+          <h2><%= t("hero.name") %></h2>
+          <p class="text-secondary"><%= t("hero.role") %></p>
+        </div>
+        <%= image_tag "gor.png", alt: t("hero.photo_alt"), class: "profile-photo" %>
       </div>
-    <% end %>
-  </div>
-
-  <div class="col-lg-5 col-md-5 col-sm-10 card shadow rounded p-lg-5 p-md-5 py-5 my-5 lay ms-lg-5 ms-md-5">
-    <%= turbo_frame_tag "experience" do %>
-      <%= render "experiences/experience_data" %>
-    <% end %>
-  </div>
+      <%= turbo_frame_tag "toggler" do %>
+        <%= render "pages/resume" %>
+      <% end %>
+    </div>
+  </section>
+  <section class="col-12 col-lg-5">
+    <div class="panel-card">
+      <%= turbo_frame_tag "experience" do %>
+        <%= render "experiences/experience_data" %>
+      <% end %>
+    </div>
+  </section>
 </div>
+<footer class="site-footer">
+  <span>© <%= Time.current.year %> Gor Rails · <%= t("footer.disclaimer") %></span>
+  <%= link_to "GitHub", "https://github.com/TheGor-365", target: "_blank", rel: "noopener noreferrer" %>
+</footer>
