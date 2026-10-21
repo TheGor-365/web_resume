@@ -1,10 +1,10 @@
 <%= turbo_frame_tag "experience" do %>
-  <h3 class="text-muted mb-3">Карьерный трек</h3>
+  <h3 class="text-muted mb-3">Хронология разработки</h3>
   <div class="shadow rounded">
-    <%= area_chart Experience.group_by_year(:start_at).maximum(:cpe) %>
+    <%= area_chart Experience.public_technical.group_by_year(:start_at).count %>
   </div>
 
-  <h3 class="text-muted mb-3 mt-5">Карьерный пирог</h3>
+  <h3 class="text-muted mb-3 mt-5">Проекты по направлениям</h3>
   <div class="shadow rounded">
     <%= pie_chart @experiences.group(:title).count %>
   </div>
@@ -16,6 +16,6 @@
     </div>
   <% end %>
   <div class="shadow rounded p-3 border border-danger">
-    <small class="text-muted"><span class="text-dark">CPE (Cost Per Experience)</span> - коэфициент ценности опыта по моей собственной оценке</small>
+    <small class="text-muted"><span class="text-dark">Источники данных</span> — даты создания GitHub-репозиториев и сертификата Hexlet</small>
   </div>
 <% end %>
