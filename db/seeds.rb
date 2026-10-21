@@ -1,4 +1,4 @@
-Certificate.create([
+certificates = [
   { title: 'Bash',              image: 'bash.jpg',                    school: "codeacademy.com" },
   { title: 'Bootstrap',         image: 'bootstrap.jpg',               school: "codeacademy.com" },
   { title: 'Code Foundation',   image: 'code_foundation.jpg',         school: "codeacademy.com" },
@@ -15,11 +15,9 @@ Certificate.create([
   { title: 'Ruby',              image: 'ruby.jpg',                    school: "codeacademy.com" },
   { title: 'SQL 2',             image: 'SQL_2.jpg',                   school: "codeacademy.com" },
   { title: 'SQL',               image: 'SQL.jpg',                     school: "codeacademy.com" }
-])
+]
 
-
-
-Experience.create([
+experiences = [
   {
     title:    "Администратор",
     company:  "ИП Еремин",
@@ -70,4 +68,17 @@ Experience.create([
     end_at:   DateTime.new(2023,4,1,19),
     image:    ""
   }
-])
+]
+
+# Idempotent seeds: preserve existing user-edited records, don't duplicate on repeated runs.
+certificates.each do |attrs|
+  Certificate.find_or_create_by!(title: attrs.fetch(:title)) do |record|
+    record.assign_attributes(attrs)
+  end
+end
+
+experiences.each do |attrs|
+  Experience.find_or_create_by!(title: attrs.fetch(:title), company: attrs.fetch(:company), start_at: attrs.fetch(:start_at)) do |record|
+    record.assign_attributes(attrs)
+  end
+end
