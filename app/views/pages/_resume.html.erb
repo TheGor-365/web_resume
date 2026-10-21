@@ -1,24 +1,28 @@
 <%= turbo_frame_tag "toggler" do %>
-  <div class="panel-content">
-    <h3><%= t("resume.title") %></h3>
-    <p class="lead-small"><%= t("resume.summary") %></p>
-    <h4><%= t("resume.services_title") %></h4>
-    <div class="chip-group">
-      <% t("resume.services").each do |item| %><span class="tech-chip"><%= item %></span><% end %>
+  <div class="py-sm-5">
+    <h3 class="text-muted"><%= t("resume.title") %></h3>
+    <p><%= t("resume.summary") %></p>
+    <hr>
+    <h4 class="h5 text-muted"><%= t("resume.services_title") %></h4>
+    <div class="d-flex flex-wrap gap-2 mb-4">
+      <% t("resume.services").each do |item| %>
+        <span class="badge rounded-pill bg-secondary"><%= item %></span>
+      <% end %>
     </div>
-    <h4><%= t("resume.stack_title") %></h4>
-    <p class="stack-line">Ruby · Rails · PostgreSQL · HTML · CSS · Bootstrap · Hotwire/Turbo · Git · Minitest/RSpec · REST API</p>
-    <h4><%= t("resume.education_title") %></h4>
-    <div class="evidence-item">
-      <strong><%= t("resume.hexlet_title") %></strong>
-      <span class="small muted"><%= t("resume.hexlet_date") %></span>
-      <p><%= t("resume.hexlet_note") %></p>
+    <h4 class="h5 text-muted"><%= t("resume.stack_title") %></h4>
+    <p class="small">Ruby · Rails · PostgreSQL · HTML · CSS · Bootstrap · Hotwire/Turbo · Git · Minitest/RSpec · REST API</p>
+    <hr>
+    <h4 class="h5 text-muted"><%= t("resume.education_title") %></h4>
+    <div class="border-start border-success border-3 ps-3 my-3">
+      <strong><%= t("resume.hexlet_title") %></strong><br>
+      <small class="text-muted"><%= t("resume.hexlet_date") %></small>
+      <p class="mt-2"><%= t("resume.hexlet_note") %></p>
     </div>
-    <h4><%= t("resume.workflow_title") %></h4>
+    <h4 class="h5 text-muted"><%= t("resume.workflow_title") %></h4>
     <p><%= t("resume.workflow") %></p>
-    <div class="inline-links">
-      <%= link_to t("resume.work_link"), "https://github.com/TheGor-365", target: "_blank", rel: "noopener noreferrer" %>
-      <%= link_to t("resume.contact_link"), "https://kwork.com/user/thegor-365", target: "_blank", rel: "noopener noreferrer" %>
+    <div class="d-flex flex-wrap gap-3 mt-3">
+      <%= link_to t("resume.work_link"), "https://github.com/TheGor-365", target: "_blank", rel: "noopener noreferrer", class: "link-success" %>
+      <%= link_to t("resume.contact_link"), "https://kwork.com/user/thegor-365", target: "_blank", rel: "noopener noreferrer", class: "link-success" %>
     </div>
   </div>
 <% end %>
