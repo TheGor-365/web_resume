@@ -1,73 +1,27 @@
 <%= turbo_frame_tag "toggler" do %>
-  <div class="row">
-    <div class="col-6">
-      <p class="text-muted">
-        Мужчина, 35 лет
-      </p>
-      <small>+7 (916) 0832993</small><br>
-      <small>g9160832993@ya.ru</small><br>
-      <small>Москва, м. Калужская</small>
+  <section class="panel-content">
+    <p class="section-overline">01 / PROFILE</p>
+    <h2><%= t("resume.title") %></h2>
+    <p class="lead-copy"><%= t("resume.description") %></p>
+    <div class="info-block">
+      <h3><%= t("resume.work") %></h3>
+      <p><%= t("resume.work_value") %></p>
     </div>
-  </div>
-  <hr><br>
-
-  <h3 class="text-muted">Junior Ruby-разработчик</h3>
-  <p>
-    <span class="text-muted">Занятость:</span><br>
-    <small>полная занятость, частичная занятость, проектная работа, стажировка</small><br><br>
-    <span class="text-muted">График работы:</span><br>
-    <small>полный день, сменный график, гибкий график, удаленная работа</small>
-  </p>
-  <hr><br>
-
-
-  <h3 class="text-muted">Образование</h3>
-  <p>
-    <span class="text-muted">Высшее:</span><br>
-    <small>Московский экономико-финансовый институт, 2011</small><br>
-    <small>Финансы и кредит, Банковское дело</small>
-  </p>
-  <p>
-    <span class="text-muted">Повышение квалификации, курсы:</span><br>
-    <small>Разработчик Ruby on Rails, 2023</small><br>
-    <small>Hexlet, Разработчик Ruby on Rails</small><br><br>
-    <small>Авторский курс Романа Пушкина (программист из Сан-Франциско), 2021</small><br>
-    <small>rubyschool.us, Курс по программированию на Ruby, Ruby on Rails</small><br><br>
-    <small>Онлайн курсы codeacademy, 2020</small><br>
-    <small>www.codeacademy.com, Курс по программированию на Ruby, Ruby on Rails</small><br><br>
-  </p>
-  <hr><br>
-
-
-  <h3 class="text-muted">Навыки</h3>
-  <p>
-    <span class="text-muted">Знание языков:</span><br>
-    <small>Английский — B1 — Средний</small>
-  </p>
-  <p>
-    <span class="text-muted">Технологии:</span><br>
-    <small>
-      HTML5<br>
-      CSS3<br>
-      JavaScript<br>
-      Ruby<br>
-      Ruby On Rails<br>
-      SQLite<br>
-      PostgreSQL<br>
-      Windows Os<br>
-      Linux<br>
-      Bootstrap<br>
-      jQuery<br>
-      HTML<br>
-      CSS<br>
-    </small>
-  </p>
-
-  <!-- <p>
-    <span class="text-muted">Обо мне:</span><br>
-    <small>- Готов к стажировке (рассмотрю любые варианты относительно условий и задач)</small><br>
-    <small>- Готов к изучению нового материала в сжатые сроки</small><br>
-    <small>- Ответственно подхожу к любой работе</small><br>
-    <small>- Пунктуален</small>
-  </p> -->
+    <div class="info-block">
+      <h3><%= t("resume.skills") %></h3>
+      <div class="skill-tags">
+        <% %w[Ruby Rails PostgreSQL REST\ API HTML CSS Bootstrap Git Minitest RSpec Docker].each do |skill| %>
+          <span><%= skill.tr("\\", "") %></span>
+        <% end %>
+      </div>
+    </div>
+    <div class="info-block">
+      <h3><%= t("resume.education") %></h3>
+      <p><%= t("resume.education_value") %></p>
+    </div>
+    <div class="panel-links">
+      <%= link_to t("resume.portfolio"), projects_path, data: { turbo_action: "replace" } %>
+      <%= link_to t("resume.github_profile"), "https://github.com/TheGor-365", target: "_blank", rel: "noopener noreferrer" %>
+    </div>
+  </section>
 <% end %>

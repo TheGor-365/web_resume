@@ -1,28 +1,36 @@
-<div class="row">
-  <div class="col-lg-6 col-md-6 col-sm-10 card shadow rounded p-lg-5 p-md-5 py-5 my-lg-5 my-md-5 my-sm-3 lay me-lg-5 me-md-5">
-    <div class="row">
-      <div class="col-6">
-        <h1>Гор Хачатрян</h1>
-        <p class="text-muted">
-          Ruby on Rails разработчик
-        </p>
-      </div>
-
-      <div class="col-6">
-        <%= image_tag(image_url("gor.png"), height: 100, class: "photo float-start") %>
-      </div>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span><%= t("site.availability") %></p>
+    <h1 id="hero-title"><%= t("site.greeting") %><span class="gradient-text"> Ruby on Rails.</span></h1>
+    <p class="hero-description"><%= t("site.intro") %></p>
+    <p class="location-line"><%= t("site.location") %></p>
+    <div class="hero-actions">
+      <%= link_to t("site.see_projects"), projects_path, class: "btn btn-accent", data: { turbo_action: "replace" } %>
+      <%= link_to t("site.contact"), "https://www.facebook.com/gor.webdevelopment/", class: "btn btn-outline-glow", target: "_blank", rel: "noopener noreferrer" %>
     </div>
+  </div>
+  <div class="hero-art">
+    <%= image_tag "gor_brand_logo.png", class: "brand-art", alt: "Gor Web Development — Ruby on Rails" %>
+    <%= video_tag "gor_logo_intro_reel.mp4", class: "intro-video", controls: true, muted: true, playsinline: true, preload: "none", poster: asset_path("gor_brand_logo.png"), aria: { label: "Gor Web Development introduction video" } %>
+  </div>
+</section>
 
-    <%= turbo_frame_tag "toggler" do %>
-      <div class="py-sm-5">
-        <%= render "pages/resume" %>
+<section class="portfolio-dashboard row g-4" aria-label="Portfolio content">
+  <div class="col-lg-7">
+    <div class="portfolio-panel">
+      <div class="profile-strip">
+        <%= image_tag "gor.png", alt: t("site.developer"), class: "profile-photo" %>
+        <div>
+          <p class="profile-name"><%= t("site.title").split(" — ").first %></p>
+          <p class="profile-position"><%= t("site.developer") %></p>
+        </div>
       </div>
-    <% end %>
+      <%= render "pages/resume" %>
+    </div>
   </div>
-
-  <div class="col-lg-5 col-md-5 col-sm-10 card shadow rounded p-lg-5 p-md-5 py-5 my-5 lay ms-lg-5 ms-md-5">
-    <%= turbo_frame_tag "experience" do %>
+  <div class="col-lg-5">
+    <div class="portfolio-panel experience-panel">
       <%= render "experiences/experience_data" %>
-    <% end %>
+    </div>
   </div>
-</div>
+</section>

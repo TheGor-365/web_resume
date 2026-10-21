@@ -1,33 +1,69 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   "true": "foo"
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  site:
+    title: "Gor Khachatrian — Ruby on Rails"
+    developer: "Ruby on Rails Developer"
+    tagline: "Web Apps · Bug Fixes · APIs · PostgreSQL"
+    greeting: "Building and improving web applications"
+    intro: "Ruby on Rails, databases, API integration, testing, and maintenance of existing projects. Explore real repositories below, with limitations disclosed."
+    private_note: "Career history comes from an older résumé and is under review."
+    location: "Working remotely · Armenia"
+    availability: "Available for small projects and remote work"
+    contact: "Discuss a project"
+    see_projects: "View projects"
+    github: "Source code"
+    project_status: "Personal / educational project"
+    connect: "Get in touch"
+    tech: "Stack"
+    evidence: "Repository"
+    empty_history: "Career history is not loaded yet. The site administrator can restore it with bin/rails db:seed."
+    empty_certificates: "Certificates will appear when the records are loaded."
+    verified: "Hexlet certificate issued on May 19, 2026."
+    no_demo: "Live demo not verified yet — source code is available."
+  nav:
+    resume: "Résumé"
+    about: "About"
+    projects: "Projects"
+    certificates: "Certificates"
+    experience: "Experience"
+    timeline: "Timeline"
+    language: "Language"
+  resume:
+    title: "Developer profile"
+    description: "Building, improving, and maintaining Rails applications, including CRUD workflows, data models, PostgreSQL, APIs, and tests."
+    work: "Work format"
+    work_value: "Remote, project-based, small scoped tasks"
+    skills: "Technologies"
+    education: "Training"
+    education_value: "Hexlet — Ruby on Rails development, certified May 19, 2026"
+    github_profile: "GitHub profile"
+    portfolio: "Explore projects"
+  about:
+    title: "About me"
+    summary: "I am a Ruby on Rails developer working with web applications, PostgreSQL, testing, and integrations. I can investigate existing code, reproduce bugs, and deliver focused improvements."
+    focus_title: "How I can help"
+    focus_1: "Reproducible Ruby on Rails bug fixes"
+    focus_2: "CRUD, forms, models, migrations, and PostgreSQL"
+    focus_3: "API integration, tests, and technical documentation"
+    learning: "Educational projects are labelled as such. No invented commercial outcomes or testimonials."
+  projects:
+    title: "Projects and code"
+    note: "Verifiable public repositories. Screenshots and reproducible demos are being prepared."
+    web_resume: "Personal developer website: profile, projects, certifications, and career timeline."
+    github_quality: "Educational GitHub repository quality analysis application with linters and check history."
+    classifieds: "Educational classifieds app with publication states, moderation, and access control."
+    property_finder: "Educational property listing project; the code needs technical refresh."
+    ai_runner: "Public task-execution automation component; private production assets are excluded."
+  certificates:
+    title: "Certificates and training"
+    hexlet: "Hexlet — professional Ruby on Rails development course"
+    legacy: "Additional certificates from the existing archive"
+  experience:
+    title: "Career history"
+    timeline: "Career timeline"
+    chart: "Career stages by start year"
+    categories: "Professional roles"
+    period: "Period"
+    organisation: "Organisation"
+    role: "Role"
+    details: "Responsibilities"
+    past: "Historical entries from a previous résumé; details are being reviewed."

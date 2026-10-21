@@ -1,21 +1,19 @@
 <%= turbo_frame_tag "experience" do %>
-  <h3 class="text-muted mb-3">Карьерный трек</h3>
-  <div class="shadow rounded">
-    <%= area_chart Experience.group_by_year(:start_at).maximum(:cpe) %>
-  </div>
-
-  <h3 class="text-muted mb-3 mt-5">Карьерный пирог</h3>
-  <div class="shadow rounded">
-    <%= pie_chart @experiences.group(:title).count %>
-  </div>
-
-  <h3 class="text-muted my-5">Данные</h3>
-  <% @experiences.each do |experience| %>
-    <div class="border rounded p-5 my-5 border border-success bg-white">
-      <%= render experience %>
-    </div>
-  <% end %>
-  <div class="shadow rounded p-3 border border-danger">
-    <small class="text-muted"><span class="text-dark">CPE (Cost Per Experience)</span> - коэфициент ценности опыта по моей собственной оценке</small>
-  </div>
+  <section class="panel-content">
+    <p class="section-overline">06 / TIMELINE</p>
+    <h2><%= t("experience.timeline") %></h2>
+    <% if @experiences.present? %>
+      <h3 class="chart-title"><%= t("experience.chart") %></h3>
+      <div class="chart-wrap">
+        <%= column_chart Experience.group_by_year(:start_at).count, height: "240px", colors: ["#885aff"] %>
+      </div>
+      <h3 class="chart-title"><%= t("experience.categories") %></h3>
+      <div class="chart-wrap">
+        <%= pie_chart @experiences.group_by { |record| localized_role(record) }.transform_values(&:length), height: "270px" %>
+      </div>
+      <p class="subtle-caption"><%= t("experience.past") %></p>
+    <% else %>
+      <p class="empty-state"><%= t("site.empty_history") %></p>
+    <% end %>
+  </section>
 <% end %>

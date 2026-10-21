@@ -1,28 +1,26 @@
-<nav class="navbar navbar-dark navbar-expand-lg bg-dark bg-gradient">
-  <div class="container-fluid">
-    <a class="navbar-brand me-5" href="/">Web Resume</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+<nav class="navbar navbar-expand-lg navbar-dark site-nav" aria-label="Primary navigation">
+  <div class="container">
+    <%= link_to root_path, class: "navbar-brand brand-wordmark" do %>
+      <span class="brand-symbol">G</span>
+      <span>Gor <strong>Web Development</strong></span>
+    <% end %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <div class="collapse navbar-collapse ms-5" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link"        href="<%= resume_path %>"           data-turbo-action="replace">Резюме</a></li>
-        <li class="nav-item"><a class="nav-link"        href="<%= letter_path %>"           data-turbo-action="replace">Сопроводительное письмо</a></li>
-        <li class="nav-item"><a class="nav-link active" href="<%= projects_path %>"         data-turbo-action="replace">Пэт проекты</a></li>
-        <li class="nav-item"><a class="nav-link active" href="<%= exercises_path %>"        data-turbo-action="replace">Учебные проекты</a></li>
-        <li class="nav-item"><a class="nav-link active me-5" href="<%= certificates_path %>"     data-turbo-action="replace">Сертификаты</a></li>
-        <li class="nav-item"><a class="nav-link active" href="<%= experience_data_path %>"  data-turbo-action="replace">Опыт</a></li>
-        <li class="nav-item"><a class="nav-link active" href="<%= timeline_path %>"         data-turbo-action="replace">Timeline graph</a></li>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><%= link_to t("nav.resume"), resume_path, class: "nav-link", data: { turbo_action: "replace" } %></li>
+        <li class="nav-item"><%= link_to t("nav.about"), letter_path, class: "nav-link", data: { turbo_action: "replace" } %></li>
+        <li class="nav-item"><%= link_to t("nav.projects"), projects_path, class: "nav-link", data: { turbo_action: "replace" } %></li>
+        <li class="nav-item"><%= link_to t("nav.certificates"), certificates_path, class: "nav-link", data: { turbo_action: "replace" } %></li>
+        <li class="nav-item"><%= link_to t("nav.experience"), experience_data_path, class: "nav-link", data: { turbo_action: "replace" } %></li>
+        <li class="nav-item"><%= link_to t("nav.timeline"), timeline_path, class: "nav-link", data: { turbo_action: "replace" } %></li>
       </ul>
+      <div class="language-switch ms-lg-3" aria-label="<%= t("nav.language") %>">
+        <%= link_to "RU", root_path(locale: :ru), class: "language-choice #{'selected' if I18n.locale == :ru}", lang: "ru", data: { turbo: false } %>
+        <span aria-hidden="true">/</span>
+        <%= link_to "EN", root_path(locale: :en), class: "language-choice #{'selected' if I18n.locale == :en}", lang: "en", data: { turbo: false } %>
+      </div>
     </div>
   </div>
 </nav>
