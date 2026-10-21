@@ -4,10 +4,10 @@
     <p class="muted"><%= t("certificates.intro") %></p>
     <% if @certificates.any? %>
       <div class="certificates-grid">
-        <% @certificates.order(title: :asc).each do |certificate| %>
+        <% @certificates.order(Arel.sql('issued_on DESC NULLS LAST, title ASC')).each do |certificate| %>
           <article class="certificate-card">
             <h4><%= certificate.title %></h4>
-            <p class="muted"><%= certificate.school %></p>
+            <p class="muted"><%= certificate.school %><% if certificate.issued_on.present? %> · <%= l(certificate.issued_on, format: "%d.%m.%Y") %><% end %></p>
             <% if certificate.image.present? %>
               <%= image_tag certificate.image, class: "img-fluid cert-preview", alt: certificate.title, loading: "lazy" %>
             <% end %>
