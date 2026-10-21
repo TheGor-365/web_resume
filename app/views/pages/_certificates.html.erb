@@ -1,15 +1,23 @@
 <%= turbo_frame_tag "toggler" do %>
-  <h3 class="text-muted">Мои сертификаты</h3><br>
-
-  <% @certificates.each do |certificate| %>
-    <div class="border rounded p-3 my-5 border border-success">
-      <small>
-        <%= certificate.title %>
-      </small>
-      <small class="text-success">
-        <%= certificate.school %>
-      </small><br>
-      <%= image_tag(image_url(certificate.image), height: 330) %>
-    </div><br>
-  <% end %>
+  <section class="panel-content">
+    <p class="section-overline">04 / CREDENTIALS</p>
+    <h2><%= t("certificates.title") %></h2>
+    <% if @certificates.present? %>
+      <div class="certificate-grid">
+        <% @certificates.sort_by { |certificate| certificate.title.include?("Hexlet") ? 0 : 1 }.each do |certificate| %>
+          <% hexlet = certificate.title.include?("Hexlet") %>
+          <% image_name = hexlet ? "hexlet_rails_certificate_#{I18n.locale}.jpg" : certificate.image %>
+          <article class="certificate-card">
+            <%= image_tag image_name, alt: "#{certificate.title} — #{certificate.school}", loading: "lazy", class: "certificate-image" if image_name.present? %>
+            <div class="certificate-label">
+              <h3><%= hexlet ? t("certificates.hexlet") : certificate.title %></h3>
+              <p><%= certificate.school %></p>
+            </div>
+          </article>
+        <% end %>
+      </div>
+    <% else %>
+      <p class="empty-state"><%= t("site.empty_certificates") %></p>
+    <% end %>
+  </section>
 <% end %>

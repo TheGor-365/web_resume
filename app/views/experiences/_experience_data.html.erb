@@ -1,12 +1,17 @@
 <%= turbo_frame_tag "experience" do %>
-  <h1 class="mb-5">Опыт</h1>
-
-  <% @experiences.each do |experience| %>
-    <%= render experience %>
-    <hr><br>
-  <% end %>
-
-  <div class="shadow rounded p-3 border border-danger">
-    <small class="text-muted"><span class="text-dark">CPE (Cost Per Experience)</span> - коэфициент ценности опыта по моей собственной оценке</small>
-  </div>
+  <section class="panel-content">
+    <p class="section-overline">05 / CAREER</p>
+    <h2><%= t("experience.title") %></h2>
+    <% if @experiences.present? %>
+      <div class="experience-list">
+        <% @experiences.each do |experience| %>
+          <%= render "experiences/experience", experience: experience %>
+        <% end %>
+      </div>
+      <p class="subtle-caption"><%= t("experience.past") %></p>
+    <% else %>
+      <p class="empty-state"><%= t("site.empty_history") %></p>
+      <p class="subtle-caption"><%= t("site.private_note") %></p>
+    <% end %>
+  </section>
 <% end %>

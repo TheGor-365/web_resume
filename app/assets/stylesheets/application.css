@@ -1,28 +1,79 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
  *= require_tree .
  *= require_self
  */
-
-a {
-  text-decoration: none !important;
-}
-
-.lay {
-  max-height: 600px;
-  overflow-y: scroll;
-}
-
-.photo {
-  border-radius: 50%;
-}
+:root{--night:#0b0920;--night-2:#15102f;--surface:#1b1737;--border:#403361;--white:#f8f6ff;--muted:#b5aacd;--violet:#9f70ff;--blue:#8cb6ff;--pink:#eb73f4}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{min-height:100vh;background:radial-gradient(circle at 88% 1%,#4c1b8d88 0,transparent 32%),radial-gradient(circle at 2% 48%,#21256591 0,transparent 37%),linear-gradient(165deg,#090818 10%,#110c27 100%);color:var(--white);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}
+a{text-decoration:none}
+a:hover{color:#dccfff}
+.site-nav{position:sticky;top:0;z-index:20;background:rgba(10,8,26,.93);border-bottom:1px solid rgba(173,125,255,.2);backdrop-filter:blur(18px)}
+.navbar .nav-link{color:#c8bee1;font-size:.91rem;padding:.8rem!important}
+.navbar .nav-link:hover,.navbar .nav-link:focus{color:#fff}
+.brand-wordmark{display:inline-flex;gap:.65rem;align-items:center;font-size:.95rem;letter-spacing:.01em}
+.brand-symbol{display:inline-grid;place-items:center;width:37px;height:37px;border-radius:13px;background:linear-gradient(140deg,#6e48fa,#e553e4);font-size:1.2rem;font-weight:900;box-shadow:0 0 22px #8e54fc77}
+.language-switch{white-space:nowrap;font-size:.85rem;color:#80729d;display:flex;align-items:center;gap:.4rem}
+.language-choice{color:#968cab;font-weight:700}
+.language-choice.selected{color:#fff}
+.site-main{padding-top:3rem;padding-bottom:3rem}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:2.5rem;align-items:center;min-height:435px;margin-bottom:2.8rem}
+.eyebrow,.section-overline{font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;color:#baa3e9;font-weight:750}
+.live-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#65ddb3;box-shadow:0 0 14px #65ddb3;margin-right:.65rem}
+.hero h1{font-size:clamp(2.45rem,5vw,4.5rem);line-height:1.08;font-weight:810;letter-spacing:-.055em;margin:1.1rem 0 1.3rem;max-width:760px}
+.gradient-text{background:linear-gradient(90deg,#bd86ff,#78b7ff,#f4a1ff);background-clip:text;-webkit-background-clip:text;color:transparent}
+.hero-description{color:#c3b9d5;max-width:650px;font-size:1.12rem}
+.location-line{color:#aa9ac5;font-size:.9rem}
+.hero-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.65rem}
+.btn-accent{background:linear-gradient(105deg,#9052f7,#ba51e7);color:#fff;border:0;padding:.76rem 1.25rem;font-weight:750;border-radius:12px;box-shadow:0 8px 23px #8752ea40}
+.btn-accent:hover,.btn-accent:focus{background:linear-gradient(105deg,#aa73ff,#d576f4);color:#fff}
+.btn-outline-glow{border:1px solid #8f72cd;color:#f1eaff;padding:.74rem 1.2rem;border-radius:12px;font-weight:650}
+.btn-outline-glow:hover{border-color:#dcbbff;color:white;background:#50357852}
+.hero-art{position:relative;display:grid;gap:.8rem;min-width:0}
+.brand-art{width:100%;display:block;border-radius:22px;box-shadow:0 0 50px #4923a45c;aspect-ratio:16/9;object-fit:cover}
+.intro-video{width:100%;max-height:152px;object-fit:cover;border-radius:13px;border:1px solid #553a86;background:#080619}
+.portfolio-panel{background:linear-gradient(150deg,#21193d 0%,#131026 100%);border:1px solid #4a356c;border-radius:24px;min-height:440px;box-shadow:0 24px 65px #0003;overflow:hidden}
+.profile-strip{display:flex;align-items:center;gap:1rem;padding:1.3rem 1.65rem;background:#ffffff08;border-bottom:1px solid #4b3d67}
+.profile-photo{width:64px;height:64px;object-fit:cover;border-radius:50%;border:2px solid #b887ff}
+.profile-name{font-size:1.1rem;font-weight:750;margin:0}
+.profile-position{font-size:.85rem;color:#b7a6d0;margin:0}
+.panel-content{padding:1.75rem;min-height:315px}
+.panel-content h2{font-weight:780;letter-spacing:-.025em;font-size:clamp(1.55rem,2.5vw,2.15rem);margin:.45rem 0 1.1rem}
+.panel-content h3{font-size:1.08rem;font-weight:720;margin:1.1rem 0 .5rem}
+.lead-copy{color:#d2c9e2;font-size:1.04rem}
+.info-block{border-top:1px solid #483960;padding-top:.55rem;margin-top:1.2rem}
+.info-block p,.panel-content p{overflow-wrap:anywhere}
+.skill-tags{display:flex;flex-wrap:wrap;gap:.45rem}
+.skill-tags span{background:#7149bb40;border:1px solid #7756b1;border-radius:9px;color:#e8d8ff;font-size:.84rem;padding:.28rem .58rem}
+.panel-links{display:flex;gap:1.1rem;flex-wrap:wrap;margin-top:1.4rem}
+.panel-links a,.project-link{color:#c69aff;font-weight:750}
+.service-list{padding-left:1.2rem;color:#e0d7ed}
+.service-list li{margin-bottom:.7rem}
+.subtle-caption{margin-top:1.3rem;color:#ac9cbe;font-size:.83rem}
+.project-grid{display:grid;grid-template-columns:1fr;gap:.85rem}
+.project-card{background:#ffffff08;border:1px solid #4e386f;border-radius:16px;padding:1.15rem 1.25rem}
+.project-card-top{display:flex;justify-content:space-between;align-items:center;gap:1rem;color:#a792c6;font-size:.76rem}
+.project-number{color:#c795ff;font-weight:800}
+.project-card h3{font-size:1.3rem;margin:.45rem 0}
+.project-card p{color:#c7bfda;font-size:.94rem;margin-bottom:.55rem}
+.project-card .project-stack{color:#9daecf;font-size:.77rem}
+.certificate-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:1rem}
+.certificate-card{background:#fff;border-radius:13px;overflow:hidden;color:#211c34}
+.certificate-image{display:block;width:100%;aspect-ratio:3/4;object-fit:contain;background:#eee;padding:.25rem}
+.certificate-label{padding:.65rem .8rem}
+.certificate-label h3{font-size:.88rem;color:#302d49;margin:0 0 .35rem}
+.certificate-label p{color:#69617b;font-size:.8rem;margin:0}
+.experience-entry{border-left:2px solid #8459dc;padding:0 0 1.1rem 1.15rem;margin-left:.4rem;position:relative}
+.experience-entry:before{content:"";position:absolute;width:9px;height:9px;border-radius:50%;background:#bb86ff;left:-5.5px;top:.45rem}
+.experience-date{color:#c393ff;font-size:.78rem;font-weight:800}
+.experience-entry h3{margin:.2rem 0;font-size:1.04rem}
+.experience-company{color:#bdb0d5;font-size:.84rem}
+.experience-entry p{font-size:.9rem;margin-bottom:.45rem}
+.chart-title{font-size:.94rem!important}
+.chart-wrap{background:#faf9ff;border-radius:16px;padding:.6rem;margin:1rem 0 1.5rem;overflow:hidden;color:#29223d}
+.empty-state{background:#ffffff09;border:1px dashed #8069a3;border-radius:12px;padding:1.2rem;color:#dbcbea}
+.site-footer{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:1.5rem 0 2.3rem;border-top:1px solid #5b477f;color:#9689b3;font-size:.82rem}
+.site-footer a{color:#c1a2ed}
+@media(max-width:991px){.hero{grid-template-columns:1fr;min-height:0}.hero-art{max-width:600px}.site-main{padding-top:2rem}.brand-wordmark{font-size:.9rem}.portfolio-panel{min-height:0}}
+@media(max-width:575px){.hero h1{font-size:2.5rem}.hero-actions .btn{width:100%}.panel-content{padding:1.2rem}.profile-strip{padding:1rem}.hero{gap:1.5rem}.intro-video{max-height:130px}.certificate-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.intro-video{display:none}}

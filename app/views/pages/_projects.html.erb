@@ -1,55 +1,22 @@
 <%= turbo_frame_tag "toggler" do %>
-	<h3 class="text-muted">Мои пэт-проекты</h3><br>
-
-	<div class="border rounded p-3 my-5 border border-success">
-		<h1 class="display-1">
-			<%= link_to 'guider', 'https://guider.onrender.com', target: :_blank, class: 'text-success' %>
-		</h1><br><br>
-
-		<p>
-			<span class="text-muted">Идея:</span><br>
-			<small>Быстро создать гайд, туториал, тех. документацмю, how to шаблон и другие виды инструкций для технологии или продукта.</small><br><br>
-			<span class="text-muted">Для кого:</span><br>
-			<small>Приложение для разработчиков и др. специалистов</small>
-		</p>
-	</div><br>
-
-	<div class="border rounded p-3 my-5 border border-success">
-		<h1 class="display-1">
-			<%= link_to 'simple-todo', 'https://simple-todo-z056.onrender.com', target: :_blank, class: 'text-success' %>
-		</h1><br><br>
-
-		<p>
-			<span class="text-muted">Идея:</span><br>
-			<small>Создавать. модифицировать и удалять поставленные задачи.</small><br><br>
-			<span class="text-muted">Для кого:</span><br>
-			<small>Приложение для всех</small>
-		</p>
-	</div><br>
-
-	<div class="border rounded p-3 my-5 border border-success">
-		<h1 class="display-1">
-			<%= link_to 'craiglist-clone', 'https://craiglist.onrender.com', target: :_blank, class: 'text-success' %>
-		</h1><br><br>
-
-		<p>
-			<span class="text-muted">Идея:</span><br>
-			<small>Универсальная платформа для общения, заключения сделок, публикации объявлений.</small><br><br>
-			<span class="text-muted">Для кого:</span><br>
-			<small>Приложение для всех</small>
-		</p>
-	</div><br>
-
-	<div class="border rounded p-3 my-5 border border-success">
-		<h1 class="display-1">
-			<%= link_to 'remote-education', 'https://remote-education.onrender.com', target: :_blank, class: 'text-success' %>
-		</h1><br><br>
-
-		<p>
-			<span class="text-muted">Идея:</span><br>
-			<small>Платформа для онлайн образования, менторства, репетиторства</small><br><br>
-			<span class="text-muted">Для кого:</span><br>
-			<small>Приложение для студентов и педагогов</small>
-		</p>
-	</div><br>
+  <section class="panel-content">
+    <p class="section-overline">03 / SELECTED WORK</p>
+    <h2><%= t("projects.title") %></h2>
+    <p class="lead-copy"><%= t("projects.note") %></p>
+    <div class="project-grid">
+      <% portfolio_projects.each_with_index do |project, index| %>
+        <article class="project-card">
+          <div class="project-card-top">
+            <span class="project-number"><%= format("%02d", index + 1) %></span>
+            <span class="project-kind"><%= t("site.project_status") %></span>
+          </div>
+          <h3><%= project.fetch(:name) %></h3>
+          <p><%= t("projects.#{project.fetch(:key)}") %></p>
+          <p class="project-stack"><%= project.fetch(:stack) %></p>
+          <%= link_to "#{t("site.evidence")} ↗", project.fetch(:repo), class: "project-link", target: "_blank", rel: "noopener noreferrer" %>
+        </article>
+      <% end %>
+    </div>
+    <p class="subtle-caption"><%= t("site.no_demo") %></p>
+  </section>
 <% end %>

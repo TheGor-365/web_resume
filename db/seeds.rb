@@ -1,4 +1,4 @@
-Certificate.create([
+certificates = [
   { title: 'Bash',              image: 'bash.jpg',                    school: "codeacademy.com" },
   { title: 'Bootstrap',         image: 'bootstrap.jpg',               school: "codeacademy.com" },
   { title: 'Code Foundation',   image: 'code_foundation.jpg',         school: "codeacademy.com" },
@@ -15,11 +15,9 @@ Certificate.create([
   { title: 'Ruby',              image: 'ruby.jpg',                    school: "codeacademy.com" },
   { title: 'SQL 2',             image: 'SQL_2.jpg',                   school: "codeacademy.com" },
   { title: 'SQL',               image: 'SQL.jpg',                     school: "codeacademy.com" }
-])
+]
 
-
-
-Experience.create([
+experiences = [
   {
     title:    "Администратор",
     company:  "ИП Еремин",
@@ -70,4 +68,25 @@ Experience.create([
     end_at:   DateTime.new(2023,4,1,19),
     image:    ""
   }
-])
+]
+
+# The original archive is preserved above. Insert only missing records: do not
+# wipe the database or overwrite manually corrected experience information.
+certificates << {
+  title: "Hexlet — Ruby on Rails Development (2026)",
+  image: "hexlet_rails_certificate_en.jpg",
+  school: "Hexlet"
+}
+
+certificates.each do |attributes|
+  Certificate.find_or_create_by!(title: attributes.fetch(:title)) do |record|
+    record.assign_attributes(attributes.except(:title))
+  end
+end
+
+experiences.each do |attributes|
+  keys = attributes.slice(:title, :company, :start_at)
+  Experience.find_or_create_by!(keys) do |record|
+    record.assign_attributes(attributes.except(:title, :company, :start_at))
+  end
+end
