@@ -1,11 +1,7 @@
 <%= turbo_frame_tag "toggler" do %>
-	<h3 class="text-muted">Мои учебные проекты</h3><br>
-
-	<div class="border rounded p-3 my-5 border border-success">
-		<h1 class="display-6">
-			<%= link_to 'Мой GitHub аккаунт', 'https://github.com/TheGor-365', target: :_blank, class: 'text-success' %>
-		</h1><br><br>
-
-    <p>Страница в разработке, пока доступны только исходники на гитхаб</p>
-	</div><br>
+  <div class="panel-content">
+    <h3><%= t("projects.title") %></h3>
+    <p><%= t("projects.intro") %></p>
+    <%= link_to t("projects.view_all"), projects_path, class: "btn btn-accent" %>
+  </div>
 <% end %>
