@@ -1,27 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= I18n.locale %>">
   <head>
-    <title>Web Resume</title>
+    <meta charset="utf-8">
+    <title><%= t("hero.name") %> — Ruby on Rails Developer</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="<%= t("hero.lead") %>">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
     <%= javascript_importmap_tags %>
   </head>
-
-  <body class="bg-dark bg-gradient">
-
-    <header>
-      <%= render "layouts/nav" %>
-    </header>
-
-    <main class="container p-5">
-      <%= yield %>
-    </main>
+  <body class="portfolio-body">
+    <header><%= render "layouts/nav" %></header>
+    <main class="container portfolio-main"><%= yield %></main>
   </body>
 </html>
