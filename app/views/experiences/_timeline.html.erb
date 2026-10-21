@@ -1,16 +1,17 @@
 <%= turbo_frame_tag "experience" do %>
-  <h3 class="text-muted mb-3"><%= params[:lang] == "en" ? "Career timeline" : "Карьерный трек" %></h3>
-  <% if @experiences.any? %>
-    <div class="shadow rounded">
-      <%= area_chart Experience.group_by_year(:start_at).maximum(:cpe) %>
+  <div class="panel-content">
+    <h3><%= t("timeline.chart_title") %></h3>
+    <p class="muted"><%= t("timeline.chart_intro") %></p>
+    <div class="chart-container">
+      <%= column_chart developer_milestones.group_by { |entry| entry.fetch(:year) }.transform_values(&:count), height: "240px", xtitle: t("timeline.year"), ytitle: t("timeline.count"), colors: ["#7c3aed"], library: { scales: { y: { beginAtZero: true } } } %>
     </div>
-    <h3 class="text-muted mb-3 mt-5"><%= params[:lang] == "en" ? "Experience by role" : "Карьерный пирог" %></h3>
-    <div class="shadow rounded"><%= pie_chart @experiences.group(:title).count %></div>
-    <h3 class="text-muted my-5"><%= params[:lang] == "en" ? "Details" : "Данные" %></h3>
-    <% @experiences.each do |experience| %>
-      <div class="border rounded p-4 my-4 border-success bg-white"><%= render experience %></div>
-    <% end %>
-  <% else %>
-    <p class="text-muted"><%= params[:lang] == "en" ? "No experience records in the current database. Restore reviewed entries before generating charts." : "В текущей базе нет записей об опыте. Проверьте и восстановите историю, чтобы появились графики." %></p>
-  <% end %>
+    <ol class="milestone-list mt-4">
+      <% developer_milestones.reverse_each do |milestone| %>
+        <li class="milestone">
+          <span class="milestone-year"><%= milestone.fetch(:year) %></span>
+          <div><strong><%= milestone.fetch(:name) %></strong><p><%= milestone_description(milestone) %></p></div>
+        </li>
+      <% end %>
+    </ol>
+  </div>
 <% end %>
