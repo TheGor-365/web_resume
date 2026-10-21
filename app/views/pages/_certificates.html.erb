@@ -1,15 +1,13 @@
 <%= turbo_frame_tag "toggler" do %>
-  <h3 class="text-muted">Мои сертификаты</h3><br>
-
-  <% @certificates.each do |certificate| %>
-    <div class="border rounded p-3 my-5 border border-success">
-      <small>
-        <%= certificate.title %>
-      </small>
-      <small class="text-success">
-        <%= certificate.school %>
-      </small><br>
-      <%= image_tag(image_url(certificate.image), height: 330) %>
-    </div><br>
+  <h3 class="text-muted"><%= params[:lang] == "en" ? "Certificates" : "Мои сертификаты" %></h3>
+  <% if @certificates.any? %>
+    <% @certificates.each do |certificate| %>
+      <div class="border rounded p-3 my-4 border-success">
+        <p class="mb-2"><%= certificate.title %> — <span class="text-success"><%= certificate.school %></span></p>
+        <%= image_tag certificate.image, class: "img-fluid", alt: certificate.title, loading: "lazy" if certificate.image.present? %>
+      </div>
+    <% end %>
+  <% else %>
+    <p class="text-muted"><%= params[:lang] == "en" ? "Certificates have not been loaded into this database yet." : "Сертификаты пока не загружены в эту базу данных." %></p>
   <% end %>
 <% end %>
