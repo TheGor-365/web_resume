@@ -1,15 +1,15 @@
 <%= turbo_frame_tag "toggler" do %>
-  <div class="panel-content">
-    <h3><%= t("about.title") %></h3>
-    <p class="lead-small"><%= t("about.intro") %></p>
+  <div class="py-sm-5">
+    <h3 class="text-muted"><%= t("about.title") %></h3>
+    <p><%= t("about.intro") %></p>
     <p><%= t("about.work") %></p>
     <p><%= t("about.methods") %></p>
-    <h4><%= t("about.collaboration_title") %></h4>
+    <h4 class="h5 text-muted"><%= t("about.collaboration_title") %></h4>
     <p><%= t("about.collaboration") %></p>
-    <div class="inline-links">
-      <%= link_to "GitHub ↗", "https://github.com/TheGor-365", target: "_blank", rel: "noopener noreferrer" %>
-      <%= link_to "FL.ru ↗", "https://www.fl.ru/users/7495500/portfolio/", target: "_blank", rel: "noopener noreferrer" %>
-      <%= link_to "Kwork ↗", "https://kwork.com/user/thegor-365", target: "_blank", rel: "noopener noreferrer" %>
+    <div class="d-flex flex-wrap gap-3 mt-3">
+      <%= link_to "GitHub ↗", "https://github.com/TheGor-365", target: "_blank", rel: "noopener noreferrer", class: "link-success" %>
+      <%= link_to "FL.ru ↗", "https://www.fl.ru/users/7495500/portfolio/", target: "_blank", rel: "noopener noreferrer", class: "link-success" %>
+      <%= link_to "Kwork ↗", "https://kwork.com/user/thegor-365", target: "_blank", rel: "noopener noreferrer", class: "link-success" %>
     </div>
   </div>
 <% end %>
