@@ -8,12 +8,12 @@
     </button>
     <div class="collapse navbar-collapse" id="primaryNav">
       <ul class="navbar-nav ms-auto align-items-lg-center">
-        <li class="nav-item"><%= link_to t("menu.profile"), resume_path, class: "nav-link" %></li>
-        <li class="nav-item"><%= link_to t("menu.about"), letter_path, class: "nav-link" %></li>
-        <li class="nav-item"><%= link_to t("menu.projects"), projects_path, class: "nav-link" %></li>
-        <li class="nav-item"><%= link_to t("menu.certificates"), certificates_path, class: "nav-link" %></li>
-        <li class="nav-item"><%= link_to t("menu.experience"), experience_data_path, class: "nav-link" %></li>
-        <li class="nav-item"><%= link_to t("menu.timeline"), timeline_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to t("menu.profile"), resume_path, class: "nav-link", data: { turbo_stream: true } %></li>
+        <li class="nav-item"><%= link_to t("menu.about"), letter_path, class: "nav-link", data: { turbo_stream: true } %></li>
+        <li class="nav-item"><%= link_to t("menu.projects"), projects_path, class: "nav-link", data: { turbo_stream: true } %></li>
+        <li class="nav-item"><%= link_to t("menu.certificates"), certificates_path, class: "nav-link", data: { turbo_stream: true } %></li>
+        <li class="nav-item"><%= link_to t("menu.experience"), experience_data_path, class: "nav-link", data: { turbo_stream: true } %></li>
+        <li class="nav-item"><%= link_to t("menu.timeline"), timeline_path, class: "nav-link", data: { turbo_stream: true } %></li>
       </ul>
       <div class="locale-toggle ms-lg-4" aria-label="Language">
         <%= link_to "RU", root_path(locale: "ru"), class: "locale-link #{'current' if I18n.locale == :ru}", data: { turbo: false }, lang: "ru", "aria-label": "Русский" %>
