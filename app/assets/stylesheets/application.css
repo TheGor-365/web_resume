@@ -103,3 +103,5 @@ body.portfolio-body {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+.intro-video { width: 100%; max-width: 360px; max-height: 225px; border-radius: 17px; object-fit: contain; }
