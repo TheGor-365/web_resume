@@ -94,48 +94,48 @@ technical_milestones = [
   {
     title: "Property Finder — Rails",
     company: "Учебный проект",
-    start_at: Time.zone.local(2020, 8, 25),
-    end_at: Time.zone.local(2020, 8, 25),
+    start_at: DateTime.new(2020, 8, 25),
+    end_at: DateTime.new(2020, 8, 25),
     overview: "Раннее учебное Rails-приложение о недвижимости и пользовательских профилях.",
     note: "Дата создания репозитория; код: https://github.com/TheGor-365/property_finder"
   },
   {
     title: "Web Resume — персональный сайт",
     company: "Личный проект",
-    start_at: Time.zone.local(2023, 3, 11),
-    end_at: Time.zone.local(2023, 3, 11),
+    start_at: DateTime.new(2023, 3, 11),
+    end_at: DateTime.new(2023, 3, 11),
     overview: "Ruby on Rails: профиль, проекты, сертификаты, PostgreSQL и графики.",
     note: "Дата создания репозитория; код: https://github.com/TheGor-365/web_resume"
   },
   {
     title: "Classifieds — модерация объявлений",
     company: "Учебный проект",
-    start_at: Time.zone.local(2025, 9, 13),
-    end_at: Time.zone.local(2025, 9, 13),
+    start_at: DateTime.new(2025, 9, 13),
+    end_at: DateTime.new(2025, 9, 13),
     overview: "Rails, PostgreSQL, авторизация, модерация, AASM и Pundit.",
     note: "Дата создания репозитория; код: https://github.com/TheGor-365/rails-project-65"
   },
   {
     title: "GitHub Quality — проверка кода",
     company: "Учебный проект",
-    start_at: Time.zone.local(2025, 12, 2),
-    end_at: Time.zone.local(2025, 12, 2),
+    start_at: DateTime.new(2025, 12, 2),
+    end_at: DateTime.new(2025, 12, 2),
     overview: "Rails, GitHub OAuth, история запусков линтеров, тесты и CI.",
     note: "Дата создания репозитория; код: https://github.com/TheGor-365/rails-project-66"
   },
   {
     title: "Hexlet — Ruby on Rails",
     company: "Обучение",
-    start_at: Time.zone.local(2026, 5, 19),
-    end_at: Time.zone.local(2026, 5, 19),
+    start_at: DateTime.new(2026, 5, 19),
+    end_at: DateTime.new(2026, 5, 19),
     overview: "Завершённая программа обучения разработке Ruby on Rails.",
     note: "Дата сертификата — 19 мая 2026 года; не является записью о трудоустройстве."
   },
   {
     title: "AI Course Actions Runner",
     company: "Инфраструктурный проект",
-    start_at: Time.zone.local(2026, 7, 9),
-    end_at: Time.zone.local(2026, 7, 9),
+    start_at: DateTime.new(2026, 7, 9),
+    end_at: DateTime.new(2026, 7, 9),
     overview: "Публичный workflow runner для автоматизации с GitHub Actions. Не является демонстрацией закрытого продукта.",
     note: "Дата создания репозитория; код: https://github.com/TheGor-365/ai-course-actions-runner"
   }
