@@ -82,3 +82,17 @@ experiences.each do |attrs|
     record.assign_attributes(attrs)
   end
 end
+
+# These two certificate images are supplied by the owner and intentionally
+# committed separately. No broken image entries are created before upload.
+hexlet_issued_on = Date.new(2026, 5, 19)
+%w[ru en].each do |language|
+  filename = "hexlet_#{language}.jpg"
+  next unless Rails.root.join("app/assets/images", filename).file?
+
+  Certificate.find_or_create_by!(title: "Hexlet — Ruby on Rails Developer (#{language.upcase})") do |record|
+    record.school = "Hexlet"
+    record.image = filename
+    record.issued_on = hexlet_issued_on
+  end
+end
