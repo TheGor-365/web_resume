@@ -10,7 +10,11 @@
   </div>
   <div class="intro-signal" aria-hidden="true">
     <span class="signal-label">PORTFOLIO / 2026</span>
-    <span class="signal-code">&lt;/&gt;</span>
+    <% if Rails.root.join("app/assets/videos/gor_logo_intro_reel.mp4").file? %>
+      <%= video_tag "gor_logo_intro_reel.mp4", class: "intro-video", autoplay: true, muted: true, loop: true, playsinline: true, controls: false, preload: "metadata", "aria-label": "Gor Web Development logo animation" %>
+    <% else %>
+      <span class="signal-code">&lt;/&gt;</span>
+    <% end %>
     <span class="signal-label">RAILS · POSTGRESQL · TESTING</span>
   </div>
 </section>
