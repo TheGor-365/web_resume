@@ -1,33 +1,67 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   "true": "foo"
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  menu:
+    profile: "Profile"
+    about: "About"
+    projects: "Projects"
+    certificates: "Certificates"
+    experience: "Development journey"
+    timeline: "Timeline"
+  hero:
+    heading: "Building and improving web applications with Ruby on Rails"
+    lead: "Backend, PostgreSQL, APIs, bug fixes and tests. Explore real educational and personal projects with public source code."
+    projects_cta: "Explore projects"
+    profile_label: "Developer"
+    name: "Gor Khachatryan"
+    role: "Ruby on Rails · Backend & Web"
+    photo_alt: "Developer portrait"
+  resume:
+    title: "Developer profile"
+    summary: "Ruby on Rails developer working with existing Rails applications and scoped web tasks, from debugging to CRUD interfaces and REST APIs. My portfolio includes educational and personal projects with accessible source code."
+    services_title: "Services"
+    services:
+      - "Rails bug fixes"
+      - "CRUD and forms"
+      - "PostgreSQL and migrations"
+      - "REST APIs"
+      - "Testing and refactoring"
+      - "Integrations"
+    stack_title: "Technology stack"
+    education_title: "Professional education"
+    hexlet_title: "Hexlet — Ruby on Rails Developer"
+    hexlet_date: "Certificate awarded: May 19, 2026"
+    hexlet_note: "Completed the program, with educational projects available on GitHub. Russian and English certificate images are being prepared for publication."
+    workflow_title: "How I work"
+    workflow: "I clarify reproduction steps, expected behavior and constraints. I validate changes with tests and provide clear delivery notes."
+    work_link: "View code ↗"
+    contact_link: "Contact via Kwork ↗"
+  about:
+    title: "About me"
+    intro: "My focus is Ruby on Rails and the server side of web applications."
+    work: "My hands-on experience includes Rails, PostgreSQL, Active Record, REST APIs, Git and testing. My educational projects cover GitHub OAuth, authorization, moderation workflows and automated quality checks."
+    methods: "I use AI tools to support research and development, while validating the result against source code, documentation and tests."
+    collaboration_title: "Working together"
+    collaboration: "I take on scoped fixes and feature work after agreeing on requirements, input, timeline and acceptance criteria. You can reach me using the profiles below."
+  projects:
+    title: "Projects and source code"
+    intro: "Real repositories. Each project is clearly marked as personal, educational or infrastructure work. Live demonstrations require separate verification."
+    view_code: "View on GitHub ↗"
+    view_all: "All projects"
+    stages:
+      personal: "Personal project"
+      educational: "Educational project"
+      infrastructure: "Infrastructure"
+  certificates:
+    title: "Education and certificates"
+    intro: "Certificate archive. Unverified award dates are intentionally omitted. The 2026 Hexlet certificate will be added in both language versions."
+    empty: "No certificate records are available in this database."
+  timeline:
+    kicker: "Repositories and education"
+    title: "Development journey"
+    intro: "Milestones supported by GitHub repository history and the Hexlet certificate. This is not an employment or commercial-contract timeline."
+    chart_cta: "View timeline ↗"
+    chart_title: "Project timeline"
+    chart_intro: "Selected, evidenced milestones by year: repository creation dates and certificate award, not total projects or employment years."
+    year: "Year"
+    count: "Events"
+  footer:
+    disclaimer: "Personal and educational projects are distinguished from client work."
