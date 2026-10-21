@@ -1,0 +1,42 @@
+name: Rails portfolio smoke tests
+
+on:
+  push:
+    branches:
+      - "career/**"
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: web_resume_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      RAILS_ENV: test
+      PGPASSWORD: postgres
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+          ruby-version: .ruby-version
+      - name: Prepare database
+        run: bin/rails db:prepare
+      - name: Run Rails tests
+        run: bin/rails test
+      - name: Check test assets
+        run: bin/rails assets:precompile
