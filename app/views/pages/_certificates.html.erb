@@ -1,21 +1,21 @@
 <%= turbo_frame_tag "toggler" do %>
-  <div class="panel-content">
-    <h3><%= t("certificates.title") %></h3>
-    <p class="muted"><%= t("certificates.intro") %></p>
+  <div class="py-sm-5">
+    <h3 class="text-muted"><%= t("certificates.title") %></h3>
+    <p class="text-muted"><%= t("certificates.intro") %></p>
     <% if @certificates.any? %>
-      <div class="certificates-grid">
-        <% @certificates.order(Arel.sql('issued_on DESC NULLS LAST, title ASC')).each do |certificate| %>
-          <article class="certificate-card">
-            <h4><%= certificate.title %></h4>
-            <p class="muted"><%= certificate.school %><% if certificate.issued_on.present? %> · <%= l(certificate.issued_on, format: "%d.%m.%Y") %><% end %></p>
-            <% if certificate.image.present? %>
-              <%= image_tag certificate.image, class: "img-fluid cert-preview", alt: certificate.title, loading: "lazy" %>
-            <% end %>
-          </article>
+      <div class="row row-cols-1 row-cols-lg-2 g-3">
+        <% @certificates.order(Arel.sql("issued_on DESC NULLS LAST, title ASC")).each do |certificate| %>
+          <div class="col">
+            <article class="border rounded border-success p-3 h-100">
+              <h4 class="h6"><%= certificate.title %></h4>
+              <p class="text-muted small"><%= certificate.school %><% if certificate.issued_on.present? %> · <%= l(certificate.issued_on, format: "%d.%m.%Y") %><% end %></p>
+              <%= image_tag certificate.image, class: "img-fluid rounded", alt: certificate.title, loading: "lazy" if certificate.image.present? %>
+            </article>
+          </div>
         <% end %>
       </div>
     <% else %>
-      <p class="muted"><%= t("certificates.empty") %></p>
+      <p class="text-muted"><%= t("certificates.empty") %></p>
     <% end %>
   </div>
 <% end %>
