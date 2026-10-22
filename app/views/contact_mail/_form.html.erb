@@ -29,7 +29,7 @@
       <%= text_area_tag :body_text, values[:body], class: 'form-control', rows: 5, maxlength: 4000, minlength: 20, required: true %>
     </div>
     <div class="mb-3">
-      <%= label_tag 'attachments', t("site.contact_mail.attachments"), class: 'form-label small' %>
+      <%= label_tag 'career-contact-attachments', t("site.contact_mail.attachments"), class: 'form-label small' %>
       <%# Keep the native file input for multipart submission; localize its presentation. %>
       <div class="d-flex flex-wrap align-items-center gap-2" data-controller="career-attachments">
         <%= file_field_tag 'attachments[]',
