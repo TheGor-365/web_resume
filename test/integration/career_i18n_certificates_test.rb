@@ -2,6 +2,7 @@ require "test_helper"
 
 class CareerI18nCertificatesTest < ActionDispatch::IntegrationTest
   test "both alternative languages translate certificate descriptions and modal labels" do
+    Certificate.create!(title: "Hexlet — Ruby on Rails (RU)", school: "Hexlet", image: "hexlet_ru.jpg")
     { en: "My certificates", hy: "Իմ վկայականները" }.each do |locale, heading|
       get "/#{locale}/certificates"
       assert_response :success
