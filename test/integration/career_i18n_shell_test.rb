@@ -38,7 +38,7 @@ class CareerI18nShellTest < ActionDispatch::IntegrationTest
     assert_select 'a[href="/hy/services"]', text: "Ծառայություններ"
     assert_select 'a[href="/hy/contacts"]', text: "Կապ"
     assert_select '#language-menu', text: /Հայ/
-    assert_select 'a[href="/"][data-turbo="false"]', text: "Русский"
+    assert_select 'a[href="/ru"][data-turbo="false"]', text: "Русский"
     assert_select '.site-footer', text: /Ուսումնական նախագծերը/
   end
 
