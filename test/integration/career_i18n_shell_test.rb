@@ -6,8 +6,8 @@ class CareerI18nShellTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select 'html[lang="ru"]', count: 1
     assert_select 'h1', text: "Гор Хачатрян"
-    assert_select 'turbo-frame#toggler', count: 1
-    assert_select 'turbo-frame#experience', count: 1
+    assert_select 'div.card > turbo-frame#toggler', count: 1
+    assert_select 'div.card > turbo-frame#experience', count: 1
     assert_select 'span.vr', 3
     assert_select 'a[href="/services"]', text: "Услуги"
     assert_select '#language-menu', text: /RU/
