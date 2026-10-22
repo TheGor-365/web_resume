@@ -5,8 +5,8 @@ class CareerI18nResumeTest < ActionDispatch::IntegrationTest
     get "/en"
     assert_response :success
     assert_includes response.body, "Evidence of skills:"
-    assert_select 'a[href="https://github.com/TheGor-365/property_finder"]', count: 1
-    assert_select 'a[href="https://github.com/TheGor-365/ai-course-actions-runner"]', count: 1
+    assert_select 'turbo-frame#toggler a[href="https://github.com/TheGor-365/property_finder"]', count: 1
+    assert_select 'turbo-frame#toggler a[href="https://github.com/TheGor-365/ai-course-actions-runner"]', count: 1
   end
 
   test "Armenian and Russian resume Turbo endpoints preserve the frame target" do
