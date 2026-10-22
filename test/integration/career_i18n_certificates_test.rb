@@ -7,7 +7,7 @@ class CareerI18nCertificatesTest < ActionDispatch::IntegrationTest
       assert_response :success
       assert_includes response.body, heading
       assert_includes response.body, 'target="toggler"'
-      assert_includes response.body, 'data-bs-toggle=\\"modal\\"'
+      assert_includes response.body, 'data-bs-toggle="modal"'
     end
   end
 
