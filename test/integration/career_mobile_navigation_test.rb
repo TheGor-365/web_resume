@@ -6,6 +6,7 @@ class CareerMobileNavigationTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select "#career-primary-panel turbo-frame#toggler"
     assert_select "#career-secondary-panel turbo-frame#experience"
+    assert_select ".career-brand-watermark[aria-hidden='true']", count: 1
     assert_select "nav.navbar[data-controller='career-mobile-nav']", count: 1
     assert_select "nav.navbar[data-action*='turbo:before-stream-render@document']", count: 1
     assert_select "nav.navbar a.nav-link[data-action='click->career-mobile-nav#navigate']", count: 9
