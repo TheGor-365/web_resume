@@ -2,56 +2,56 @@
   <div class="row">
     <div class="col-6">
       <p class="text-muted">
-        Ruby on Rails-разработчик
+        <%= t("site.resume.intro.role") %>
       </p>
-      <small>Армения · удалённая работа</small><br>
+      <small><%= t("site.resume.intro.location") %></small><br>
       <small><%= link_to 'GitHub: TheGor-365', 'https://github.com/TheGor-365', target: '_blank', rel: 'noopener noreferrer', class: 'text-success' %></small><br>
-      <small>Личные и учебные проекты с открытым кодом</small>
+      <small><%= t("site.resume.intro.open_source") %></small>
     </div>
   </div>
   <hr><br>
 
-  <h3 class="text-muted">Разработка на Ruby on Rails</h3>
+  <h3 class="text-muted"><%= t("site.resume.profile.heading") %></h3>
   <p>
-    <span class="text-muted">Профиль:</span><br>
-    <small>Rails-приложения, исправление ошибок, CRUD, формы, REST API, работа с PostgreSQL, тесты и интеграции.</small><br><br>
-    <span class="text-muted">Подтверждение навыков:</span><br>
-    <small>Репозитории GitHub, выпускные учебные проекты и сертификат Hexlet. Даты ниже относятся к созданию репозиториев и обучению, а не к коммерческому стажу.</small>
+    <span class="text-muted"><%= t("site.resume.profile.label") %></span><br>
+    <small><%= t("site.resume.profile.description") %></small><br><br>
+    <span class="text-muted"><%= t("site.resume.profile.evidence_label") %></span><br>
+    <small><%= t("site.resume.profile.evidence") %></small>
   </p>
   <hr><br>
 
-  <h3 class="text-muted">Путь в разработке · 2020–2026</h3>
+  <h3 class="text-muted"><%= t("site.resume.journey.heading") %></h3>
   <p>
-    <span class="text-muted">25.08.2020 — практика с Rails: Property Finder</span><br>
-    <small><%= link_to 'Property Finder', 'https://github.com/TheGor-365/property_finder', target: '_blank', rel: 'noopener noreferrer', class: 'text-success' %> — ранний учебный проект, работа с Rails, базой данных и моделями.</small><br><br>
+    <span class="text-muted"><%= t("site.resume.journey.property.title") %></span><br>
+    <small><%= link_to 'Property Finder', 'https://github.com/TheGor-365/property_finder', target: '_blank', rel: 'noopener noreferrer', class: 'text-success' %><%= t("site.resume.journey.property.description") %></small><br><br>
 
-    <span class="text-muted">11.03.2023 — персональное веб-резюме</span><br>
-    <small><%= link_to 'Web Resume', 'https://github.com/TheGor-365/web_resume', target: '_blank', rel: 'noopener noreferrer', class: 'text-success' %> — личный Rails-сайт с разделами проектов, сертификатов и визуализацией опыта.</small><br><br>
+    <span class="text-muted"><%= t("site.resume.journey.web_resume.title") %></span><br>
+    <small><%= link_to 'Web Resume', 'https://github.com/TheGor-365/web_resume', target: '_blank', rel: 'noopener noreferrer', class: 'text-success' %><%= t("site.resume.journey.web_resume.description") %></small><br><br>
 
-    <span class="text-muted">08.07.2024 — коллективный блог</span><br>
-    <small><%= link_to 'Rails Project 64', 'https://github.com/TheGor-365/rails-project-64', target: '_blank', rel: 'noopener noreferrer', class: 'text-success' %> — учебный блог: Devise, публикации, комментарии, лайки, Bootstrap, Turbo и локализация.</small><br><br>
+    <span class="text-muted"><%= t("site.resume.journey.blog.title") %></span><br>
+    <small><%= link_to 'Rails Project 64', 'https://github.com/TheGor-365/rails-project-64', target: '_blank', rel: 'noopener noreferrer', class: 'text-success' %><%= t("site.resume.journey.blog.description") %></small><br><br>
 
-    <span class="text-muted">13.09.2025 — модерация и права доступа</span><br>
-    <small><%= link_to 'Classifieds', 'https://github.com/TheGor-365/rails-project-65', target: '_blank', rel: 'noopener noreferrer', class: 'text-success' %> — учебная доска объявлений с AASM, Pundit и управлением состояниями публикаций.</small><br><br>
+    <span class="text-muted"><%= t("site.resume.journey.classifieds.title") %></span><br>
+    <small><%= link_to 'Classifieds', 'https://github.com/TheGor-365/rails-project-65', target: '_blank', rel: 'noopener noreferrer', class: 'text-success' %><%= t("site.resume.journey.classifieds.description") %></small><br><br>
 
-    <span class="text-muted">02.12.2025 — анализ качества кода</span><br>
-    <small><%= link_to 'GitHub Quality', 'https://github.com/TheGor-365/rails-project-66', target: '_blank', rel: 'noopener noreferrer', class: 'text-success' %> — учебный Rails-сервис с GitHub OAuth и автоматическими проверками репозиториев.</small><br><br>
+    <span class="text-muted"><%= t("site.resume.journey.quality.title") %></span><br>
+    <small><%= link_to 'GitHub Quality', 'https://github.com/TheGor-365/rails-project-66', target: '_blank', rel: 'noopener noreferrer', class: 'text-success' %><%= t("site.resume.journey.quality.description") %></small><br><br>
 
-    <span class="text-muted">19.05.2026 — завершение обучения Hexlet</span><br>
-    <small>Получен сертификат по программе «Разработчик Ruby on Rails». Сертификаты RU/EN готовятся к добавлению в раздел сайта.</small><br><br>
+    <span class="text-muted"><%= t("site.resume.journey.hexlet.title") %></span><br>
+    <small><%= t("site.resume.journey.hexlet.description") %></small><br><br>
 
-    <span class="text-muted">09.07.2026 — инфраструктура автоматизации</span><br>
-    <small><%= link_to 'AI Course Actions Runner', 'https://github.com/TheGor-365/ai-course-actions-runner', target: '_blank', rel: 'noopener noreferrer', class: 'text-success' %> — публичный исполнитель GitHub Actions для автоматизации; закрытые материалы проекта не опубликованы.</small>
+    <span class="text-muted"><%= t("site.resume.journey.runner.title") %></span><br>
+    <small><%= link_to 'AI Course Actions Runner', 'https://github.com/TheGor-365/ai-course-actions-runner', target: '_blank', rel: 'noopener noreferrer', class: 'text-success' %><%= t("site.resume.journey.runner.description") %></small>
   </p>
   <hr><br>
 
-  <h3 class="text-muted">Технологии и инструменты</h3>
+  <h3 class="text-muted"><%= t("site.resume.skills.heading") %></h3>
   <p>
-    <span class="text-muted">Основной стек:</span><br>
-    <small>Ruby, Ruby on Rails, PostgreSQL, Active Record, HTML5, CSS3, Bootstrap, Git / GitHub.</small><br><br>
-    <span class="text-muted">Практика в проектах:</span><br>
-    <small>REST API, Hotwire / Turbo, Devise, OAuth, Pundit, Minitest / RSpec, CI / GitHub Actions.</small><br><br>
-    <span class="text-muted">Формат сотрудничества:</span><br>
-    <small>Небольшие задачи по Rails и веб-разработке с согласованными требованиями, сроками и критериями приёмки.</small>
+    <span class="text-muted"><%= t("site.resume.skills.primary_label") %></span><br>
+    <small><%= t("site.resume.skills.primary") %></small><br><br>
+    <span class="text-muted"><%= t("site.resume.skills.practice_label") %></span><br>
+    <small><%= t("site.resume.skills.practice") %></small><br><br>
+    <span class="text-muted"><%= t("site.resume.skills.collaboration_label") %></span><br>
+    <small><%= t("site.resume.skills.collaboration") %></small>
   </p>
 <% end %>

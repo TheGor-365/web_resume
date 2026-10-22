@@ -1,26 +1,26 @@
 <%= turbo_frame_tag "experience" do %>
   <%# CAREER_SERVICES_V1 — independently updated right panel; charts remain untouched. %>
-  <h3 class="text-muted mb-3">Технологии и подход</h3>
+  <h3 class="text-muted mb-3"><%= t('site.services_right.heading') %></h3>
   <%# CAREER_GOR_SERVICE_DETAILS_MEDIA_V1; CAREER_MEDIA_FIT_V2 %>
   <div class="career-media-card mb-3 text-center" style="max-width:100%;min-width:0;box-sizing:border-box;overflow:hidden;">
-    <p class="small fw-semibold text-muted mb-2">Gor Web Development · Видеоинтро (7 секунд)</p>
+    <p class="small fw-semibold text-muted mb-2"><%= t('site.services_right.video') %></p>
     <video class="career-brand-video rounded mx-auto" controls playsinline preload="metadata" width="158" height="280"
            poster="/media/gor/brand-poster.webp"
            style="display:block;width:158px;max-width:100%;height:280px;max-height:280px;object-fit:contain;background:#100d23;margin:0 auto;"
-           aria-label="Gor Web Development — фирменная видеоинтро">
+           aria-label="<%= t('site.services_right.video_aria') %>">
       <source src="/media/gor/gor-logo-intro.mp4" type="video/mp4">
-      Ваш браузер не поддерживает видео.
+      <%= t('site.services_right.fallback') %>
     </video>
     <a class="link-secondary text-decoration-none small d-inline-block mt-2" href="/media/gor/gor-logo-intro.mp4"
-       target="_blank" rel="noopener noreferrer">Открыть видео отдельно ↗</a>
+       target="_blank" rel="noopener noreferrer"><%= t('site.services_right.open') %></a>
   </div>
-  <p class="small text-muted mb-4">Инструменты, с которыми работаю на практике, и репозитории для проверки исходного кода.</p>
+  <p class="small text-muted mb-4"><%= t('site.services_right.intro') %></p>
 
   <% skill_groups = [
-    ["Бэкенд", ["Ruby", "Ruby on Rails", "Active Record", "REST API", "JSON"]],
-    ["Базы данных", ["PostgreSQL", "SQL", "Миграции", "Ассоциации"]],
-    ["Интерфейс", ["HTML5", "CSS3", "Bootstrap", "Hotwire / Turbo", "JavaScript (базовый)"]],
-    ["Качество и инструменты", ["Git / GitHub", "Minitest", "RSpec", "RuboCop", "GitHub Actions"]]
+    [t("site.services_right.backend"), ["Ruby", "Ruby on Rails", "Active Record", "REST API", "JSON"]],
+    [t("site.services_right.databases"), ["PostgreSQL", "SQL", t("site.services_right.migrations"), t("site.services_right.associations")]],
+    [t("site.services_right.frontend"), ["HTML5", "CSS3", "Bootstrap", "Hotwire / Turbo", t("site.services_right.js_basic")]],
+    [t("site.services_right.quality"), ["Git / GitHub", "Minitest", "RSpec", "RuboCop", "GitHub Actions"]]
   ] %>
   <% skill_groups.each do |heading, skills| %>
     <section class="mb-4">
@@ -34,9 +34,9 @@
   <% end %>
 
   <hr class="my-4">
-  <h4 class="h5 text-muted mb-3">Примеры кода</h4>
+  <h4 class="h5 text-muted mb-3"><%= t('site.services_right.examples') %></h4>
   <% repositories = [
-    ["GitHub Quality", "OAuth · линтеры · история проверок", "https://github.com/TheGor-365/rails-project-66"],
+    ["GitHub Quality", t("site.services_right.repo_detail"), "https://github.com/TheGor-365/rails-project-66"],
     ["Classifieds", "CRUD · AASM · Pundit", "https://github.com/TheGor-365/rails-project-65"],
     ["Web Resume", "Turbo · PostgreSQL · Chartkick", "https://github.com/TheGor-365/web_resume"]
   ] %>
@@ -49,15 +49,15 @@
   <% end %>
 
   <hr class="my-4">
-  <h4 class="h5 text-muted">Как начинается работа</h4>
+  <h4 class="h5 text-muted"><%= t('site.services_right.process') %></h4>
   <ol class="small ps-3 mb-4">
-    <li class="mb-2">Коротко описываете задачу, окружение и ожидаемое поведение.</li>
-    <li class="mb-2">Согласуем объём, цену, сроки и критерии приёмки.</li>
-    <li>Выполняю согласованные изменения, проверяем результат и передачу кода.</li>
+    <li class="mb-2"><%= t('site.services_right.step1') %></li>
+    <li class="mb-2"><%= t('site.services_right.step2') %></li>
+    <li><%= t('site.services_right.step3') %></li>
   </ol>
-  <%= link_to "Написать на почту", contact_email_path,
+  <%= link_to t("site.services_right.email"), contact_email_path,
       class: "btn btn-outline-success w-100 mb-2", data: { turbo_action: "replace" } %>
-  <%= link_to "Услуга на Kwork", "https://kwork.com/website-revision/55217959/i-will-fix-a-bug-in-your-ruby-on-rails-application",
+  <%= link_to t("site.services_right.kwork"), "https://kwork.com/website-revision/55217959/i-will-fix-a-bug-in-your-ruby-on-rails-application",
       class: "link-success small text-decoration-none", target: "_blank", rel: "noopener noreferrer" %>
-  <p class="small text-muted mt-3">Исходники учебных проектов показаны как доказательство навыков, не как коммерческие кейсы.</p>
+  <p class="small text-muted mt-3"><%= t('site.services_right.disclaimer') %></p>
 <% end %>

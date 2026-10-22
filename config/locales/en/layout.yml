@@ -1,0 +1,11 @@
+en:
+  site:
+    layout:
+      title: "Gor Web Development | Ruby on Rails"
+      name: "Gor Khachatryan"
+      role: "Ruby on Rails · PostgreSQL · APIs · testing"
+      profiles: "Professional profiles and social media"
+      disclaimer: "Educational projects are distinguished from commercial work"
+      vk: "VK"
+      vk_pending: "Community URL not yet confirmed"
+      development: "Ruby on Rails development"

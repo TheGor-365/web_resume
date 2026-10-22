@@ -1,0 +1,44 @@
+hy:
+  site:
+    resume:
+      intro:
+        role: "Ruby on Rails ծրագրավորող"
+        location: "Հայաստան · հեռավար աշխատանք"
+        open_source: "Անձնական և ուսումնական նախագծեր՝ բաց ելակետային կոդով"
+      profile:
+        heading: "Ruby on Rails մշակում"
+        label: "Մասնագիտական ուղղություն՝"
+        description: "Rails հավելվածներ, սխալների ուղղում, CRUD, ձևեր, REST API, PostgreSQL, թեստեր և ինտեգրումներ։"
+        evidence_label: "Հմտությունների հաստատում՝"
+        evidence: "GitHub-ի պահոցներ, ավարտական ուսումնական նախագծեր և Hexlet-ի վկայական։ Ստորև նշված ամսաթվերը վերաբերում են պահոցների ստեղծմանը և ուսմանը, ոչ թե վճարովի աշխատանքային փորձին։"
+      journey:
+        heading: "Ծրագրավորման ուղին · 2020–2026"
+        property:
+          title: "25.08.2020 — Rails-ի ուսումնական փորձ՝ Property Finder"
+          description: " — վաղ ուսումնական նախագիծ՝ Rails-ի, տվյալների բազայի և մոդելների հետ աշխատանքով։"
+        web_resume:
+          title: "11.03.2023 — անձնական վեբ ռեզյումե"
+          description: " — անձնական Rails կայք՝ նախագծերի, վկայականների և փորձի պատկերավորման բաժիններով։"
+        blog:
+          title: "08.07.2024 — համատեղ բլոգ"
+          description: " — ուսումնական բլոգ՝ Devise, գրառումներ, մեկնաբանություններ, հավանումներ, Bootstrap, Turbo և տեղայնացում։"
+        classifieds:
+          title: "13.09.2025 — մոդերացիա և մուտքի իրավունքներ"
+          description: " — ուսումնական հայտարարությունների հավելված՝ AASM-ով, Pundit-ով և հրապարակումների կարգավիճակների կառավարմամբ։"
+        quality:
+          title: "02.12.2025 — կոդի որակի վերլուծություն"
+          description: " — ուսումնական Rails ծառայություն՝ GitHub OAuth-ով և պահոցների ավտոմատ ստուգումներով։"
+        hexlet:
+          title: "19.05.2026 — Hexlet-ի ծրագրի ավարտ"
+          description: "Completed the Ruby on Rails Developer program. Russian and English certificate versions are available in the Certificates section."
+        runner:
+          title: "09.07.2026 — ավտոմատացման ենթակառուցվածք"
+          description: " — GitHub Actions-ի հանրային ավտոմատացման կատարիչ. նախագծի փակ նյութերը հրապարակված չեն։"
+      skills:
+        heading: "Տեխնոլոգիաներ և գործիքներ"
+        primary_label: "Հիմնական տեխնոլոգիաներ՝"
+        primary: "Ruby, Ruby on Rails, PostgreSQL, Active Record, HTML5, CSS3, Bootstrap, Git / GitHub։"
+        practice_label: "Կիրառվել են նախագծերում՝"
+        practice: "REST API, Hotwire / Turbo, Devise, OAuth, Pundit, Minitest / RSpec, CI / GitHub Actions։"
+        collaboration_label: "Համագործակցության ձևաչափ՝"
+        collaboration: "Rails-ի և վեբ մշակման փոքր առաջադրանքներ՝ համաձայնեցված պահանջներով, ժամկետներով և ընդունման չափանիշներով։"

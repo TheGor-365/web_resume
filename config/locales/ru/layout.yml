@@ -1,0 +1,11 @@
+ru:
+  site:
+    layout:
+      title: "Gor Web Development | Ruby on Rails"
+      name: "Гор Хачатрян"
+      role: "Ruby on Rails · PostgreSQL · API · тестирование"
+      profiles: "Профессиональные профили и социальные сети"
+      disclaimer: "Учебные проекты обозначены отдельно от коммерческих"
+      vk: "ВКонтакте"
+      vk_pending: "Ожидается подтверждённый URL сообщества"
+      development: "Разработка на Ruby on Rails"

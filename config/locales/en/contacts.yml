@@ -1,0 +1,16 @@
+en:
+  site:
+    contacts:
+      heading: "Contacts"
+      intro: "Let's discuss your Ruby on Rails, PostgreSQL or web development task: scope, timeframe and acceptance criteria."
+      message: "Send a message"
+      wa_text: "Hello! I'd like to discuss a Ruby on Rails task."
+      wa_open: "Open a WhatsApp conversation"
+      wa_pending: "The link will be available when the business number is configured on the server."
+      messenger_open: "Open a conversation with Gor Web Development"
+      email: "Email"
+      email_open: "Open the attachment-enabled form in the right panel"
+      social: "Social networks and GitHub"
+      vk: "VK"
+      platforms: "Freelance platforms"
+      note: "A brief problem description and expected outcome are enough to start a conversation. Do not send passwords, tokens or other secrets."

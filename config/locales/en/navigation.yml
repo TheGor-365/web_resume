@@ -1,0 +1,15 @@
+en:
+  site:
+    navigation:
+      resume: "Résumé"
+      cover: "Cover"
+      projects: "Projects"
+      github: "GitHub"
+      certificates: "Certificates"
+      experience: "Experience"
+      timeline: "Timeline"
+      services: "Services"
+      contacts: "Contact"
+      language_switcher: "Choose language"
+      toggle: "Open navigation"
+      brand_home: "Gor Web Development — home"

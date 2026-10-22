@@ -1,0 +1,44 @@
+ru:
+  site:
+    resume:
+      intro:
+        role: "Ruby on Rails-разработчик"
+        location: "Армения · удалённая работа"
+        open_source: "Личные и учебные проекты с открытым кодом"
+      profile:
+        heading: "Разработка на Ruby on Rails"
+        label: "Профиль:"
+        description: "Rails-приложения, исправление ошибок, CRUD, формы, REST API, работа с PostgreSQL, тесты и интеграции."
+        evidence_label: "Подтверждение навыков:"
+        evidence: "Репозитории GitHub, выпускные учебные проекты и сертификат Hexlet. Даты ниже относятся к созданию репозиториев и обучению, а не к коммерческому стажу."
+      journey:
+        heading: "Путь в разработке · 2020–2026"
+        property:
+          title: "25.08.2020 — практика с Rails: Property Finder"
+          description: " — ранний учебный проект, работа с Rails, базой данных и моделями."
+        web_resume:
+          title: "11.03.2023 — персональное веб-резюме"
+          description: " — личный Rails-сайт с разделами проектов, сертификатов и визуализацией опыта."
+        blog:
+          title: "08.07.2024 — коллективный блог"
+          description: " — учебный блог: Devise, публикации, комментарии, лайки, Bootstrap, Turbo и локализация."
+        classifieds:
+          title: "13.09.2025 — модерация и права доступа"
+          description: " — учебная доска объявлений с AASM, Pundit и управлением состояниями публикаций."
+        quality:
+          title: "02.12.2025 — анализ качества кода"
+          description: " — учебный Rails-сервис с GitHub OAuth и автоматическими проверками репозиториев."
+        hexlet:
+          title: "19.05.2026 — завершение обучения Hexlet"
+          description: "Получен сертификат по программе «Разработчик Ruby on Rails». Сертификаты RU/EN готовятся к добавлению в раздел сайта."
+        runner:
+          title: "09.07.2026 — инфраструктура автоматизации"
+          description: " — публичный исполнитель GitHub Actions для автоматизации; закрытые материалы проекта не опубликованы."
+      skills:
+        heading: "Технологии и инструменты"
+        primary_label: "Основной стек:"
+        primary: "Ruby, Ruby on Rails, PostgreSQL, Active Record, HTML5, CSS3, Bootstrap, Git / GitHub."
+        practice_label: "Практика в проектах:"
+        practice: "REST API, Hotwire / Turbo, Devise, OAuth, Pundit, Minitest / RSpec, CI / GitHub Actions."
+        collaboration_label: "Формат сотрудничества:"
+        collaboration: "Небольшие задачи по Rails и веб-разработке с согласованными требованиями, сроками и критериями приёмки."

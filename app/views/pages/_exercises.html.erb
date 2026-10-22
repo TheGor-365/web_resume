@@ -1,9 +1,7 @@
 <%= turbo_frame_tag "toggler" do %>
   <h3 class="text-muted">GitHub · TheGor-365</h3><br>
   <p class="text-muted small mb-3">
-    Встроенный обзор публичного GitHub-профиля. Данные получены из GitHub API,
-    а не из копии сайта GitHub. Недавние обновления — это дата отправки кода,
-    не доказательство коммерческих заказов.
+    <%= t('site.github.intro') %>
   </p>
 
   <% if @github_preview %>
@@ -13,20 +11,20 @@
       <div class="d-flex align-items-center gap-3 mb-3">
         <%= image_tag account.fetch("avatar_url"), width: 68, height: 68,
               class: "rounded-circle border", style: "width:68px;height:68px;object-fit:cover",
-              alt: "GitHub avatar TheGor-365" %>
+              alt: t("site.github.avatar_alt") %>
         <div>
           <h4 class="h5 mb-1">TheGor-365</h4>
           <p class="text-muted small mb-0">
-            Публичных репозиториев: <%= account.fetch("public_repos") %><br>
-            Подписчиков: <%= account.fetch("followers") %>
+            <%= t("site.github.repos") %> <%= account.fetch("public_repos") %><br>
+            <%= t("site.github.followers") %> <%= account.fetch("followers") %>
           </p>
         </div>
       </div>
-      <%= link_to "Открыть полный профиль на GitHub", "https://github.com/TheGor-365",
+      <%= link_to t("site.github.profile"), "https://github.com/TheGor-365",
             class: "text-success fw-semibold", target: "_blank", rel: "noopener noreferrer" %>
     </div>
 
-    <h4 class="h5 text-muted">Недавно обновлённые публичные репозитории</h4>
+    <h4 class="h5 text-muted"><%= t("site.github.recent") %></h4>
     <% if repositories.any? %>
       <% repositories.each do |repository| %>
         <article class="border rounded p-3 my-3 border-success">
@@ -34,24 +32,24 @@
             <%= link_to repository.fetch("name"), repository.fetch("html_url"),
                   class: "text-success fw-semibold", target: "_blank", rel: "noopener noreferrer" %>
           </h5>
-          <p class="small mb-2"><%= repository["description"].presence || "Описание в GitHub пока не указано." %></p>
+          <p class="small mb-2"><%= repository["description"].presence || t("site.github.missing_description") %></p>
           <div class="d-flex flex-wrap align-items-center gap-2">
             <% if repository["language"].present? %>
               <span class="badge bg-light text-dark border"><%= repository["language"] %></span>
             <% end %>
-            <small class="text-muted">Последняя отправка кода: <%= repository.fetch("pushed_at", "").to_s.slice(0, 10) %></small>
+            <small class="text-muted"><%= t("site.github.last_push") %> <%= repository.fetch("pushed_at", "").to_s.slice(0, 10) %></small>
             <small class="text-muted">★ <%= repository.fetch("stargazers_count", 0) %></small>
           </div>
         </article>
       <% end %>
     <% else %>
-      <p class="text-muted small">Нет доступных записей о публичных репозиториях.</p>
+      <p class="text-muted small"><%= t("site.github.no_repos") %></p>
     <% end %>
   <% else %>
     <div class="alert alert-secondary small" role="status">
-      Сейчас не удалось получить данные от GitHub. Сайт и остальные вкладки работают независимо.
+      <%= t("site.github.unavailable") %>
     </div>
-    <%= link_to "Открыть GitHub TheGor-365", "https://github.com/TheGor-365",
+    <%= link_to t("site.github.fallback"), "https://github.com/TheGor-365",
           class: "text-success fw-semibold", target: "_blank", rel: "noopener noreferrer" %>
   <% end %>
 <% end %>

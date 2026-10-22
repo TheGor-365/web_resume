@@ -1,0 +1,15 @@
+ru:
+  site:
+    navigation:
+      resume: "Резюме"
+      cover: "Cover"
+      projects: "Проекты"
+      github: "GitHub"
+      certificates: "Сертификаты"
+      experience: "Опыт"
+      timeline: "Timeline graph"
+      services: "Услуги"
+      contacts: "Контакты"
+      language_switcher: "Выбор языка"
+      toggle: "Открыть меню"
+      brand_home: "Gor Web Development — главная"

@@ -1,9 +1,9 @@
 <%= turbo_frame_tag "experience" do %>
-  <h3 class="text-muted mb-3">Написать на почту</h3>
-  <p class="text-muted small">Сообщение будет доставлено на 7495500@gmail.com. Ответ придёт на email, указанный вами.</p>
+  <h3 class="text-muted mb-3"><%= t("site.contact_mail.heading") %></h3>
+  <p class="text-muted small"><%= t("site.contact_mail.intro") %></p>
 
   <% if sent %>
-    <div class="alert alert-success small" role="status">Сообщение принято почтовым сервером. Спасибо! Проверьте ответ на вашей почте.</div>
+    <div class="alert alert-success small" role="status"><%= t("site.contact_mail.sent") %></div>
   <% end %>
   <% if errors.any? %>
     <div class="alert alert-danger small" role="alert">
@@ -13,31 +13,46 @@
 
   <%= form_with url: send_contact_email_path, method: :post, format: :turbo_stream, multipart: true, local: false do |form| %>
     <div class="mb-3">
-      <%= form.label :sender_name, 'Ваше имя', class: 'form-label small' %>
+      <%= form.label :sender_name, t("site.contact_mail.name"), class: 'form-label small' %>
       <%= text_field_tag :sender_name, values[:name], class: 'form-control', maxlength: 100, required: true, autocomplete: 'name' %>
     </div>
     <div class="mb-3">
-      <%= form.label :sender_email, 'Ваш email', class: 'form-label small' %>
+      <%= form.label :sender_email, t("site.contact_mail.email"), class: 'form-label small' %>
       <%= email_field_tag :sender_email, values[:email], class: 'form-control', maxlength: 254, required: true, autocomplete: 'email' %>
     </div>
     <div class="mb-3">
-      <%= form.label :subject_text, 'Тема обращения', class: 'form-label small' %>
+      <%= form.label :subject_text, t("site.contact_mail.subject"), class: 'form-label small' %>
       <%= text_field_tag :subject_text, values[:subject], class: 'form-control', maxlength: 150, required: true %>
     </div>
     <div class="mb-3">
-      <%= form.label :body_text, 'Сообщение', class: 'form-label small' %>
+      <%= form.label :body_text, t("site.contact_mail.message"), class: 'form-label small' %>
       <%= text_area_tag :body_text, values[:body], class: 'form-control', rows: 5, maxlength: 4000, minlength: 20, required: true %>
     </div>
     <div class="mb-3">
-      <%= label_tag 'attachments', 'Вложения (до 2 файлов, суммарно до 8 МБ)', class: 'form-label small' %>
-      <%= file_field_tag 'attachments[]', multiple: true, class: 'form-control', accept: '.pdf,.jpg,.jpeg,.png,.txt,.docx,.xlsx' %>
-      <small class="text-muted">PDF, изображения, TXT, DOCX, XLSX. Пароли и конфиденциальные данные отправлять не нужно.</small>
+      <%= label_tag 'career-contact-attachments', t("site.contact_mail.attachments"), class: 'form-label small' %>
+      <%# Keep the native file input for multipart submission; localize its presentation. %>
+      <div class="d-flex flex-wrap align-items-center gap-2" data-controller="career-attachments">
+        <%= file_field_tag 'attachments[]',
+              id: 'career-contact-attachments',
+              multiple: true,
+              class: 'visually-hidden',
+              accept: '.pdf,.jpg,.jpeg,.png,.txt,.docx,.xlsx',
+              data: { career_attachments_target: 'input', action: 'change->career-attachments#update' } %>
+        <label for="career-contact-attachments" class="btn btn-outline-secondary btn-sm mb-0">
+          <%= t("site.contact_mail.choose_files") %>
+        </label>
+        <span class="small text-muted text-break"
+              role="status" aria-live="polite"
+              data-career-attachments-target="selection"
+              data-empty-text="<%= t("site.contact_mail.no_files_selected") %>"><%= t("site.contact_mail.no_files_selected") %></span>
+      </div>
+      <small class="text-muted"><%= t("site.contact_mail.attachments_note") %></small>
     </div>
     <%# Basic spam trap, hidden from legitimate visitors. %>
     <div style="position:absolute;left:-9999px" aria-hidden="true">
       <%= label_tag :website, 'Website' %><%= text_field_tag :website, '', tabindex: -1, autocomplete: 'off' %>
     </div>
-    <%= form.submit 'Отправить сообщение', class: 'btn btn-success w-100', disabled: ENV['CAREER_GMAIL_APP_PASSWORD'].to_s.empty? %>
-    <% if ENV['CAREER_GMAIL_APP_PASSWORD'].to_s.empty? %><p class="text-muted small mt-2">Исходящая почта ещё не подключена.</p><% end %>
+    <%= form.submit t("site.contact_mail.send"), class: 'btn btn-success w-100', disabled: ENV['CAREER_GMAIL_APP_PASSWORD'].to_s.empty? %>
+    <% if ENV['CAREER_GMAIL_APP_PASSWORD'].to_s.empty? %><p class="text-muted small mt-2"><%= t("site.contact_mail.not_configured") %></p><% end %>
   <% end %>
 <% end %>

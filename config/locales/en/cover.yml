@@ -1,0 +1,14 @@
+en:
+  site:
+    cover:
+      heading: "Cover letter"
+      greeting: "Hello!"
+      intro: "My name is Gor Khachatryan. I am a Ruby on Rails developer. I have been studying software development since 2020 and completed the Ruby on Rails program at Hexlet. I am available for remote project work and collaboration with teams."
+      stack: "I work with Ruby, Rails, Active Record, PostgreSQL, migrations, model associations, forms, CRUD and REST APIs. I use Git/GitHub, HTML, Bootstrap, Turbo and Minitest/RSpec; my JavaScript proficiency is basic."
+      portfolio: "Code examples: GitHub Quality — an educational Rails service that checks repositories using GitHub OAuth; Classifieds — an educational classifieds platform with moderation and authorization; Web Resume — my personal Rails site. Source code: github.com/TheGor-365."
+      services_heading: "What can I help with?"
+      services: "Ruby on Rails bug fixes, small improvements, forms and CRUD, PostgreSQL queries and migrations, REST APIs, testing and refactoring. I estimate tasks based on their actual scope and acceptance criteria."
+      process_heading: "How do I work?"
+      process: "First, I clarify the problem, input data, expected result and deadlines. Then I propose a focused plan, make changes and verify them with tests. I use AI as an assisting tool, while checking the code and application behavior myself."
+      closing: "I am available to discuss your task, estimate the work and agree on terms. My portfolio and source code are on GitHub; you can reach me through my professional profiles."
+      signature: "Kind regards, Gor Khachatryan."

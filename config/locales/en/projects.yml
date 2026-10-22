@@ -1,0 +1,61 @@
+en:
+  site:
+    projects:
+      heading: "Projects"
+      intro: "Educational, personal and infrastructure projects showing actual development work. Features and technologies are described based on source code and README files. Links lead to GitHub; public demo availability has not been independently verified."
+      repo_year: "Repository creation year:"
+      features: "Key features"
+      technologies: "Technologies"
+      code: "View source code on GitHub"
+      quality_art: "Promotional illustration of the educational GitHub Quality project"
+      quality_caption: "Promotional artwork, not an application screenshot"
+      brand_art: "Gor Web Development brand mark"
+      brand_caption: "Web Resume project brand mark"
+      categories:
+        educational: "Educational project"
+        personal: "Personal project"
+        early: "Early educational project"
+        infrastructure: "Infrastructure project"
+      items:
+        quality:
+          name: "GitHub Quality"
+          description: "A service for analyzing GitHub repository quality, running code checks and viewing results for each repository."
+          features:
+            - "Sign in with GitHub OAuth and connect the user's repositories."
+            - "Run RuboCop and ESLint checks for Ruby and JavaScript code."
+            - "View check history, status, commit SHA, issue counts and linter output."
+        classifieds:
+          name: "Classifieds — listing platform"
+          description: "A listings application with moderation: users submit listings and administrators manage their publication states."
+          features:
+            - "Listings with categories, images and an author dashboard."
+            - "Draft, moderation, published, rejected and archived states using AASM."
+            - "Pundit authorization, GitHub sign-in and an administration panel."
+        blog:
+          name: "Collaborative blog"
+          description: "An educational Rails blog where registered users publish posts, comment and like content."
+          features:
+            - "Registration and authentication through Devise."
+            - "Posts, comments and likes associated with users."
+            - "RU/EN localization, language switching and Turbo/Stimulus."
+        resume:
+          name: "Web Resume — this website"
+          description: "A personal Rails résumé showcasing a developer profile, projects, certificates and a technical timeline."
+          features:
+            - "Navigate between sections within Turbo Frames without reloading the entire page."
+            - "Store portfolio and experience records through Active Record and PostgreSQL."
+            - "Visualize activity and event categories with Chartkick and Groupdate."
+        property:
+          name: "Property Finder"
+          description: "A property catalog with listing pages, user profiles and the ability to contact an agent."
+          features:
+            - "Create property listings with price, attributes, a photograph and status."
+            - "Devise accounts with properties associated with their owners."
+            - "Separate sales and rentals; send messages to agents with Action Mailer."
+        runner:
+          name: "AI Course Actions Runner"
+          description: "A public runner for approved automation workflows. It is not the interface of the private AI platform."
+          features:
+            - "Execute a restricted set of GitHub Actions tasks."
+            - "Associate execution evidence with specific private project revisions."
+            - "Limit exposure of logs, secrets and private artifacts."

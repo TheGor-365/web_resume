@@ -1,0 +1,14 @@
+en:
+  site:
+    github:
+      intro: "Embedded preview of the public GitHub profile using the GitHub API, not an iframe or a copy of GitHub. Recent updates show when code was pushed, not evidence of paid client work."
+      repos: "Public repositories:"
+      followers: "Followers:"
+      profile: "View full GitHub profile"
+      recent: "Recently updated public repositories"
+      missing_description: "No description provided on GitHub."
+      last_push: "Last code push:"
+      no_repos: "No public repository data is available."
+      unavailable: "GitHub data is currently unavailable. The rest of the website still works independently."
+      fallback: "Open GitHub TheGor-365"
+      avatar_alt: "TheGor-365 GitHub avatar"
