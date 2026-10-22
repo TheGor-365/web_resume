@@ -109,31 +109,33 @@ body.bg-dark.bg-gradient > main.container {
 /* CAREER_MOBILE_NAV_BRAND_20261023
    Brand watermark stays behind the content; desktop Bootstrap grid is unchanged.
    Only small-screen breakpoint rules alter navigation and scroll behavior. */
-body.bg-dark.bg-gradient::before {
-  content: "";
+/* An explicit fixed layer stays above the body gradient, below site content.
+   The image's dark pixels disappear under screen blending; the G is a quiet
+   imprint, not a rectangular advertisement behind the text. */
+body.bg-dark.bg-gradient > .career-brand-watermark {
   position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: 1;
   pointer-events: none;
   background: url("/media/gor/favicon-512.png") no-repeat center 52%;
-  background-size: clamp(480px, 76vw, 900px) auto;
-  filter: grayscale(1) brightness(1.35) contrast(.95);
-  opacity: .34;
-  -webkit-mask-image: radial-gradient(ellipse 69% 69% at center, #000 42%, transparent 100%);
-  mask-image: radial-gradient(ellipse 69% 69% at center, #000 42%, transparent 100%);
+  background-size: clamp(1050px, 114vw, 2000px) auto;
+  filter: grayscale(1) brightness(1.2) contrast(.95);
+  opacity: .31;
   mix-blend-mode: screen;
+  -webkit-mask-image: radial-gradient(ellipse 82% 78% at center, #000 52%, transparent 100%);
+  mask-image: radial-gradient(ellipse 82% 78% at center, #000 52%, transparent 100%);
 }
 
 body.bg-dark.bg-gradient > header,
 body.bg-dark.bg-gradient > main,
 body.bg-dark.bg-gradient > footer {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 /* Just enough translucency to suggest depth, while retaining readable text. */
 body.bg-dark.bg-gradient > main.container .card.lay {
-  background-color: rgba(255, 255, 255, .93) !important;
+  background-color: rgba(255, 255, 255, .88) !important;
 }
 
 @media (max-width: 991.98px) {
@@ -191,12 +193,13 @@ body.bg-dark.bg-gradient > main.container .card.lay {
     object-fit: cover;
     max-width: 100%;
   }
-  body.bg-dark.bg-gradient::before {
-    background-size: max(420px, 128vw) auto;
-    opacity: .39;
+  body.bg-dark.bg-gradient > .career-brand-watermark {
+    background-size: max(660px, 165vw) auto;
+    background-position: 50% 53%;
+    opacity: .40;
   }
   body.bg-dark.bg-gradient > main.container .card.lay {
-    background-color: rgba(255, 255, 255, .91) !important;
+    background-color: rgba(255, 255, 255, .85) !important;
   }
   /* Armenian names may need natural wraps; no mid-word wrapping for EN/RU. */
   html[lang="hy"] body.bg-dark.bg-gradient .career-profile-title h1 {
