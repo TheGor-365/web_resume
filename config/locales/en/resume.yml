@@ -1,0 +1,44 @@
+en:
+  site:
+    resume:
+      intro:
+        role: "Ruby on Rails developer"
+        location: "Armenia · remote work"
+        open_source: "Personal and educational open-source projects"
+      profile:
+        heading: "Ruby on Rails development"
+        label: "Profile:"
+        description: "Rails applications, bug fixes, CRUD, forms, REST APIs, PostgreSQL, tests and integrations."
+        evidence_label: "Evidence of skills:"
+        evidence: "GitHub repositories, final educational projects and a Hexlet certificate. The dates below describe repository creation and education, not commercial employment."
+      journey:
+        heading: "Development journey · 2020–2026"
+        property:
+          title: "25 Aug 2020 — Rails practice: Property Finder"
+          description: " — an early educational project involving Rails, a database and models."
+        web_resume:
+          title: "11 Mar 2023 — personal web résumé"
+          description: " — a personal Rails site featuring projects, certificates and experience visualizations."
+        blog:
+          title: "8 Jul 2024 — collaborative blog"
+          description: " — an educational blog using Devise, posts, comments, likes, Bootstrap, Turbo and localization."
+        classifieds:
+          title: "13 Sep 2025 — moderation and access control"
+          description: " — an educational classifieds app with AASM, Pundit and publication state management."
+        quality:
+          title: "2 Dec 2025 — code quality analysis"
+          description: " — an educational Rails service with GitHub OAuth and automated repository checks."
+        hexlet:
+          title: "19 May 2026 — completion of the Hexlet program"
+          description: "Получен сертификат по программе «Разработчик Ruby on Rails». Версии RU/EN доступны в разделе «Сертификаты»."
+        runner:
+          title: "9 Jul 2026 — automation infrastructure"
+          description: " — a public GitHub Actions automation runner; private project materials are not published."
+      skills:
+        heading: "Technologies and tools"
+        primary_label: "Core stack:"
+        primary: "Ruby, Ruby on Rails, PostgreSQL, Active Record, HTML5, CSS3, Bootstrap, Git / GitHub."
+        practice_label: "Used in projects:"
+        practice: "REST API, Hotwire / Turbo, Devise, OAuth, Pundit, Minitest / RSpec, CI / GitHub Actions."
+        collaboration_label: "Ways to collaborate:"
+        collaboration: "Small Rails and web development tasks with agreed requirements, deadlines and acceptance criteria."
