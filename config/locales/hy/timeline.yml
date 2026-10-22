@@ -1,0 +1,46 @@
+hy:
+  site:
+    timeline:
+      headings:
+        journey: "Ծրագրավորման ուղին"
+        yearly: "Մշակման փուլերը ըստ տարիների"
+        types: "Տեխնիկական իրադարձությունների տեսակները"
+        events: "Իրադարձություններ և աղբյուրներ"
+      labels:
+        type: "Տեսակ՝"
+        date: "Իրադարձության ամսաթիվ՝"
+        work: "Ստեղծվածը / ուսումնասիրվածը՝"
+        evidence: "Ապացույց՝"
+        year: "Տարի՝"
+        repo_source: "GitHub-ի պահոց · %{date}"
+      categories:
+        educational: "Ուսումնական նախագիծ"
+        personal: "Անձնական նախագիծ"
+        education: "Ուսուցում"
+        infrastructure: "Ենթակառուցվածքային նախագիծ"
+      notices:
+        journey: "Ժամանակագրություն՝ պահոցների ստեղծման և վկայականի ստացման ամսաթվեր, ոչ թե աշխատանքային ստաժ"
+        metrics: "Չափանիշ՝ ստուգելի իրադարձությունների քանակ, ոչ թե հմտությունների գնահատական կամ վճարովի աշխատանքի ստաժ"
+      events:
+        property_finder:
+          title: "Property Finder"
+          overview: "Անշարժ գույքի մասին վաղ ուսումնական Rails հավելված՝ մոդելների և վեբ միջերեսի հետ աշխատանքով։"
+        web_resume:
+          title: "Web Resume"
+          overview: "Անձնական Rails կայք՝ ռեզյումեով, նախագծերով, վկայականներով և գծապատկերներով։"
+        blog:
+          title: "Rails Project 64 — բլոգ"
+          overview: "Համատեղ ուսումնական բլոգ՝ Devise-ով, գրառումներով, մեկնաբանություններով, հավանումներով, I18n-ով և Turbo-ով։"
+        classifieds:
+          title: "Classifieds"
+          overview: "Ուսումնական հայտարարությունների հավելված՝ մոդերացիայով և մուտքի իրավունքների ստուգմամբ։"
+        quality:
+          title: "GitHub Quality"
+          overview: "Ուսումնական Rails ծառայություն՝ պահոցների ստուգմամբ և GitHub OAuth-ով։"
+        hexlet:
+          title: "Hexlet Rails"
+          overview: "Ruby on Rails ծրագրավորողի դասընթացի ավարտ։ Վկայականը տրվել է 2026 թվականի մայիսի 19-ին։"
+          note: "Hexlet-ի վկայական՝ 19.05.2026, RU/EN տարբերակներ։"
+        runner:
+          title: "AI Actions Runner"
+          overview: "GitHub Actions-ի հանրային կատարիչ. փակ նյութերը չեն հրապարակվում։"

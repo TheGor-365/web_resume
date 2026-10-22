@@ -1,5 +1,5 @@
 <%= turbo_frame_tag "experience" do %>
-  <h1 class="mb-5">Путь в разработке</h1>
+  <h1 class="mb-5"><%= t('site.timeline.headings.journey') %></h1>
 
   <% @experiences.each do |experience| %>
     <%= render experience %>
@@ -7,6 +7,6 @@
   <% end %>
 
   <div class="shadow rounded p-3 border border-danger">
-    <small class="text-muted"><span class="text-dark">Хронология</span> — даты создания репозиториев и получения сертификата; это не трудовой стаж</small>
+    <small class="text-muted"><span class="text-dark"><%= t('site.timeline.notices.journey') %></small>
   </div>
 <% end %>

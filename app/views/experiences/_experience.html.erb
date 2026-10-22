@@ -1,15 +1,15 @@
 <div id="<%= dom_id experience %>">
-  <h3 class="text-muted"><%= experience.title %></h3>
-  <small class="text-muted">Тип:</small> <small><%= experience.company %></small><br>
-  <small class="text-muted">Дата события:</small>
+  <h3 class="text-muted"><%= portfolio_milestone_text(experience, :title) %></h3>
+  <small class="text-muted"><%= t('site.timeline.labels.type') %></small> <small><%= portfolio_milestone_category(experience.company) %></small><br>
+  <small class="text-muted"><%= t('site.timeline.labels.date') %></small>
   <small><%= experience.start_at.to_date %></small><br><br>
 
   <p>
-    <span class="text-muted">Что создано / изучено:</span><br>
-    <small><%= experience.overview %></small><br><br>
+    <span class="text-muted"><%= t('site.timeline.labels.work') %></span><br>
+    <small><%= portfolio_milestone_text(experience, :overview) %></small><br><br>
 
-    <span class="text-muted">Подтверждение:</span><br>
-    <% source_note = experience.note.to_s %>
+    <span class="text-muted"><%= t('site.timeline.labels.evidence') %></span><br>
+    <% source_note = portfolio_milestone_note(experience) %>
     <% github_url = source_note[%r{https://github\.com/TheGor-365/[A-Za-z0-9_.-]+}] %>
     <% if github_url.present? %>
       <small class="text-muted"><%= source_note.sub(github_url, "").strip %></small><br>
@@ -18,7 +18,7 @@
       <small class="text-muted"><%= source_note %></small><br><br>
     <% end %>
 
-    <span class="text-muted">Год:</span>
+    <span class="text-muted"><%= t('site.timeline.labels.year') %></span>
     <small><%= experience.start_at.year %></small><br><br>
   </p>
 </div>

@@ -1,0 +1,46 @@
+ru:
+  site:
+    timeline:
+      headings:
+        journey: "Путь в разработке"
+        yearly: "Этапы разработки по годам"
+        types: "Типы технических событий"
+        events: "События и источники"
+      labels:
+        type: "Тип:"
+        date: "Дата события:"
+        work: "Что создано / изучено:"
+        evidence: "Подтверждение:"
+        year: "Год:"
+        repo_source: "GitHub-репозиторий · %{date}"
+      categories:
+        educational: "Учебный проект"
+        personal: "Личный проект"
+        education: "Обучение"
+        infrastructure: "Инфраструктурный проект"
+      notices:
+        journey: "Хронология — даты создания репозиториев и получения сертификата; это не трудовой стаж"
+        metrics: "Метрика — количество проверяемых событий, не уровень квалификации и не коммерческий стаж"
+      events:
+        property_finder:
+          title: "Property Finder"
+          overview: "Раннее Rails-приложение о недвижимости; практика моделей и веб-интерфейса."
+        web_resume:
+          title: "Web Resume"
+          overview: "Личный Rails-сайт с резюме, проектами, сертификатами и диаграммами."
+        blog:
+          title: "Rails Project 64 — блог"
+          overview: "Учебный коллективный блог: Devise, записи, комментарии, лайки, I18n и Turbo."
+        classifieds:
+          title: "Classifieds"
+          overview: "Учебная доска объявлений с модерацией и управлением правами."
+        quality:
+          title: "GitHub Quality"
+          overview: "Учебный Rails-сервис проверки репозиториев с GitHub OAuth."
+        hexlet:
+          title: "Hexlet Rails"
+          overview: "Завершение курса Ruby on Rails: сертификат выдан 19 мая 2026 года."
+          note: "Сертификат Hexlet: 19.05.2026, версии RU/EN."
+        runner:
+          title: "AI Actions Runner"
+          overview: "Публичный исполнитель GitHub Actions; закрытые материалы проекта не опубликованы."

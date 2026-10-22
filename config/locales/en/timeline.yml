@@ -1,0 +1,46 @@
+en:
+  site:
+    timeline:
+      headings:
+        journey: "Development journey"
+        yearly: "Development milestones by year"
+        types: "Types of technical milestones"
+        events: "Milestones and sources"
+      labels:
+        type: "Type:"
+        date: "Event date:"
+        work: "Built / learned:"
+        evidence: "Evidence:"
+        year: "Year:"
+        repo_source: "GitHub repository · %{date}"
+      categories:
+        educational: "Educational project"
+        personal: "Personal project"
+        education: "Education"
+        infrastructure: "Infrastructure project"
+      notices:
+        journey: "Timeline — repository creation and certification dates, not employment history"
+        metrics: "Metric — count of verifiable milestones, not a skill rating or commercial employment"
+      events:
+        property_finder:
+          title: "Property Finder"
+          overview: "An early educational real-estate Rails application involving models and web interfaces."
+        web_resume:
+          title: "Web Resume"
+          overview: "A personal Rails site with résumé, projects, certificates and charts."
+        blog:
+          title: "Rails Project 64 — blog"
+          overview: "Educational collaborative blog using Devise, posts, comments, likes, I18n and Turbo."
+        classifieds:
+          title: "Classifieds"
+          overview: "Educational classifieds application with moderation and authorization."
+        quality:
+          title: "GitHub Quality"
+          overview: "Educational Rails service for repository checks using GitHub OAuth."
+        hexlet:
+          title: "Hexlet Rails"
+          overview: "Completed the Ruby on Rails Developer course; certificate issued on 19 May 2026."
+          note: "Hexlet certificate: 19 May 2026, RU/EN versions."
+        runner:
+          title: "AI Actions Runner"
+          overview: "Public GitHub Actions runner; private project materials are not published."
