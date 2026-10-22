@@ -1,14 +1,18 @@
 import { Controller } from "@hotwired/stimulus"
 
 // Mobile-only progressive enhancement for Bootstrap Collapse + Rails Turbo Streams.
-// Desktop navigation is deliberately untouched (Bootstrap lg breakpoint).
+// Desktop navigation and both Turbo frames remain unchanged.
 export default class extends Controller {
   connect() {
     this.pendingTarget = null
+    this.readyPanelId = null
+    this.awaitingCollapse = false
   }
 
   disconnect() {
     this.pendingTarget = null
+    this.readyPanelId = null
+    this.awaitingCollapse = false
   }
 
   get isMobile() {
@@ -18,17 +22,24 @@ export default class extends Controller {
   navigate(event) {
     if (!this.isMobile) return
 
-    // Some tabs replace the right Turbo frame, the others replace the left one.
     const path = new URL(event.currentTarget.href, window.location.href).pathname
     this.pendingTarget = /\/(timeline|experience_data)\/?$/.test(path)
       ? "experience"
       : "toggler"
+    this.readyPanelId = null
 
     const menu = this.element.querySelector("#navbarNav")
-    if (menu && window.bootstrap?.Collapse) {
-      window.bootstrap.Collapse.getOrCreateInstance(menu, { toggle: false }).hide()
+    const collapse = window.bootstrap?.Collapse
+    this.awaitingCollapse = Boolean(menu?.classList.contains("show") && collapse)
+
+    if (this.awaitingCollapse) {
+      menu.addEventListener("hidden.bs.collapse", () => {
+        this.awaitingCollapse = false
+        this.scrollWhenReady()
+      }, { once: true })
+      collapse.getOrCreateInstance(menu, { toggle: false }).hide()
     }
-    // Do not preventDefault: Turbo performs the original request as before.
+    // Do not preventDefault: the existing Turbo request runs normally.
   }
 
   beforeStreamRender(event) {
@@ -40,22 +51,28 @@ export default class extends Controller {
     const originalRender = event.detail.render
     event.detail.render = async (streamElement) => {
       await originalRender(streamElement)
-
-      const panelId = target === "experience"
+      this.readyPanelId = target === "experience"
         ? "career-secondary-panel"
         : "career-primary-panel"
       this.pendingTarget = null
-
-      requestAnimationFrame(() => {
-        if (!this.isMobile) return
-        const panel = document.getElementById(panelId)
-        if (!panel) return
-        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-        panel.scrollIntoView({
-          behavior: reducedMotion ? "auto" : "smooth",
-          block: "start"
-        })
-      })
+      this.scrollWhenReady()
     }
+  }
+
+  scrollWhenReady() {
+    if (this.awaitingCollapse || !this.readyPanelId || !this.isMobile) return
+
+    const panelId = this.readyPanelId
+    this.readyPanelId = null
+    requestAnimationFrame(() => {
+      const panel = document.getElementById(panelId)
+      if (!panel || !this.isMobile) return
+
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      panel.scrollIntoView({
+        behavior: reducedMotion ? "auto" : "smooth",
+        block: "start"
+      })
+    })
   }
 }
