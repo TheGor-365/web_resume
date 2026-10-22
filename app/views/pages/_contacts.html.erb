@@ -1,7 +1,7 @@
 <%= turbo_frame_tag "toggler" do %>
   <%# CAREER_CONTACT_PAGE_V1: Uses the same Turbo frame and Bootstrap presentation as existing pages. %>
-  <h3 class="text-muted mb-2">Контакты</h3>
-  <p class="small text-muted mb-4">Обсудим задачу по Ruby on Rails, PostgreSQL или веб-разработке: описание, объём, сроки и критерии приёмки.</p>
+  <h3 class="text-muted mb-2"><%= t("site.contacts.heading") %></h3>
+  <p class="small text-muted mb-4"><%= t("site.contacts.intro") %></p>
 
   <% public_email = ENV.fetch("CAREER_PUBLIC_EMAIL", "").strip %>
   <% email_confirmed = public_email.match?(/\A[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}\z/) %>
@@ -10,39 +10,39 @@
   <% vk_url = ENV.fetch("CAREER_VK_URL", "").strip %>
   <% vk_confirmed = vk_url.match?(%r{\Ahttps://(?:www\.)?vk\.com/[A-Za-z0-9_.-]+/?\z}) %>
 
-  <h4 class="h6 text-muted mb-3">Написать сообщение</h4>
+  <h4 class="h6 text-muted mb-3"><%= t("site.contacts.message") %></h4>
   <div class="d-grid gap-3 mb-4">
     <% if whatsapp_confirmed %>
-      <a href="https://wa.me/<%= whatsapp_number %>?text=<%= ERB::Util.url_encode('Здравствуйте! Хочу обсудить задачу по Ruby on Rails.') %>" class="border rounded p-3 text-decoration-none text-dark d-flex gap-3 align-items-start" target="_blank" rel="noopener noreferrer">
+      <a href="https://wa.me/<%= whatsapp_number %>?text=<%= ERB::Util.url_encode(t('site.contacts.wa_text')) %>" class="border rounded p-3 text-decoration-none text-dark d-flex gap-3 align-items-start" target="_blank" rel="noopener noreferrer">
         <i class="bi bi-whatsapp fs-4 text-success" aria-hidden="true"></i>
-        <span><strong class="d-block">WhatsApp Business</strong><small class="text-muted">Открыть прямую переписку в WhatsApp</small></span>
+        <span><strong class="d-block">WhatsApp Business</strong><small class="text-muted"><%= t("site.contacts.wa_open") %></small></span>
       </a>
     <% else %>
       <div class="border rounded p-3 d-flex gap-3 align-items-start" role="note">
         <i class="bi bi-whatsapp fs-4 text-success" aria-hidden="true"></i>
-        <span><strong class="d-block">WhatsApp Business</strong><small class="text-muted">Ссылка появится после настройки бизнес-номера на сервере.</small></span>
+        <span><strong class="d-block">WhatsApp Business</strong><small class="text-muted"><%= t("site.contacts.wa_pending") %></small></span>
       </div>
     <% end %>
 
     <a href="https://m.me/gor.webdevelopment" class="border rounded p-3 text-decoration-none text-dark d-flex gap-3 align-items-start" target="_blank" rel="noopener noreferrer">
       <i class="bi bi-messenger fs-4 text-primary" aria-hidden="true"></i>
-      <span><strong class="d-block">Messenger</strong><small class="text-muted">Открыть прямой разговор с Gor Web Development</small></span>
+      <span><strong class="d-block">Messenger</strong><small class="text-muted"><%= t("site.contacts.messenger_open") %></small></span>
     </a>
 
     <a href="<%= contact_email_path %>" data-turbo-action="replace" class="border rounded p-3 text-decoration-none text-dark d-flex gap-3 align-items-start">
       <i class="bi bi-envelope fs-4 text-secondary" aria-hidden="true"></i>
-      <span><strong class="d-block">Электронная почта</strong><small class="text-muted">Открыть форму с вложениями в правой панели</small></span>
+      <span><strong class="d-block"><%= t("site.contacts.email") %></strong><small class="text-muted"><%= t("site.contacts.email_open") %></small></span>
     </a>
   </div>
 
-  <h4 class="h6 text-muted mb-3">Социальные сети и GitHub</h4>
+  <h4 class="h6 text-muted mb-3"><%= t("site.contacts.social") %></h4>
   <div class="row row-cols-1 row-cols-sm-2 g-2 mb-4">
     <% social_links = [
       ["Facebook", "https://www.facebook.com/gor.webdevelopment/", "bi-facebook"],
       ["Instagram", "https://www.instagram.com/thatgorfromvan/", "bi-instagram"],
       ["GitHub", "https://github.com/TheGor-365", "bi-github"]
     ] %>
-    <% social_links << ["ВКонтакте", vk_url, "bi-vk"] if vk_confirmed %>
+    <% social_links << [t("site.contacts.vk"), vk_url, "bi-vk"] if vk_confirmed %>
     <% social_links.each do |name, url, icon_name| %>
       <div class="col">
         <a href="<%= url %>" class="border rounded p-3 d-flex align-items-center gap-2 text-decoration-none text-dark h-100" target="_blank" rel="noopener noreferrer">
@@ -53,7 +53,7 @@
     <% end %>
   </div>
 
-  <h4 class="h6 text-muted mb-3">Фриланс-площадки</h4>
+  <h4 class="h6 text-muted mb-3"><%= t("site.contacts.platforms") %></h4>
   <div class="row row-cols-1 row-cols-sm-2 g-2 mb-3">
     <% job_links = [
       ["Kwork", "https://kwork.com/user/thegor-365"],
@@ -69,5 +69,5 @@
       </div>
     <% end %>
   </div>
-  <p class="text-muted small mt-4">Чтобы обсудить задачу, достаточно краткого описания проблемы и ожидаемого результата. Пароли, токены и другие секреты присылать не нужно.</p>
+  <p class="text-muted small mt-4"><%= t("site.contacts.note") %></p>
 <% end %>
