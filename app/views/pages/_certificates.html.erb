@@ -1,28 +1,28 @@
 <%= turbo_frame_tag "toggler" do %>
   <%# CAREER certificate cards v1: Bootstrap 5 only, no changes to layout/JS/routes. %>
-  <h3 class="text-muted mb-2">Мои сертификаты</h3>
-  <p class="text-muted small mb-4">Нажмите на изображение, чтобы рассмотреть сертификат на весь экран.</p>
+  <h3 class="text-muted mb-2"><%= t("site.certificates.heading") %></h3>
+  <p class="text-muted small mb-4"><%= t("site.certificates.intro") %></p>
 
   <%# Descriptions explain technologies, not the unverified syllabus of each course. %>
-  <% descriptions = {
-    "Hexlet — Ruby on Rails (RU)" => "Профессиональный курс Ruby on Rails: разработка веб-приложений на Ruby и Rails. Сертификат выдан 19 мая 2026 года.",
-    "Hexlet — Ruby on Rails (EN)" => "Англоязычная версия сертификата Hexlet о завершении профессионального курса Ruby on Rails, 19 мая 2026 года.",
-    "Bash" => "Bash — работа с командной строкой, файлами и автоматизацией задач в Linux.",
-    "Bootstrap" => "Bootstrap — готовые компоненты и адаптивная сетка для веб-интерфейсов.",
-    "Code Foundation" => "Основы программирования: логика, структуры данных и решение задач.",
-    "CSS" => "CSS — оформление страниц, стилизация элементов и адаптивная вёрстка.",
-    "Deploy" => "Deploy — публикация приложения и основы его развёртывания.",
-    "Git / GitHub" => "Git и GitHub — контроль версий, история изменений и работа с репозиториями.",
-    "How to code" => "Базовые принципы написания программ и алгоритмического мышления.",
-    "JavaScript build" => "JavaScript — построение интерактивного поведения веб-страниц.",
-    "JavaScript" => "JavaScript — логика и взаимодействие с элементами веб-интерфейса.",
-    "jQuery" => "jQuery — работа с DOM, событиями и эффектами в браузере.",
-    "Regexp" => "Регулярные выражения — поиск, проверка и обработка текстовых данных.",
-    "Ruby on Rails 2" => "Ruby on Rails — продолжение изучения серверной веб-разработки.",
-    "Ruby on Rails" => "Ruby on Rails — MVC, маршрутизация, модели и веб-приложения.",
-    "Ruby" => "Ruby — объектно-ориентированный язык программирования.",
-    "SQL 2" => "SQL — дополнительная практика запросов и работы с таблицами.",
-    "SQL" => "SQL — выборка и обработка данных в реляционных базах данных."
+  <% description_keys = {
+    "Hexlet — Ruby on Rails (RU)" => "hexlet_ru",
+    "Hexlet — Ruby on Rails (EN)" => "hexlet_en",
+    "Bash" => "bash",
+    "Bootstrap" => "bootstrap",
+    "Code Foundation" => "code_foundation",
+    "CSS" => "css",
+    "Deploy" => "deploy",
+    "Git / GitHub" => "git_github",
+    "How to code" => "how_to_code",
+    "JavaScript build" => "javascript_build",
+    "JavaScript" => "javascript",
+    "jQuery" => "jquery",
+    "Regexp" => "regexp",
+    "Ruby on Rails 2" => "rails_advanced",
+    "Ruby on Rails" => "rails",
+    "Ruby" => "ruby",
+    "SQL 2" => "sql_advanced",
+    "SQL" => "sql"
   } %>
 
   <% @certificates.sort_by { |certificate| [
@@ -33,7 +33,7 @@
       <div class="mb-3">
         <h4 class="h6 fw-bold mb-2"><%= certificate.title %></h4>
         <div class="text-success small fw-semibold mb-2"><%= certificate.school %></div>
-        <p class="text-muted small mb-0"><%= descriptions.fetch(certificate.title.to_s, "Учебный сертификат по теме «#{certificate.title}».") %></p>
+        <p class="text-muted small mb-0"><%= description_keys.key?(certificate.title.to_s) ? t("site.certificates.descriptions.#{description_keys.fetch(certificate.title.to_s)}") : t("site.certificates.generic", title: certificate.title) %></p>
       </div>
 
       <div class="bg-light border rounded-3 p-3 d-flex justify-content-center align-items-center" style="min-height: 220px;">
@@ -42,11 +42,11 @@
                 style="max-width: 100%; cursor: zoom-in;"
                 data-bs-toggle="modal"
                 data-bs-target="#certificate-preview-<%= certificate.id %>"
-                aria-label="Открыть на весь экран: <%= certificate.title %>">
+                aria-label="<%= t("site.certificates.open", title: certificate.title) %>">
           <%= image_tag(image_url(certificate.image), class: "img-fluid rounded-2", style: "max-height: 280px; max-width: 100%; width: auto; object-fit: contain;", loading: "lazy", alt: certificate.title) %>
         </button>
       </div>
-      <p class="text-muted text-center small mt-2 mb-0">Нажмите на изображение для увеличения</p>
+      <p class="text-muted text-center small mt-2 mb-0"><%= t("site.certificates.zoom_hint") %></p>
     </article>
 
     <div class="modal fade" id="certificate-preview-<%= certificate.id %>"
@@ -56,7 +56,7 @@
         <div class="modal-content bg-dark text-white border-0 rounded-0">
           <div class="modal-header border-secondary py-2 px-3 px-md-4">
             <h5 class="modal-title fs-6" id="certificate-preview-title-<%= certificate.id %>"><%= certificate.title %></h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="<%= t("site.certificates.close") %>"></button>
           </div>
           <div class="modal-body d-flex align-items-center justify-content-center p-3">
             <%= image_tag(image_url(certificate.image), class: "img-fluid", style: "max-width: 100%; max-height: calc(100vh - 7rem); width: auto; object-fit: contain;", alt: certificate.title) %>

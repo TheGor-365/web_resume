@@ -1,0 +1,28 @@
+en:
+  site:
+    certificates:
+      heading: "My certificates"
+      intro: "Select an image to view the certificate in full-screen mode."
+      generic: "Educational certificate in %{title}."
+      open: "View full-screen certificate: %{title}"
+      zoom_hint: "Select the image to enlarge it"
+      close: "Close"
+      descriptions:
+        hexlet_ru: "Hexlet's professional Ruby on Rails course covering web application development. Certificate issued on 19 May 2026."
+        hexlet_en: "English-language certificate for completing Hexlet's professional Ruby on Rails course, issued on 19 May 2026."
+        bash: "Bash — working with the command line, files and task automation on Linux."
+        bootstrap: "Bootstrap — reusable interface components and responsive grid layouts."
+        code_foundation: "Programming foundations — logic, data structures and problem solving."
+        css: "CSS — styling pages, interface elements and responsive layouts."
+        deploy: "Deployment — publishing applications and understanding basic deployment workflows."
+        git_github: "Git and GitHub — version control, change history and repository collaboration."
+        how_to_code: "Fundamental programming concepts and algorithmic thinking."
+        javascript_build: "JavaScript — building interactive browser behavior."
+        javascript: "JavaScript — logic and interaction with web interface elements."
+        jquery: "jQuery — working with the DOM, events and browser effects."
+        regexp: "Regular expressions — searching, validating and processing text."
+        rails_advanced: "Ruby on Rails — further study of server-side web development."
+        rails: "Ruby on Rails — MVC, routing, models and web applications."
+        ruby: "Ruby — an object-oriented programming language."
+        sql_advanced: "SQL — additional query and table manipulation practice."
+        sql: "SQL — querying and processing relational database data."
