@@ -9,6 +9,8 @@ en:
       subject: "Subject"
       message: "Message"
       attachments: "Attachments (up to 2 files, 8 MB total)"
+      choose_files: "Choose files"
+      no_files_selected: "No files selected"
       attachments_note: "PDF, images, TXT, DOCX and XLSX. Do not send passwords or confidential information."
       send: "Send message"
       not_configured: "Outgoing email is not configured yet."

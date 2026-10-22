@@ -30,7 +30,22 @@
     </div>
     <div class="mb-3">
       <%= label_tag 'attachments', t("site.contact_mail.attachments"), class: 'form-label small' %>
-      <%= file_field_tag 'attachments[]', multiple: true, class: 'form-control', accept: '.pdf,.jpg,.jpeg,.png,.txt,.docx,.xlsx' %>
+      <%# Keep the native file input for multipart submission; localize its presentation. %>
+      <div class="d-flex flex-wrap align-items-center gap-2" data-controller="career-attachments">
+        <%= file_field_tag 'attachments[]',
+              id: 'career-contact-attachments',
+              multiple: true,
+              class: 'visually-hidden',
+              accept: '.pdf,.jpg,.jpeg,.png,.txt,.docx,.xlsx',
+              data: { career_attachments_target: 'input', action: 'change->career-attachments#update' } %>
+        <label for="career-contact-attachments" class="btn btn-outline-secondary btn-sm mb-0">
+          <%= t("site.contact_mail.choose_files") %>
+        </label>
+        <span class="small text-muted text-break"
+              role="status" aria-live="polite"
+              data-career-attachments-target="selection"
+              data-empty-text="<%= t("site.contact_mail.no_files_selected") %>"><%= t("site.contact_mail.no_files_selected") %></span>
+      </div>
       <small class="text-muted"><%= t("site.contact_mail.attachments_note") %></small>
     </div>
     <%# Basic spam trap, hidden from legitimate visitors. %>
