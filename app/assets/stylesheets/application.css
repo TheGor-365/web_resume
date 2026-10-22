@@ -104,3 +104,97 @@ body.bg-dark.bg-gradient > main.container {
   .career-media-card img { transition: none; }
   .career-media-card img:hover { transform: none; box-shadow: none; }
 }
+ 
+
+/* CAREER_MOBILE_NAV_BRAND_20261023
+   Brand watermark stays behind the content; desktop Bootstrap grid is unchanged.
+   Only small-screen breakpoint rules alter navigation and scroll behavior. */
+body.bg-dark.bg-gradient::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: url("/media/gor/brand-mark.webp") no-repeat center 52%;
+  background-size: clamp(380px, 74vw, 980px) auto;
+  filter: grayscale(1) brightness(.85);
+  opacity: .115;
+  mix-blend-mode: screen;
+}
+
+body.bg-dark.bg-gradient > header,
+body.bg-dark.bg-gradient > main,
+body.bg-dark.bg-gradient > footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Just enough translucency to suggest depth, while retaining readable text. */
+body.bg-dark.bg-gradient > main.container .card.lay {
+  background-color: rgba(255, 255, 255, .965) !important;
+}
+
+@media (max-width: 991.98px) {
+  /* No changes to the navbar above Bootstrap's lg breakpoint. */
+  .navbar #navbarNav.ms-5 {
+    margin-left: 0 !important;
+  }
+  .navbar #navbarNav.show .navbar-nav {
+    max-height: min(62vh, 510px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+@media (max-width: 767.98px) {
+  body.bg-dark.bg-gradient > main.container {
+    padding: 1rem !important;
+  }
+
+  /* Mobile gets one natural page scroll instead of two nested scroll panes. */
+  body.bg-dark.bg-gradient > main.container .card.lay {
+    max-height: none;
+    overflow-y: visible;
+    padding: 1.25rem !important;
+    scroll-margin-top: 1rem;
+  }
+
+  body.bg-dark.bg-gradient > main.container .career-profile-header {
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    --bs-gutter-x: .75rem;
+  }
+  body.bg-dark.bg-gradient > main.container .career-profile-title {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: auto;
+  }
+  body.bg-dark.bg-gradient > main.container .career-profile-title h1 {
+    font-size: clamp(1.35rem, 5.3vw, 1.85rem);
+    overflow-wrap: anywhere;
+    line-height: 1.2;
+  }
+  body.bg-dark.bg-gradient > main.container .career-profile-photo {
+    flex: 0 0 82px;
+    width: 82px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  body.bg-dark.bg-gradient > main.container .career-profile-photo img {
+    display: block;
+    width: 76px;
+    height: 76px;
+    object-fit: cover;
+    max-width: 100%;
+  }
+  body.bg-dark.bg-gradient::before {
+    background-size: 125vw auto;
+    opacity: .09;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  body.bg-dark.bg-gradient > main.container .card.lay {
+    background-color: #fff !important;
+  }
+}

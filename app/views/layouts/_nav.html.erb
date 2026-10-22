@@ -1,4 +1,6 @@
-<nav class="navbar navbar-dark navbar-expand-lg bg-dark bg-gradient">
+<nav class="navbar navbar-dark navbar-expand-lg bg-dark bg-gradient"
+     data-controller="career-mobile-nav"
+     data-action="turbo:before-stream-render@document->career-mobile-nav#beforeStreamRender">
   <div class="container-fluid">
     <a class="navbar-brand me-5 d-inline-flex align-items-center gap-2" href="<%= root_path %>" aria-label="<%= t('site.navigation.brand_home') %>"><img class="career-brand-mark" src="/media/gor/brand-mark.webp" alt="G" width="34" height="34"><span class="career-brand-label">Gor Dev</span></a>
     <button
@@ -15,18 +17,18 @@
 
     <div class="collapse navbar-collapse ms-5" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link"        href="<%= resume_path %>"           data-turbo-action="replace"><%= t('site.navigation.resume') %></a></li>
-        <li class="nav-item"><a class="nav-link"        href="<%= letter_path %>"           data-turbo-action="replace"><%= t('site.navigation.cover') %></a></li>
+        <li class="nav-item"><a class="nav-link"        href="<%= resume_path %>"           data-turbo-action="replace" data-action="click->career-mobile-nav#navigate"><%= t('site.navigation.resume') %></a></li>
+        <li class="nav-item"><a class="nav-link"        href="<%= letter_path %>"           data-turbo-action="replace" data-action="click->career-mobile-nav#navigate"><%= t('site.navigation.cover') %></a></li>
         <li class="nav-item d-none d-lg-flex align-items-center mx-lg-2" role="presentation" aria-hidden="true"><span class="vr opacity-50"></span></li>
-        <li class="nav-item"><a class="nav-link active" href="<%= projects_path %>"         data-turbo-action="replace"><%= t('site.navigation.projects') %></a></li>
-        <li class="nav-item"><a class="nav-link active" href="<%= exercises_path %>" data-turbo-action="replace"><%= t('site.navigation.github') %></a></li>
-        <li class="nav-item"><a class="nav-link active me-5" href="<%= certificates_path %>"     data-turbo-action="replace"><%= t('site.navigation.certificates') %></a></li>
+        <li class="nav-item"><a class="nav-link active" href="<%= projects_path %>"         data-turbo-action="replace" data-action="click->career-mobile-nav#navigate"><%= t('site.navigation.projects') %></a></li>
+        <li class="nav-item"><a class="nav-link active" href="<%= exercises_path %>" data-turbo-action="replace" data-action="click->career-mobile-nav#navigate"><%= t('site.navigation.github') %></a></li>
+        <li class="nav-item"><a class="nav-link active me-5" href="<%= certificates_path %>"     data-turbo-action="replace" data-action="click->career-mobile-nav#navigate"><%= t('site.navigation.certificates') %></a></li>
         <li class="nav-item d-none d-lg-flex align-items-center mx-lg-2" role="presentation" aria-hidden="true"><span class="vr opacity-50"></span></li>
-        <li class="nav-item"><a class="nav-link active" href="<%= experience_data_path %>"  data-turbo-action="replace"><%= t('site.navigation.experience') %></a></li>
-        <li class="nav-item"><a class="nav-link active" href="<%= timeline_path %>"         data-turbo-action="replace"><%= t('site.navigation.timeline') %></a></li>
+        <li class="nav-item"><a class="nav-link active" href="<%= experience_data_path %>"  data-turbo-action="replace" data-action="click->career-mobile-nav#navigate"><%= t('site.navigation.experience') %></a></li>
+        <li class="nav-item"><a class="nav-link active" href="<%= timeline_path %>"         data-turbo-action="replace" data-action="click->career-mobile-nav#navigate"><%= t('site.navigation.timeline') %></a></li>
         <li class="nav-item d-none d-lg-flex align-items-center mx-lg-2" role="presentation" aria-hidden="true"><span class="vr opacity-50"></span></li>
-        <li class="nav-item"><a class="nav-link active" href="<%= services_path %>" data-turbo-action="replace"><%= t('site.navigation.services') %></a></li>
-        <li class="nav-item"><a class="nav-link active" href="<%= contacts_path %>" data-turbo-action="replace"><%= t('site.navigation.contacts') %></a></li>
+        <li class="nav-item"><a class="nav-link active" href="<%= services_path %>" data-turbo-action="replace" data-action="click->career-mobile-nav#navigate"><%= t('site.navigation.services') %></a></li>
+        <li class="nav-item"><a class="nav-link active" href="<%= contacts_path %>" data-turbo-action="replace" data-action="click->career-mobile-nav#navigate"><%= t('site.navigation.contacts') %></a></li>
       </ul>
       <%# Only the full HTML home route is used for language switching.
           The other sections return Turbo Streams, so they remain tab links. %>
