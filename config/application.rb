@@ -10,6 +10,13 @@ module WebResume
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+
+    config.i18n.available_locales = %i[ru en hy]
+    config.i18n.default_locale = :ru
+    config.i18n.enforce_available_locales = true
+    # Load YAML catalogs from nested language/domain directories.
+    config.i18n.load_path += Dir[Rails.root.join("config/locales/**/*.{yml,rb}")]
+
     # config.assets.enabled = true
 
     # Configuration for the application, engines, and railties goes here.

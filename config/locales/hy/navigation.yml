@@ -1,0 +1,15 @@
+hy:
+  site:
+    navigation:
+      resume: "Ռեզյումե"
+      cover: "Նամակ"
+      projects: "Նախագծեր"
+      github: "GitHub"
+      certificates: "Վկայականներ"
+      experience: "Փորձ"
+      timeline: "Ժամանակագիծ"
+      services: "Ծառայություններ"
+      contacts: "Կապ"
+      language_switcher: "Ընտրել լեզուն"
+      toggle: "Բացել ընտրացանկը"
+      brand_home: "Gor Web Development — գլխավոր էջ"
