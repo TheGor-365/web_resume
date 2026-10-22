@@ -1,17 +1,24 @@
 <div id="<%= dom_id experience %>">
   <h3 class="text-muted"><%= experience.title %></h3>
-  <small class="text-muted">Компания:</small> <small><%= experience.company %></small><br>
-  <small class="text-muted">Период:</small>
-  <small><%= experience.start_at.to_date %></small> - <small><%= experience.end_at.to_date %></small><br><br>
+  <small class="text-muted">Тип:</small> <small><%= experience.company %></small><br>
+  <small class="text-muted">Дата события:</small>
+  <small><%= experience.start_at.to_date %></small><br><br>
 
   <p>
-    <span class="text-muted">Что делал:</span><br>
+    <span class="text-muted">Что создано / изучено:</span><br>
     <small><%= experience.overview %></small><br><br>
 
-    <span class="text-muted">Почему ушел:</span><br>
-    <small class="text-success"><%= experience.note %></small><br><br>
+    <span class="text-muted">Подтверждение:</span><br>
+    <% source_note = experience.note.to_s %>
+    <% github_url = source_note[%r{https://github\.com/TheGor-365/[A-Za-z0-9_.-]+}] %>
+    <% if github_url.present? %>
+      <small class="text-muted"><%= source_note.sub(github_url, "").strip %></small><br>
+      <small><%= link_to github_url, github_url, class: "link-success text-decoration-none experience-source-link", target: "_blank", rel: "noopener noreferrer" %></small><br><br>
+    <% else %>
+      <small class="text-muted"><%= source_note %></small><br><br>
+    <% end %>
 
-    <span class="text-muted">CPE:</span>
-    <small><%= experience.cpe %></small><br><br>
+    <span class="text-muted">Год:</span>
+    <small><%= experience.start_at.year %></small><br><br>
   </p>
 </div>

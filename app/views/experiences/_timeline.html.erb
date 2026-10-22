@@ -1,21 +1,21 @@
 <%= turbo_frame_tag "experience" do %>
-  <h3 class="text-muted mb-3">Карьерный трек</h3>
+  <h3 class="text-muted mb-3">Этапы разработки по годам</h3>
   <div class="shadow rounded">
-    <%= area_chart Experience.group_by_year(:start_at).maximum(:cpe) %>
+    <%= area_chart @experiences.reorder(nil).group_by_year(:start_at).count %>
   </div>
 
-  <h3 class="text-muted mb-3 mt-5">Карьерный пирог</h3>
+  <h3 class="text-muted mb-3 mt-5">Типы технических событий</h3>
   <div class="shadow rounded">
-    <%= pie_chart @experiences.group(:title).count %>
+    <%= pie_chart @experiences.reorder(nil).group(:company).count %>
   </div>
 
-  <h3 class="text-muted my-5">Данные</h3>
+  <h3 class="text-muted my-5">События и источники</h3>
   <% @experiences.each do |experience| %>
     <div class="border rounded p-5 my-5 border border-success bg-white">
       <%= render experience %>
     </div>
   <% end %>
   <div class="shadow rounded p-3 border border-danger">
-    <small class="text-muted"><span class="text-dark">CPE (Cost Per Experience)</span> - коэфициент ценности опыта по моей собственной оценке</small>
+    <small class="text-muted"><span class="text-dark">Метрика</span> — количество проверяемых событий, не уровень квалификации и не коммерческий стаж</small>
   </div>
 <% end %>

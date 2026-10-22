@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Web Resume</title>
+    <title>Gor Web Development | Ruby on Rails</title>
+    <meta name="theme-color" content="#181521">
+    <link rel="icon" type="image/png" sizes="32x32" href="/media/gor/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/media/gor/favicon-48.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/media/gor/favicon-180.png">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,6 +16,53 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
     <%= javascript_importmap_tags %>
+    <style>
+      /* CAREER_FOOTER_LINKS_V2: footer only, no card/navbar/chart styles. */
+      html { min-height: 100%; background-color: #212529; }
+      body.bg-dark.bg-gradient {
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+      }
+      body.bg-dark.bg-gradient > main.container {
+        flex: 1 0 auto;
+      }
+      body.bg-dark.bg-gradient > footer.site-footer {
+        flex: 0 0 auto;
+        width: 100%;
+        margin-top: auto;
+        margin-bottom: 0;
+        background-color: #212529 !important;
+        background-image: var(--bs-gradient) !important;
+        border-top: 1px solid rgba(255,255,255,.14);
+      }
+      .site-footer .career-footer-link {
+        color: #e5e7eb !important;
+        text-decoration: none !important;
+        font-weight: 500;
+        white-space: nowrap;
+      }
+      .site-footer .career-footer-link:hover,
+      .site-footer .career-footer-link:focus-visible {
+        color: #ffffff !important;
+        text-decoration: none !important;
+      }
+      .site-footer .career-footer-unconfirmed {
+        color: #adb5bd;
+        white-space: nowrap;
+        cursor: default;
+      }
+      .site-footer .career-footer-meta {
+        border-top: 1px solid rgba(255,255,255,.12);
+      }
+      @media (max-width: 767.98px) {
+        body.bg-dark.bg-gradient > main.container { flex: 1 0 auto; }
+        .site-footer nav { row-gap: .65rem !important; }
+      }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css">
   </head>
 
   <body class="bg-dark bg-gradient">
@@ -23,5 +74,33 @@
     <main class="container p-5">
       <%= yield %>
     </main>
+
+    <footer class="site-footer bg-dark bg-gradient text-white py-3" role="contentinfo">
+      <div class="container">
+        <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-2">
+          <div class="small">
+            <strong class="text-white">Гор Хачатрян</strong>
+            <span class="text-white-50 ms-lg-2">Ruby on Rails · PostgreSQL · API · тестирование</span>
+          </div>
+          <nav class="d-flex flex-wrap align-items-center gap-2 gap-md-3 small" aria-label="Профессиональные профили и социальные сети">
+            <%= link_to "GitHub", "https://github.com/TheGor-365", class: "career-footer-link", target: "_blank", rel: "noopener noreferrer" %>
+            <%= link_to "Kwork", "https://kwork.com/user/thegor-365", class: "career-footer-link", target: "_blank", rel: "noopener noreferrer" %>
+            <%= link_to "FL.ru", "https://www.fl.ru/users/7495500/portfolio/", class: "career-footer-link", target: "_blank", rel: "noopener noreferrer" %>
+            <%= link_to "FreelanceJob", "https://www.freelancejob.ru/users/GorRailsDev/", class: "career-footer-link", target: "_blank", rel: "noopener noreferrer" %>
+            <%= link_to "Facebook", "https://www.facebook.com/gor.webdevelopment/", class: "career-footer-link", target: "_blank", rel: "noopener noreferrer" %>
+            <%= link_to "Instagram", "https://www.instagram.com/thatgorfromvan/", class: "career-footer-link", target: "_blank", rel: "noopener noreferrer" %>
+            <% vk_url = ENV.fetch("CAREER_VK_URL", "").strip %>
+            <% if vk_url.match?(%r{\Ahttps://(?:www\.)?vk\.com/[A-Za-z0-9_.-]+/?\z}) %>
+              <%= link_to "ВКонтакте", vk_url, class: "career-footer-link", target: "_blank", rel: "noopener noreferrer" %>
+            <% else %>
+              <span class="career-footer-unconfirmed" title="Ожидается точный подтверждённый URL сообщества">ВКонтакте</span>
+            <% end %>
+          </nav>
+        </div>
+        <div class="small text-white-50 pt-2 mt-2 career-footer-meta">
+          © <%= Time.current.year %> · Ruby on Rails development · <span>Учебные проекты обозначены отдельно от коммерческих</span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

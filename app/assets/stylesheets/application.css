@@ -26,3 +26,81 @@ a {
 .photo {
   border-radius: 50%;
 }
+
+/* Footer-only styling. Existing Bootstrap layout, panels and navbar unchanged. */
+html {
+  min-height: 100%;
+  background-color: #212529;
+}
+
+body.bg-dark.bg-gradient {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #212529 !important;
+  background-image: linear-gradient(180deg, #35393f 0%, #25282d 42%, #17191d 100%) !important;
+  background-attachment: fixed;
+}
+
+body.bg-dark.bg-gradient > main.container {
+  flex: 1 0 auto;
+}
+
+.site-footer {
+  flex-shrink: 0;
+  width: 100%;
+  background-color: #212529 !important;
+  background-image: var(--bs-gradient) !important;
+  border-top: 1px solid rgba(255, 255, 255, .12);
+}
+
+.site-footer a.link-success,
+.experience-source-link {
+  text-decoration: none !important;
+}
+
+
+/* CAREER_GOR_BRAND_MEDIA_V1 — scoped enhancements; old Bootstrap layout untouched. */
+.career-brand-mark {
+  width: 34px;
+  height: 34px;
+  object-fit: cover;
+  border-radius: 7px;
+  box-shadow: 0 0 8px rgba(143, 71, 255, .30);
+}
+.career-brand-label { white-space: nowrap; font-weight: 600; letter-spacing: .01em; }
+.career-media-hero, .career-service-thumb, .career-project-thumb {
+  display: block;
+  width: 100%;
+  border-radius: .375rem;
+  background: #100d23;
+}
+.career-media-hero { max-height: 145px; object-fit: cover; }
+.career-service-thumb { max-height: 160px; object-fit: contain; }
+.career-project-thumb { max-height: 180px; object-fit: contain; }
+.career-brand-video {
+  display: block;
+  height: 210px;
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: .375rem;
+  background-color: #100d23;
+  object-fit: contain;
+}
+.career-media-card {
+  border: 1px solid #dee2e6;
+  border-radius: .5rem;
+  padding: .75rem;
+  background: #fff;
+  animation: career-media-enter .45s ease-out both;
+}
+.career-media-card img {
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.career-media-card img:hover { transform: scale(1.012); box-shadow: 0 3px 14px rgba(34,26,70,.12); }
+@keyframes career-media-enter { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) {
+  .career-media-card { animation: none; }
+  .career-media-card img { transition: none; }
+  .career-media-card img:hover { transform: none; box-shadow: none; }
+}

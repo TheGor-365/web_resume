@@ -1,55 +1,131 @@
 <%= turbo_frame_tag "toggler" do %>
-	<h3 class="text-muted">Мои пэт-проекты</h3><br>
+  <h3 class="text-muted">Проекты</h3><br>
+  <p class="text-muted small">
+    Примеры реальной разработки: учебные, личные и инфраструктурные проекты.
+    Возможности и технологии описаны по исходному коду и README.
+    Ссылки ведут на GitHub; работоспособность публичных демо отдельно не подтверждена.
+  </p>
 
-	<div class="border rounded p-3 my-5 border border-success">
-		<h1 class="display-1">
-			<%= link_to 'guider', 'https://guider.onrender.com', target: :_blank, class: 'text-success' %>
-		</h1><br><br>
+  <% projects = [
+    {
+      name: "GitHub Quality",
+      category: "Учебный проект",
+      repo_year: "2025",
+      description: "Сервис анализа качества GitHub-репозиториев: помогает запускать проверки кода и просматривать результаты по каждому репозиторию.",
+      features: [
+        "Вход через GitHub OAuth и подключение репозиториев пользователя.",
+        "Запуск RuboCop и ESLint для Ruby- и JavaScript-кода.",
+        "История проверок: статус, SHA коммита, количество замечаний и вывод линтеров."
+      ],
+      stack: ["Rails 7.2", "PostgreSQL", "GitHub OAuth", "RuboCop", "ESLint", "Minitest", "GitHub Actions"],
+      url: "https://github.com/TheGor-365/rails-project-66"
+    },
+    {
+      name: "Classifieds — доска объявлений",
+      category: "Учебный проект",
+      repo_year: "2025",
+      description: "Веб-приложение с объявлениями и модерацией: пользователи создают публикации, администратор управляет их состоянием.",
+      features: [
+        "Объявления с категориями, изображениями и личным кабинетом автора.",
+        "Статусы draft, moderation, published, rejected и archived через AASM.",
+        "Права доступа через Pundit; вход через GitHub; админ-панель."
+      ],
+      stack: ["Rails 7.2", "PostgreSQL (prod)", "AASM", "Pundit", "GitHub OAuth", "Active Storage", "Bootstrap 5"],
+      url: "https://github.com/TheGor-365/rails-project-65"
+    },
+    {
+      name: "Коллективный блог",
+      category: "Учебный проект",
+      repo_year: "2024",
+      description: "Rails-блог, в котором зарегистрированные пользователи могут публиковать посты, комментировать и ставить лайки.",
+      features: [
+        "Регистрация и авторизация через Devise.",
+        "Посты, комментарии и лайки с привязкой к пользователям.",
+        "Локализация RU/EN и переключение языка; Turbo/Stimulus."
+      ],
+      stack: ["Rails 7.2", "Devise", "I18n", "Turbo", "Stimulus", "Bootstrap", "PostgreSQL (prod)"],
+      url: "https://github.com/TheGor-365/rails-project-64"
+    },
+    {
+      name: "Web Resume — этот сайт",
+      category: "Личный проект",
+      repo_year: "2023",
+      description: "Персональное веб-резюме на Rails: страницы профиля, проектов и сертификатов, а также визуализация технической хронологии.",
+      features: [
+        "Навигация между разделами внутри Turbo Frame без полной перезагрузки страницы.",
+        "Записи о проектах и опыте в PostgreSQL через Active Record.",
+        "Графики активности и типов событий через Chartkick и Groupdate."
+      ],
+      stack: ["Rails 7.0", "PostgreSQL", "Turbo", "Bootstrap 5", "Chartkick", "Groupdate"],
+      url: "https://github.com/TheGor-365/web_resume"
+    },
+    {
+      name: "Property Finder",
+      category: "Ранний учебный проект",
+      repo_year: "2020",
+      description: "Каталог недвижимости с карточками объектов, личными профилями и возможностью обратиться к агенту.",
+      features: [
+        "Создание карточек недвижимости с ценой, параметрами, фотографией и статусом.",
+        "Регистрация пользователей через Devise; принадлежность объектов аккаунтам.",
+        "Разделение продажи и аренды; форма сообщения агенту через Action Mailer."
+      ],
+      stack: ["Rails 6", "PostgreSQL", "Devise", "CarrierWave", "Action Mailer", "Webpacker"],
+      url: "https://github.com/TheGor-365/property_finder"
+    },
+    {
+      name: "AI Course Actions Runner",
+      category: "Инфраструктурный проект",
+      repo_year: "2026",
+      description: "Публичный слой выполнения разрешённых workflow для автоматизации проверок. Это не публичный интерфейс закрытой AI-платформы.",
+      features: [
+        "Выполнение ограниченного набора задач через GitHub Actions.",
+        "Привязка доказательств запуска к конкретной ревизии приватного проекта.",
+        "Ограничения на публикацию логов, секретов и приватных артефактов."
+      ],
+      stack: ["GitHub Actions", "CI/CD", "Workflow automation", "Evidence tracking"],
+      url: "https://github.com/TheGor-365/ai-course-actions-runner"
+    }
+  ] %>
 
-		<p>
-			<span class="text-muted">Идея:</span><br>
-			<small>Быстро создать гайд, туториал, тех. документацмю, how to шаблон и другие виды инструкций для технологии или продукта.</small><br><br>
-			<span class="text-muted">Для кого:</span><br>
-			<small>Приложение для разработчиков и др. специалистов</small>
-		</p>
-	</div><br>
-
-	<div class="border rounded p-3 my-5 border border-success">
-		<h1 class="display-1">
-			<%= link_to 'simple-todo', 'https://simple-todo-z056.onrender.com', target: :_blank, class: 'text-success' %>
-		</h1><br><br>
-
-		<p>
-			<span class="text-muted">Идея:</span><br>
-			<small>Создавать. модифицировать и удалять поставленные задачи.</small><br><br>
-			<span class="text-muted">Для кого:</span><br>
-			<small>Приложение для всех</small>
-		</p>
-	</div><br>
-
-	<div class="border rounded p-3 my-5 border border-success">
-		<h1 class="display-1">
-			<%= link_to 'craiglist-clone', 'https://craiglist.onrender.com', target: :_blank, class: 'text-success' %>
-		</h1><br><br>
-
-		<p>
-			<span class="text-muted">Идея:</span><br>
-			<small>Универсальная платформа для общения, заключения сделок, публикации объявлений.</small><br><br>
-			<span class="text-muted">Для кого:</span><br>
-			<small>Приложение для всех</small>
-		</p>
-	</div><br>
-
-	<div class="border rounded p-3 my-5 border border-success">
-		<h1 class="display-1">
-			<%= link_to 'remote-education', 'https://remote-education.onrender.com', target: :_blank, class: 'text-success' %>
-		</h1><br><br>
-
-		<p>
-			<span class="text-muted">Идея:</span><br>
-			<small>Платформа для онлайн образования, менторства, репетиторства</small><br><br>
-			<span class="text-muted">Для кого:</span><br>
-			<small>Приложение для студентов и педагогов</small>
-		</p>
-	</div><br>
+  <% projects.each do |project| %>
+    <article class="border rounded p-3 my-4 border-success">
+      <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+        <h4 class="h4 text-success mb-0"><%= project[:name] %></h4>
+        <span class="badge bg-light text-secondary border"><%= project[:category] %></span>
+      </div>
+      <%# CAREER_GOR_PROJECT_MEDIA_V1; CAREER_MEDIA_FIT_V2 — responsive artwork. %>
+      <p class="small text-muted mb-3">Год создания репозитория: <%= project[:repo_year] %></p>
+      <% if project[:name] == "GitHub Quality" %>
+        <figure class="career-media-card mb-3 text-center" style="width:100%;max-width:100%;min-width:0;box-sizing:border-box;overflow:hidden;">
+          <img src="/media/gor/github-quality.webp" class="career-project-thumb img-fluid d-block mx-auto"
+               alt="Промо-иллюстрация учебного проекта GitHub Quality"
+               loading="lazy" decoding="async"
+               style="display:block;width:auto;max-width:100%;height:auto;max-height:180px;object-fit:contain;">
+          <figcaption class="small text-muted mt-2">Промо-иллюстрация, не скриншот приложения</figcaption>
+        </figure>
+      <% elsif project[:name] == "Web Resume — этот сайт" %>
+        <figure class="career-media-card mb-3 text-center" style="width:100%;max-width:100%;min-width:0;box-sizing:border-box;overflow:hidden;">
+          <img src="/media/gor/brand-poster.webp" class="career-project-thumb img-fluid d-block mx-auto"
+               alt="Фирменный знак Gor Web Development"
+               loading="lazy" decoding="async"
+               style="display:block;width:auto;max-width:100%;height:auto;max-height:180px;object-fit:contain;">
+          <figcaption class="small text-muted mt-2">Фирменный знак проекта Web Resume</figcaption>
+        </figure>
+      <% end %>
+      <p class="mb-3"><%= project[:description] %></p>
+      <p class="text-muted fw-semibold mb-1">Ключевые функции</p>
+      <ul class="small ps-3 mb-3">
+        <% project[:features].each do |feature| %>
+          <li class="mb-1"><%= feature %></li>
+        <% end %>
+      </ul>
+      <p class="text-muted fw-semibold mb-2">Технологии</p>
+      <div class="d-flex flex-wrap gap-1 mb-3">
+        <% project[:stack].each do |technology| %>
+          <span class="badge bg-light text-dark border fw-normal"><%= technology %></span>
+        <% end %>
+      </div>
+      <%= link_to "Посмотреть исходный код на GitHub", project[:url], class: "text-success fw-semibold", target: "_blank", rel: "noopener noreferrer" %>
+    </article>
+  <% end %>
 <% end %>

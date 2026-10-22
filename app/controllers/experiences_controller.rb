@@ -53,7 +53,7 @@ class ExperiencesController < ApplicationController
   end
 
   def set_experiences
-    @experiences = Experience.all
+    @experiences = Experience.portfolio_milestones.order(:start_at, :id)
   end
 
   def experience_params

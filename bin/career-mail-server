@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(dirname "$0")/.."
+if [[ ! -r '.git/career-private/mail.env' ]]; then
+  echo 'First run: bin/career-mail-setup' >&2
+  exit 1
+fi
+set -a
+# shellcheck disable=SC1091
+source '.git/career-private/mail.env'
+set +a
+exec bin/rails server "$@"

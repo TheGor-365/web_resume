@@ -1,0 +1,43 @@
+<%= turbo_frame_tag "experience" do %>
+  <h3 class="text-muted mb-3">Написать на почту</h3>
+  <p class="text-muted small">Сообщение будет доставлено на 7495500@gmail.com. Ответ придёт на email, указанный вами.</p>
+
+  <% if sent %>
+    <div class="alert alert-success small" role="status">Сообщение принято почтовым сервером. Спасибо! Проверьте ответ на вашей почте.</div>
+  <% end %>
+  <% if errors.any? %>
+    <div class="alert alert-danger small" role="alert">
+      <ul class="mb-0 ps-3"><% errors.each do |error| %><li><%= error %></li><% end %></ul>
+    </div>
+  <% end %>
+
+  <%= form_with url: send_contact_email_path, method: :post, format: :turbo_stream, multipart: true, local: false do |form| %>
+    <div class="mb-3">
+      <%= form.label :sender_name, 'Ваше имя', class: 'form-label small' %>
+      <%= text_field_tag :sender_name, values[:name], class: 'form-control', maxlength: 100, required: true, autocomplete: 'name' %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :sender_email, 'Ваш email', class: 'form-label small' %>
+      <%= email_field_tag :sender_email, values[:email], class: 'form-control', maxlength: 254, required: true, autocomplete: 'email' %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :subject_text, 'Тема обращения', class: 'form-label small' %>
+      <%= text_field_tag :subject_text, values[:subject], class: 'form-control', maxlength: 150, required: true %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :body_text, 'Сообщение', class: 'form-label small' %>
+      <%= text_area_tag :body_text, values[:body], class: 'form-control', rows: 5, maxlength: 4000, minlength: 20, required: true %>
+    </div>
+    <div class="mb-3">
+      <%= label_tag 'attachments', 'Вложения (до 2 файлов, суммарно до 8 МБ)', class: 'form-label small' %>
+      <%= file_field_tag 'attachments[]', multiple: true, class: 'form-control', accept: '.pdf,.jpg,.jpeg,.png,.txt,.docx,.xlsx' %>
+      <small class="text-muted">PDF, изображения, TXT, DOCX, XLSX. Пароли и конфиденциальные данные отправлять не нужно.</small>
+    </div>
+    <%# Basic spam trap, hidden from legitimate visitors. %>
+    <div style="position:absolute;left:-9999px" aria-hidden="true">
+      <%= label_tag :website, 'Website' %><%= text_field_tag :website, '', tabindex: -1, autocomplete: 'off' %>
+    </div>
+    <%= form.submit 'Отправить сообщение', class: 'btn btn-success w-100', disabled: ENV['CAREER_GMAIL_APP_PASSWORD'].to_s.empty? %>
+    <% if ENV['CAREER_GMAIL_APP_PASSWORD'].to_s.empty? %><p class="text-muted small mt-2">Исходящая почта ещё не подключена.</p><% end %>
+  <% end %>
+<% end %>

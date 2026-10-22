@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark navbar-expand-lg bg-dark bg-gradient">
   <div class="container-fluid">
-    <a class="navbar-brand me-5" href="/">Web Resume</a>
+    <a class="navbar-brand me-5 d-inline-flex align-items-center gap-2" href="/" aria-label="Gor Web Development — главная"><img class="career-brand-mark" src="/media/gor/brand-mark.webp" alt="G" width="34" height="34"><span class="career-brand-label">Gor Dev</span></a>
     <button
       class="navbar-toggler"
       type="button"
@@ -16,12 +16,17 @@
     <div class="collapse navbar-collapse ms-5" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item"><a class="nav-link"        href="<%= resume_path %>"           data-turbo-action="replace">Резюме</a></li>
-        <li class="nav-item"><a class="nav-link"        href="<%= letter_path %>"           data-turbo-action="replace">Сопроводительное письмо</a></li>
-        <li class="nav-item"><a class="nav-link active" href="<%= projects_path %>"         data-turbo-action="replace">Пэт проекты</a></li>
-        <li class="nav-item"><a class="nav-link active" href="<%= exercises_path %>"        data-turbo-action="replace">Учебные проекты</a></li>
+        <li class="nav-item"><a class="nav-link"        href="<%= letter_path %>"           data-turbo-action="replace">Cover</a></li>
+        <li class="nav-item d-none d-lg-flex align-items-center mx-lg-2" role="presentation" aria-hidden="true"><span class="vr opacity-50"></span></li>
+        <li class="nav-item"><a class="nav-link active" href="<%= projects_path %>"         data-turbo-action="replace">Проекты</a></li>
+        <li class="nav-item"><a class="nav-link active" href="<%= exercises_path %>" data-turbo-action="replace">GitHub</a></li>
         <li class="nav-item"><a class="nav-link active me-5" href="<%= certificates_path %>"     data-turbo-action="replace">Сертификаты</a></li>
+        <li class="nav-item d-none d-lg-flex align-items-center mx-lg-2" role="presentation" aria-hidden="true"><span class="vr opacity-50"></span></li>
         <li class="nav-item"><a class="nav-link active" href="<%= experience_data_path %>"  data-turbo-action="replace">Опыт</a></li>
         <li class="nav-item"><a class="nav-link active" href="<%= timeline_path %>"         data-turbo-action="replace">Timeline graph</a></li>
+        <li class="nav-item d-none d-lg-flex align-items-center mx-lg-2" role="presentation" aria-hidden="true"><span class="vr opacity-50"></span></li>
+        <li class="nav-item"><a class="nav-link active" href="<%= services_path %>" data-turbo-action="replace">Услуги</a></li>
+        <li class="nav-item"><a class="nav-link active" href="<%= contacts_path %>" data-turbo-action="replace">Контакты</a></li>
       </ul>
     </div>
   </div>
