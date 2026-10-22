@@ -1,14 +1,13 @@
 <%= turbo_frame_tag "toggler" do %>
   <%# CAREER_SERVICES_V1 — familiar Bootstrap cards in existing left panel. %>
-  <h3 class="text-muted mb-3">Услуги Ruby on Rails</h3>
+  <h3 class="text-muted mb-3"><%= t("site.services_left.heading") %></h3>
   <p class="text-muted small mb-4">
-    Небольшие, чётко определённые задачи для существующих Rails-приложений.
-    По каждой задаче согласовываем входные данные, объём, результат и критерии приёмки.
+    <%= t('site.services_left.intro') %>
   </p>
 
   <%# CAREER_GOR_SERVICE_MEDIA_V1; CAREER_MEDIA_FIT_V2: responsive local media. %>
   <figure class="career-media-card mb-4" style="width:100%;max-width:100%;min-width:0;box-sizing:border-box;overflow:hidden;">
-    <img src="/media/gor/rails-backend-api.webp" alt="Иллюстрация услуг Ruby on Rails, backend и API"
+    <img src="/media/gor/rails-backend-api.webp" alt="<%= t("site.services_left.hero_alt") %>"
          class="career-media-hero img-fluid d-block mx-auto" loading="lazy" decoding="async"
          style="display:block;width:100%;max-width:100%;height:auto;max-height:180px;object-fit:contain;">
     <figcaption class="small text-muted mt-2 mb-0">Ruby on Rails · Backend · API</figcaption>
@@ -16,44 +15,44 @@
 
   <% offers = [
     {
-      title: "Поиск и исправление Rails-багов",
-      task: "Ошибки моделей, форм, контроллеров и бизнес-логики в работающем приложении.",
-      result: "Исправление, проверка сценария воспроизведения и понятное описание изменений.",
+      title: t("site.services_left.bugfix_title"),
+      task: t("site.services_left.bugfix_task"),
+      result: t("site.services_left.bugfix_result"),
       tags: ["Ruby", "Rails", "Debug", "Minitest / RSpec"],
       proof: "GitHub Quality", url: "https://github.com/TheGor-365/rails-project-66"
     },
     {
-      title: "CRUD, формы и права доступа",
-      task: "Создание и изменение записей, проверки полей, формы, роли и доступ к действиям.",
-      result: "Рабочий пользовательский сценарий с согласованными проверками и ограничениями.",
+      title: t("site.services_left.crud_title"),
+      task: t("site.services_left.crud_task"),
+      result: t("site.services_left.crud_result"),
       tags: ["Active Record", "Forms", "Pundit", "AASM"],
       proof: "Classifieds", url: "https://github.com/TheGor-365/rails-project-65"
     },
     {
-      title: "PostgreSQL и миграции",
-      task: "Ассоциации таблиц, Active Record-запросы, миграции и исправление ошибок работы с данными.",
-      result: "Изменения схемы и запросов с проверкой сохранности существующих данных.",
+      title: t("site.services_left.postgres_title"),
+      task: t("site.services_left.postgres_task"),
+      result: t("site.services_left.postgres_result"),
       tags: ["PostgreSQL", "SQL", "Active Record", "Migrations"],
       proof: "Web Resume", url: "https://github.com/TheGor-365/web_resume"
     },
     {
-      title: "REST API и интеграции",
-      task: "Простые API-эндпоинты и подключение сторонних сервисов при наличии документации и разрешённого доступа.",
-      result: "Согласованный контракт запросов/ответов, обработка ошибок и проверка интеграции.",
+      title: t("site.services_left.api_title"),
+      task: t("site.services_left.api_task"),
+      result: t("site.services_left.api_result"),
       tags: ["REST", "JSON", "GitHub OAuth", "Rails"],
       proof: "GitHub Quality", url: "https://github.com/TheGor-365/rails-project-66"
     },
     {
-      title: "Тесты и проверка качества кода",
-      task: "Регрессионные тесты, линтеры, проверка существующего Rails-кода и CI.",
-      result: "Запускаемые проверки с результатами и перечнем оставшихся ограничений.",
+      title: t("site.services_left.testing_title"),
+      task: t("site.services_left.testing_task"),
+      result: t("site.services_left.testing_result"),
       tags: ["Minitest", "RSpec", "RuboCop", "GitHub Actions"],
       proof: "GitHub Quality", url: "https://github.com/TheGor-365/rails-project-66"
     },
     {
-      title: "HTML, Bootstrap и Turbo-интерфейсы",
-      task: "Исправления в представлениях, адаптивные компоненты, формы и навигация внутри Rails.",
-      result: "Проверенные изменения без ненужной переделки действующего дизайна.",
+      title: t("site.services_left.interface_title"),
+      task: t("site.services_left.interface_task"),
+      result: t("site.services_left.interface_result"),
       tags: ["HTML", "CSS", "Bootstrap 5", "Turbo"],
       proof: "Web Resume", url: "https://github.com/TheGor-365/web_resume"
     }
@@ -63,43 +62,43 @@
     <article class="border border-success rounded p-3 mb-3">
       <h4 class="h5 text-muted mb-2"><%= offer[:title] %></h4>
       <%# CAREER_GOR_SERVICE_CARD_MEDIA_V1 %>
-      <% if offer[:title].include?("Rails-багов") %>
+      <% if offer[:title] == t("site.services_left.bugfix_title") %>
         <div class="career-media-card mb-3" style="max-width:100%;min-width:0;box-sizing:border-box;overflow:hidden;">
-          <img class="career-service-thumb img-fluid d-block mx-auto" src="/media/gor/rails-bugfix.webp" alt="Иллюстрация: отладка Ruby on Rails"
+          <img class="career-service-thumb img-fluid d-block mx-auto" src="/media/gor/rails-bugfix.webp" alt="<%= t("site.services_left.bugfix_alt") %>"
                loading="lazy" decoding="async"
                style="display:block;width:100%;max-width:100%;height:auto;max-height:180px;object-fit:contain;">
           <div class="text-center mt-3">
-            <p class="small fw-semibold text-muted mb-2">Видео: исправление ошибок Rails · 10 секунд</p>
+            <p class="small fw-semibold text-muted mb-2"><%= t("site.services_left.video_label") %></p>
             <video class="rounded mx-auto" controls playsinline preload="metadata" width="180" height="320"
                    poster="/media/gor/rails-bugfix.webp"
                    style="display:block;width:180px;max-width:100%;height:320px;max-height:320px;object-fit:contain;background:#100d23;margin:0 auto;"
-                   aria-label="Промо-видео Bug Fixing">
+                   aria-label="<%= t("site.services_left.video_aria") %>">
               <source src="/media/gor/bugfix-reel.mp4" type="video/mp4">
-              Ваш браузер не поддерживает видео.
+              <%= t("site.services_left.video_fallback") %>
             </video>
             <a class="link-secondary text-decoration-none small d-inline-block mt-2" href="/media/gor/bugfix-reel.mp4"
-               target="_blank" rel="noopener noreferrer">Открыть видео отдельно ↗</a>
+               target="_blank" rel="noopener noreferrer"><%= t("site.services_left.video_open") %></a>
           </div>
-          <p class="small text-muted mt-2 mb-0">Промо-видео об исправлении ошибок; не демонстрация клиентского заказа.</p>
+          <p class="small text-muted mt-2 mb-0"><%= t("site.services_left.video_disclaimer") %></p>
         </div>
-      <% elsif offer[:title].include?("REST API") %>
+      <% elsif offer[:title] == t("site.services_left.api_title") %>
         <div class="career-media-card mb-3" style="max-width:100%;min-width:0;box-sizing:border-box;overflow:hidden;">
-          <img class="career-service-thumb img-fluid d-block mx-auto" src="/media/gor/rails-features.webp" alt="Иллюстрация разработки новых функций и API"
+          <img class="career-service-thumb img-fluid d-block mx-auto" src="/media/gor/rails-features.webp" alt="<%= t("site.services_left.api_alt") %>"
                loading="lazy" decoding="async"
                style="display:block;width:100%;max-width:100%;height:auto;max-height:180px;object-fit:contain;">
         </div>
       <% end %>
-      <p class="small mb-2"><span class="text-muted">Задача:</span><br><%= offer[:task] %></p>
-      <p class="small mb-3"><span class="text-muted">Результат:</span><br><%= offer[:result] %></p>
+      <p class="small mb-2"><span class="text-muted"><%= t("site.services_left.task") %></span><br><%= offer[:task] %></p>
+      <p class="small mb-3"><span class="text-muted"><%= t("site.services_left.result") %></span><br><%= offer[:result] %></p>
       <div class="d-flex flex-wrap gap-1 mb-3">
         <% offer[:tags].each do |tag| %>
           <span class="badge bg-light text-dark border fw-normal"><%= tag %></span>
         <% end %>
       </div>
-      <%= link_to "Пример кода: #{offer[:proof]}", offer[:url],
+      <%= link_to t("site.services_left.proof", name: offer[:proof]), offer[:url],
           class: "link-success small fw-semibold text-decoration-none",
           target: "_blank", rel: "noopener noreferrer" %>
     </article>
   <% end %>
-  <p class="text-muted small mt-4">Примеры выше — личные и учебные проекты, а не отзывы клиентов или подтверждение коммерческих заказов.</p>
+  <p class="text-muted small mt-4"><%= t("site.services_left.disclaimer") %></p>
 <% end %>
