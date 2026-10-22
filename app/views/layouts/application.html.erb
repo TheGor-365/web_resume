@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= I18n.locale %>">
   <head>
-    <title>Gor Web Development | Ruby on Rails</title>
+    <title><%= t('site.layout.title') %></title>
     <meta name="theme-color" content="#181521">
     <link rel="icon" type="image/png" sizes="32x32" href="/media/gor/favicon-32.png">
     <link rel="icon" type="image/png" sizes="48x48" href="/media/gor/favicon-48.png">
@@ -79,10 +79,10 @@
       <div class="container">
         <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-2">
           <div class="small">
-            <strong class="text-white">Гор Хачатрян</strong>
-            <span class="text-white-50 ms-lg-2">Ruby on Rails · PostgreSQL · API · тестирование</span>
+            <strong class="text-white"><%= t("site.layout.name") %></strong>
+            <span class="text-white-50 ms-lg-2"><%= t("site.layout.role") %></span>
           </div>
-          <nav class="d-flex flex-wrap align-items-center gap-2 gap-md-3 small" aria-label="Профессиональные профили и социальные сети">
+          <nav class="d-flex flex-wrap align-items-center gap-2 gap-md-3 small" aria-label="<%= t('site.layout.profiles') %>">
             <%= link_to "GitHub", "https://github.com/TheGor-365", class: "career-footer-link", target: "_blank", rel: "noopener noreferrer" %>
             <%= link_to "Kwork", "https://kwork.com/user/thegor-365", class: "career-footer-link", target: "_blank", rel: "noopener noreferrer" %>
             <%= link_to "FL.ru", "https://www.fl.ru/users/7495500/portfolio/", class: "career-footer-link", target: "_blank", rel: "noopener noreferrer" %>
@@ -91,14 +91,14 @@
             <%= link_to "Instagram", "https://www.instagram.com/thatgorfromvan/", class: "career-footer-link", target: "_blank", rel: "noopener noreferrer" %>
             <% vk_url = ENV.fetch("CAREER_VK_URL", "").strip %>
             <% if vk_url.match?(%r{\Ahttps://(?:www\.)?vk\.com/[A-Za-z0-9_.-]+/?\z}) %>
-              <%= link_to "ВКонтакте", vk_url, class: "career-footer-link", target: "_blank", rel: "noopener noreferrer" %>
+              <%= link_to t("site.layout.vk"), vk_url, class: "career-footer-link", target: "_blank", rel: "noopener noreferrer" %>
             <% else %>
-              <span class="career-footer-unconfirmed" title="Ожидается точный подтверждённый URL сообщества">ВКонтакте</span>
+              <span class="career-footer-unconfirmed" title="<%= t('site.layout.vk_pending') %>"><%= t("site.layout.vk") %></span>
             <% end %>
           </nav>
         </div>
         <div class="small text-white-50 pt-2 mt-2 career-footer-meta">
-          © <%= Time.current.year %> · Ruby on Rails development · <span>Учебные проекты обозначены отдельно от коммерческих</span>
+          © <%= Time.current.year %> · <%= t("site.layout.development") %> · <span><%= t("site.layout.disclaimer") %></span>
         </div>
       </div>
     </footer>
