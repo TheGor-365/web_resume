@@ -115,10 +115,12 @@ body.bg-dark.bg-gradient::before {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background: url("/media/gor/brand-mark.webp") no-repeat center 52%;
-  background-size: clamp(380px, 74vw, 980px) auto;
-  filter: grayscale(1) brightness(.85);
-  opacity: .115;
+  background: url("/media/gor/favicon-512.png") no-repeat center 52%;
+  background-size: clamp(480px, 76vw, 900px) auto;
+  filter: grayscale(1) brightness(1.35) contrast(.95);
+  opacity: .34;
+  -webkit-mask-image: radial-gradient(ellipse 69% 69% at center, #000 42%, transparent 100%);
+  mask-image: radial-gradient(ellipse 69% 69% at center, #000 42%, transparent 100%);
   mix-blend-mode: screen;
 }
 
@@ -131,7 +133,7 @@ body.bg-dark.bg-gradient > footer {
 
 /* Just enough translucency to suggest depth, while retaining readable text. */
 body.bg-dark.bg-gradient > main.container .card.lay {
-  background-color: rgba(255, 255, 255, .965) !important;
+  background-color: rgba(255, 255, 255, .93) !important;
 }
 
 @media (max-width: 991.98px) {
@@ -170,8 +172,10 @@ body.bg-dark.bg-gradient > main.container .card.lay {
     width: auto;
   }
   body.bg-dark.bg-gradient > main.container .career-profile-title h1 {
-    font-size: clamp(1.35rem, 5.3vw, 1.85rem);
-    overflow-wrap: anywhere;
+    font-size: clamp(1rem, 4.2vw, 1.15rem);
+    letter-spacing: -.02em;
+    overflow-wrap: normal;
+    word-break: normal;
     line-height: 1.2;
   }
   body.bg-dark.bg-gradient > main.container .career-profile-photo {
@@ -188,8 +192,15 @@ body.bg-dark.bg-gradient > main.container .card.lay {
     max-width: 100%;
   }
   body.bg-dark.bg-gradient::before {
-    background-size: 125vw auto;
-    opacity: .09;
+    background-size: max(420px, 128vw) auto;
+    opacity: .39;
+  }
+  body.bg-dark.bg-gradient > main.container .card.lay {
+    background-color: rgba(255, 255, 255, .91) !important;
+  }
+  /* Armenian names may need natural wraps; no mid-word wrapping for EN/RU. */
+  html[lang="hy"] body.bg-dark.bg-gradient .career-profile-title h1 {
+    overflow-wrap: anywhere;
   }
 }
 
