@@ -20,8 +20,9 @@ class CareerI18nFoundationTest < ActionDispatch::IntegrationTest
   end
 
   test "invalid locale cannot match a localized root path" do
-    get "/xx"
-    assert_response :not_found
+    # In Rails' integration test environment, an unrecognized route raises
+    # instead of rendering the production 404 error page.
+    assert_raises(ActionController::RoutingError) { get "/xx" }
   end
 
   test "required shell translations exist in all supported locales" do
