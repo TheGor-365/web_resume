@@ -20,4 +20,16 @@ class CareerMobileNavigationTest < ActionDispatch::IntegrationTest
       assert_includes response.body, 'target="experience"'
     end
   end
+  test "mobile locale controls are ordinary links and desktop keeps its dropdown" do
+    %w[ru en hy].each do |locale|
+      get "/#{locale}"
+      assert_response :success
+      assert_select "nav #navbarNav .d-lg-none[role='group']", count: 1
+      assert_select "nav #navbarNav .d-lg-none a[href='/ru'][data-turbo='false']", count: 1
+      assert_select "nav #navbarNav .d-lg-none a[href='/en'][data-turbo='false']", count: 1
+      assert_select "nav #navbarNav .d-lg-none a[href='/hy'][data-turbo='false']", count: 1
+      assert_select "nav #navbarNav .d-none.d-lg-block button#language-menu", count: 1
+    end
+  end
+
 end
