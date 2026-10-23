@@ -104,3 +104,144 @@ body.bg-dark.bg-gradient > main.container {
   .career-media-card img { transition: none; }
   .career-media-card img:hover { transform: none; box-shadow: none; }
 }
+ 
+
+/* CAREER_MOBILE_NAV_BRAND_20261023
+   Brand watermark stays behind the content; desktop Bootstrap grid is unchanged.
+   Only small-screen breakpoint rules alter navigation and scroll behavior. */
+/* An explicit fixed layer stays above the body gradient, below site content.
+   The image's dark pixels disappear under screen blending; the G is a quiet
+   imprint, not a rectangular advertisement behind the text. */
+body.bg-dark.bg-gradient > .career-brand-watermark {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: url("/media/gor/favicon-512.png") no-repeat center 52%;
+  background-size: clamp(1050px, 114vw, 2000px) auto;
+  filter: grayscale(1) brightness(1.2) contrast(.95);
+  opacity: .31;
+  mix-blend-mode: screen;
+  -webkit-mask-image: radial-gradient(ellipse 82% 78% at center, #000 52%, transparent 100%);
+  mask-image: radial-gradient(ellipse 82% 78% at center, #000 52%, transparent 100%);
+}
+
+body.bg-dark.bg-gradient > header,
+body.bg-dark.bg-gradient > main,
+body.bg-dark.bg-gradient > footer {
+  position: relative;
+  z-index: 2;
+}
+
+/* Just enough translucency to suggest depth, while retaining readable text. */
+body.bg-dark.bg-gradient > main.container .card.lay {
+  background-color: rgba(255, 255, 255, .88) !important;
+}
+
+/* The mobile locale bar is part of the navbar, not a dropdown or Turbo panel.
+   Desktop keeps the original Bootstrap language selector. */
+.navbar .career-mobile-locale-links {
+  display: none;
+}
+
+@media (max-width: 991.98px) {
+  .navbar .career-mobile-locale-links {
+    display: flex;
+    align-items: center;
+    gap: .2rem;
+    position: relative;
+    z-index: 1;
+  }
+  .navbar .career-mobile-locale-links .btn {
+    font-size: .75rem;
+    line-height: 1.3;
+    padding: .22rem .3rem;
+    white-space: nowrap;
+  }
+  .navbar #navbarNav .career-desktop-locale-dropdown {
+    display: none !important;
+  }
+  /* Keep the mobile language menu above the following main card. */
+  body.bg-dark.bg-gradient > header {
+    z-index: 30;
+  }
+  /* No changes to the navbar above Bootstrap's lg breakpoint. */
+  .navbar #navbarNav.ms-5 {
+    margin-left: 0 !important;
+  }
+  .navbar #navbarNav.show .navbar-nav {
+    max-height: min(62vh, 510px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+@media (max-width: 767.98px) {
+  body.bg-dark.bg-gradient > main.container {
+    padding: 1rem !important;
+  }
+
+  /* Mobile gets one natural page scroll instead of two nested scroll panes. */
+  body.bg-dark.bg-gradient > main.container .card.lay {
+    max-height: none;
+    overflow-y: visible;
+    padding: 1.25rem !important;
+    scroll-margin-top: 1rem;
+  }
+
+  body.bg-dark.bg-gradient > main.container .career-profile-header {
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    --bs-gutter-x: .75rem;
+  }
+  body.bg-dark.bg-gradient > main.container .career-profile-title {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: auto;
+  }
+  body.bg-dark.bg-gradient > main.container .career-profile-title h1 {
+    font-size: clamp(1rem, 4.2vw, 1.15rem);
+    letter-spacing: -.02em;
+    overflow-wrap: normal;
+    word-break: normal;
+    line-height: 1.2;
+  }
+  body.bg-dark.bg-gradient > main.container .career-profile-photo {
+    flex: 0 0 82px;
+    width: 82px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  body.bg-dark.bg-gradient > main.container .career-profile-photo img {
+    display: block;
+    width: 76px;
+    height: 76px;
+    object-fit: cover;
+    max-width: 100%;
+  }
+  body.bg-dark.bg-gradient > .career-brand-watermark {
+    background-size: max(660px, 165vw) auto;
+    background-position: 50% 53%;
+    opacity: .40;
+  }
+  body.bg-dark.bg-gradient > main.container .card.lay {
+    background-color: rgba(255, 255, 255, .85) !important;
+  }
+  /* Armenian names may need natural wraps; no mid-word wrapping for EN/RU. */
+  html[lang="hy"] body.bg-dark.bg-gradient .career-profile-title h1 {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  body.bg-dark.bg-gradient > main.container .card.lay {
+    background-color: #fff !important;
+  }
+}
+
+@media (max-width: 359.98px) {
+  .navbar .career-brand-mark { width: 30px; height: 30px; }
+  .navbar .career-brand-label { font-size: .88rem; }
+  .navbar .career-mobile-locale-links { gap: .1rem; margin-right: .25rem !important; }
+  .navbar .career-mobile-locale-links .btn { padding: .16rem .22rem; font-size: .7rem; }
+}
