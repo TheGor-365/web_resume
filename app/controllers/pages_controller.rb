@@ -51,6 +51,6 @@ class PagesController < ApplicationController
   end
 
   def set_experiences
-    @experiences = Experience.portfolio_milestones.order(:start_at, :id)
+    @experiences = Experience.order(:start_at, :id)
   end
 end

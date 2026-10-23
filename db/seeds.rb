@@ -1,4 +1,4 @@
-Certificate.create([
+certificate_rows = [
   { title: 'Bash',              image: 'bash.jpg',                    school: "codeacademy.com" },
   { title: 'Bootstrap',         image: 'bootstrap.jpg',               school: "codeacademy.com" },
   { title: 'Code Foundation',   image: 'code_foundation.jpg',         school: "codeacademy.com" },
@@ -15,11 +15,15 @@ Certificate.create([
   { title: 'Ruby',              image: 'ruby.jpg',                    school: "codeacademy.com" },
   { title: 'SQL 2',             image: 'SQL_2.jpg',                   school: "codeacademy.com" },
   { title: 'SQL',               image: 'SQL.jpg',                     school: "codeacademy.com" }
-])
+]
 
+certificate_rows.each do |attributes|
+  Certificate.find_or_create_by!(image: attributes.fetch(:image)) do |certificate|
+    certificate.assign_attributes(attributes)
+  end
+end
 
-
-Experience.create([
+experience_rows = [
   {
     title:    "Администратор",
     company:  "ИП Еремин",
@@ -70,4 +74,12 @@ Experience.create([
     end_at:   DateTime.new(2023,4,1,19),
     image:    ""
   }
-])
+]
+
+experience_rows.each do |attributes|
+  Experience.find_or_create_by!(title: attributes.fetch(:title), company: attributes.fetch(:company), start_at: attributes.fetch(:start_at)) do |experience|
+    experience.assign_attributes(attributes)
+  end
+end
+
+puts "Seed results: certificates=#{Certificate.count}, experiences=#{Experience.count}"
