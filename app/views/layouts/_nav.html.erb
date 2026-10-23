@@ -32,7 +32,21 @@
       </ul>
       <%# Only the full HTML home route is used for language switching.
           The other sections return Turbo Streams, so they remain tab links. %>
-      <div class="nav-item dropdown ms-lg-auto mt-2 mt-lg-0">
+      <%# Small screens use normal links instead of a Popper dropdown:
+          no stacking context, overlays, or clipping; full HTML navigation. %>
+      <div class="d-lg-none mt-3 mb-2" role="group" aria-label="<%= t('site.navigation.language_switcher') %>">
+        <div class="d-flex flex-wrap gap-2">
+          <% { ru: 'Русский', en: 'English', hy: 'Հայերեն' }.each do |locale_code, label| %>
+            <%= link_to label, root_path(locale: locale_code),
+                        class: "btn btn-sm #{I18n.locale == locale_code ? 'btn-light' : 'btn-outline-light'}",
+                        lang: locale_code, hreflang: locale_code,
+                        aria: { current: ('page' if I18n.locale == locale_code) },
+                        data: { turbo: false } %>
+          <% end %>
+        </div>
+      </div>
+      <%# Desktop retains the original Bootstrap dropdown unchanged. %>
+      <div class="nav-item dropdown ms-lg-auto mt-2 mt-lg-0 d-none d-lg-block">
         <% language_labels = { ru: 'RU', en: 'EN', hy: 'Հայ' } %>
         <button class="btn btn-outline-light btn-sm dropdown-toggle"
                 type="button"
