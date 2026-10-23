@@ -24,11 +24,12 @@ class CareerMobileNavigationTest < ActionDispatch::IntegrationTest
     %w[ru en hy].each do |locale|
       get "/#{locale}"
       assert_response :success
-      assert_select "nav #navbarNav .d-lg-none[role='group']", count: 1
-      assert_select "nav #navbarNav .d-lg-none a[href='/ru'][data-turbo='false']", count: 1
-      assert_select "nav #navbarNav .d-lg-none a[href='/en'][data-turbo='false']", count: 1
-      assert_select "nav #navbarNav .d-lg-none a[href='/hy'][data-turbo='false']", count: 1
-      assert_select "nav #navbarNav .d-none.d-lg-block button#language-menu", count: 1
+      assert_select "nav .container-fluid > .career-mobile-locale-links[role='group']", count: 1
+      assert_select "nav .career-mobile-locale-links a[href='/ru'][data-turbo='false']", text: "RU", count: 1
+      assert_select "nav .career-mobile-locale-links a[href='/en'][data-turbo='false']", text: "EN", count: 1
+      assert_select "nav .career-mobile-locale-links a[href='/hy'][data-turbo='false']", text: "Հայ", count: 1
+      assert_select "nav #navbarNav .career-mobile-locale-links", count: 0
+      assert_select "nav #navbarNav .career-desktop-locale-dropdown.d-none.d-lg-block button#language-menu", count: 1
     end
   end
 
