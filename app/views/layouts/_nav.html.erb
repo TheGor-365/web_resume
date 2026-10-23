@@ -2,7 +2,19 @@
      data-controller="career-mobile-nav"
      data-action="turbo:before-stream-render@document->career-mobile-nav#beforeStreamRender">
   <div class="container-fluid">
-    <a class="navbar-brand me-5 d-inline-flex align-items-center gap-2" href="<%= root_path %>" aria-label="<%= t('site.navigation.brand_home') %>"><img class="career-brand-mark" src="/media/gor/brand-mark.webp" alt="G" width="34" height="34"><span class="career-brand-label">Gor Dev</span></a>
+    <a class="navbar-brand me-1 me-lg-5 d-inline-flex align-items-center gap-2" href="<%= root_path %>" aria-label="<%= t('site.navigation.brand_home') %>"><img class="career-brand-mark" src="/media/gor/brand-mark.webp" alt="G" width="34" height="34"><span class="career-brand-label">Gor Dev</span></a>
+    <%# Mobile locale links live outside the Bootstrap collapse. There is no
+        dropdown or overlay, and the links work even with JavaScript disabled. %>
+    <div class="career-mobile-locale-links ms-auto me-2"
+         role="group" aria-label="<%= t('site.navigation.language_switcher') %>">
+      <% { ru: ['RU', 'Русский'], en: ['EN', 'English'], hy: ['Հայ', 'Հայերեն'] }.each do |locale_code, (short_label, full_label)| %>
+        <%= link_to short_label, root_path(locale: locale_code),
+                    class: "btn btn-sm #{I18n.locale == locale_code ? 'btn-light' : 'btn-outline-light'}",
+                    lang: locale_code, hreflang: locale_code,
+                    title: full_label, aria: { label: full_label, current: ('page' if I18n.locale == locale_code) },
+                    data: { turbo: false } %>
+      <% end %>
+    </div>
     <button
       class="navbar-toggler"
       type="button"
@@ -32,21 +44,8 @@
       </ul>
       <%# Only the full HTML home route is used for language switching.
           The other sections return Turbo Streams, so they remain tab links. %>
-      <%# Small screens use normal links instead of a Popper dropdown:
-          no stacking context, overlays, or clipping; full HTML navigation. %>
-      <div class="d-lg-none mt-3 mb-2" role="group" aria-label="<%= t('site.navigation.language_switcher') %>">
-        <div class="d-flex flex-wrap gap-2">
-          <% { ru: 'Русский', en: 'English', hy: 'Հայերեն' }.each do |locale_code, label| %>
-            <%= link_to label, root_path(locale: locale_code),
-                        class: "btn btn-sm #{I18n.locale == locale_code ? 'btn-light' : 'btn-outline-light'}",
-                        lang: locale_code, hreflang: locale_code,
-                        aria: { current: ('page' if I18n.locale == locale_code) },
-                        data: { turbo: false } %>
-          <% end %>
-        </div>
-      </div>
       <%# Desktop retains the original Bootstrap dropdown unchanged. %>
-      <div class="nav-item dropdown ms-lg-auto mt-2 mt-lg-0 d-none d-lg-block">
+      <div class="nav-item dropdown ms-lg-auto mt-2 mt-lg-0 d-none d-lg-block career-desktop-locale-dropdown">
         <% language_labels = { ru: 'RU', en: 'EN', hy: 'Հայ' } %>
         <button class="btn btn-outline-light btn-sm dropdown-toggle"
                 type="button"
