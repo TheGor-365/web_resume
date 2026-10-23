@@ -139,6 +139,20 @@ body.bg-dark.bg-gradient > main.container .card.lay {
 }
 
 @media (max-width: 991.98px) {
+  /* Keep the mobile language menu above the following main card. */
+  body.bg-dark.bg-gradient > header {
+    z-index: 30;
+  }
+  /* The locale choices expand within the mobile collapse, not over content. */
+  .navbar #navbarNav .dropdown-menu {
+    position: static !important;
+    transform: none !important;
+    inset: auto !important;
+    float: none;
+    width: max-content;
+    max-width: 100%;
+    margin: .45rem 0 .75rem;
+  }
   /* No changes to the navbar above Bootstrap's lg breakpoint. */
   .navbar #navbarNav.ms-5 {
     margin-left: 0 !important;
